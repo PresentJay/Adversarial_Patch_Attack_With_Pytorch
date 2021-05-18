@@ -1,4 +1,4 @@
-# Adversarial Patch Attack with Python
+# Adversarial Patch Attack with Pytorch
 
 First, Experimenting Effects of Adversarial Patch(arXiv:1712.09665) Attacks to below `targets`.
 
