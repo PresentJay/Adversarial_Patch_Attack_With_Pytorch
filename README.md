@@ -38,9 +38,15 @@ Second, Build `semi-automatic patch generator and evaluator`.
 > DocString Convention: `Google Style`  
 > https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
 
-<br><br>
+<br>
+
+---
+
+<br>
 
 ## Getting Start
+
+<br>
 
 > Environments
 
@@ -67,3 +73,13 @@ Second, Build `semi-automatic patch generator and evaluator`.
 
 4. `pip install -r requirements.txt`
 5. `python main.py`
+
+<br>
+
+---
+
+## Contact
+
+- Present Jay (정현재)
+
+  - **Email**: [presentj94@gmail.com](mailto:presentj94@gmail.com)
