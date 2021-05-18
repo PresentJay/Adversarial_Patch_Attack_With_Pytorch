@@ -1,21 +1,69 @@
-## Directory Structure of This Project
+# Adversarial Patch Attack with Python
 
-```
-project_name/
-├── README.md             # overview of the project
-├── data/                 # data files used in the project
-│   ├── README.md         # describes where data came from
-│   └── sub-folder/       # may contain subdirectories
-├── processed_data/       # intermediate files from the analysis
-├── manuscript/           # manuscript describing the results
-├── results/              # results of the analysis (data, tables, figures)
-├── src/                  # contains all code in the project
-│   ├── LICENSE           # license for your code
-│   ├── requirements.txt  # software requirements and dependencies
-│   └── ...
-└── doc/                  # documentation for your project
-    ├── index.rst
-    └── ...
-```
+First, Experimenting Effects of Adversarial Patch(arXiv:1712.09665) Attacks to below `targets`.
 
-\*Reference : https://coderefinery.github.io/reproducible-research/02-organizing-projects/
+- Target `Networks`
+
+  - `ResNet50`
+  - `ResNet101`
+  - `VGG16`
+  - `VGG19_with_bn`
+  - `GoogLeNet`
+  - `Inception_v3`
+
+- Target `DataSets`
+
+  - `ImageNet1k`
+  - `mpii_human_pose_v1`
+
+- Experiments
+  - [x] `ResNet50` + `ImageNet1k`
+  - [ ] `VGG16` + `mpii_human_pose_v1`
+
+<br>
+
+Second, Build `semi-automatic patch generator and evaluator`.
+
+<br>
+
+---
+
+<br>
+
+## Code Conventions
+
+> Commit Convention: `Udacity Style`  
+> https://udacity.github.io/git-styleguide/
+
+> DocString Convention: `Google Style`  
+> https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
+
+<br><br>
+
+## Getting Start
+
+> Environments
+
+| Env        | compare | Package/Version |
+| ---------- | ------- | --------------- |
+| `Terminal` | `==`    | `Git Bash`      |
+| `Python`   | `>`     | `3.7`           |
+| `Windows`  | `>`     | `10`            |
+
+<br>
+
+> Scripts for Start
+
+1. `git clone https://github.com/PresentJay/Adversarial_Patch_Attack_With_Pytorch.git`
+2. `cd ./Adversarial_Patch_Attack_With_Pytorch`
+
+### [Using Virtualenv]
+
+1. `pip install virtualenv`
+2. `virtualenv venv`
+3. `. venv/scripts/activate`
+
+#### then, {venv} environment is activated.
+
+4. `pip install -r requirements.txt`
+5. `python main.py`
