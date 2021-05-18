@@ -18,4 +18,4 @@ project_name/
     └── ...
 ```
 
-\*Reference : `https://coderefinery.github.io/reproducible-research/02-organizing-projects/`
+\*Reference : https://coderefinery.github.io/reproducible-research/02-organizing-projects/
