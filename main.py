@@ -8,8 +8,7 @@ Reference:
 
 import torch
 
-from src.config.models import *
-from src.config.data import *
+from src.config import models, datasets, DataManager
 
 if __name__ == '__main__':
     
@@ -17,7 +16,10 @@ if __name__ == '__main__':
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     # 2. load model
-    model = load_model(Models().resnet50, device=device)
+    model = models.load_model(models.RESNET50, device=device)
     
     # 3. load datasets
-    dataset = Annotations()
+    dataset = datasets.Datasets(dirName="d:/datasets/imagenet1k", otherDir=True)
+    
+    # 4. configure DataManager
+    train_loader, test_loader = DataManager

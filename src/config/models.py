@@ -2,14 +2,12 @@
 
 from torchvision import models
 
-class Models:
-    def __init__(self):
-      self.custom = 'custom'
-      self.resnet50 = 'resnet50'
+RESNET50 = 'resnet50'
+CUSTOM = 'custom'
       
 
-def load_model(name=Models().custom, device=None):
-    if name == Models().custom:
+def load_model(name=CUSTOM, device=None):
+    if name == CUSTOM:
         # TODO: try to handle the custom models
         pass
     else:
