@@ -4,20 +4,20 @@
 [![Updated Badge](https://badges.pufler.dev/updated/PresentJay/Adversarial_Patch_Attack_With_Pytorch)](https://badges.pufler.dev)
 [![Created Badge](https://badges.pufler.dev/created/PresentJay/Adversarial_Patch_Attack_With_Pytorch)](https://badges.pufler.dev)
 
-First, Implement Adversarial Patch (<a href="https://arxiv.org/pdf/1712.09665.pdf">Adversarial Patch paper</a>) Attacks to below `targets`.
+First, Implement Adversarial Patch (<a href="https://arxiv.org/pdf/1712.09665.pdf">Adversarial Patch paper</a>) Attacks to below `targets`. (It's `Not official` implementation of this paper)
 
 - Target `Networks`
 
-  - `ResNet50`
-  - `ResNet101`
-  - `VGG16`
-  - `VGG19_with_bn`
-  - `GoogLeNet`
-  - `Inception_v3`
+  - [x] `ResNet50`
+  - [ ] `ResNet101`
+  - [ ] `VGG16`
+  - [ ] `VGG19_with_bn`
+  - [ ] `GoogLeNet`
+  - [ ] `Inception_v3`
 
 - Target `DataSets`
 
-  - `ImageNet1k`
+  - [x] `ImageNet1k`
 
 - Experiments
   - [x] `ResNet50` + `ImageNet1k`
@@ -27,6 +27,9 @@ First, Implement Adversarial Patch (<a href="https://arxiv.org/pdf/1712.09665.pd
 Second, Build `semi-automatic patch generator and evaluator`.
 
 <br>
+<br>
+
+## This Repository currently coded from a day ago. (Not much implemented yet)
 
 ---
 
