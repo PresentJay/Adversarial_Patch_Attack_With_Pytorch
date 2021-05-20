@@ -60,6 +60,13 @@ Second, Build `semi-automatic patch generator and evaluator`.
 
 <br>
 
+- `Support`
+  - [x] CUDA(1 GPU)
+  - [ ] CPU
+  - [ ] multi-GPU
+
+<br>
+
 > Scripts for Start
 
 1. `git clone https://github.com/PresentJay/Adversarial_Patch_Attack_With_Pytorch.git`
