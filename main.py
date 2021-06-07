@@ -7,19 +7,34 @@ Reference:
 # TODO: apply Google style Python Docstring
 
 import torch
+from src import configs, datasets, models, patches
 
-from src.config import models, datasets, DataManager
 
 if __name__ == '__main__':
+    # load the Network Settings
+    args = configs.init_args()
+    MODELLIST = ["resnet50"]
+    DATASET = "imagenet"
+        
+    # set device
+    if torch.cuda.is_available():
+        torch.backends.cudnn.benchmark = True
+        args.device = torch.device("cuda")
+    else:
+        args.device = torch.device("cpu")
     
-    # 1. set available process units alternative CPU and GPU
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # load the dataset
+    # TODO: apply statusbar
+    DataSet = datasets.DataSet(source=args.data_dir, name="ImageNet", shape=[3, args.image_size, args.image_size], size=args.datasize,, explain=args.showProgress)
     
-    # 2. load model
-    model = models.load_model(models.RESNET50, device=device)
+    # set the model
+    ModelContainer = models.ModelContainer(device=args.device)
+    for model in MODELLIST:
+        NetClassifier = models.Model(name=model, explain=args.showProgress, isTorchvision=True)
+        ModelContainer.add_model(NetClassifier.to(args.device))
+        
     
-    # 3. load datasets
-    dataset = datasets.Datasets(dirName="d:/datasets/imagenet1k", otherDir=True)
     
-    # 4. configure DataManager
-    train_loader, test_loader = DataManager
+    
+        
+        

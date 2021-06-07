@@ -33,6 +33,17 @@ Second, Build `semi-automatic patch generator and evaluator`.
 
 (Not much implemented yet)
 
+<br>
+
+---
+
+<br>
+
+## History
+
+- [x] ~ 2021-06-07 : constructing project structure.
+- [ ] 2021-06-07 : create patch array . . . (concerning visualization)
+
 ---
 
 <br>
