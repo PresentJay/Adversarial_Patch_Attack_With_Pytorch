@@ -27,20 +27,19 @@ if __name__ == '__main__':
     
     # load the dataset
     # TODO: apply statusbar
-    DataSet = datasets.DataSet(source=args.data_dir, name="ImageNet", shape=args.imageshape, trainsize=args.trainsize, testsize=args.testsize, explain=args.showProgress)
+    DataSet = datasets.DataSet(
+        source=args.data_dir,
+        name="ImageNet",
+        shape=args.imageshape,
+        trainfull=args.trainfull,
+        trainsize=args.trainsize,
+        testfull=args.testfull,
+        testsize=args.testsize,
+        explain=args.showProgress)
     DataSet.SetDataLoader(batch_size=args.batch_size, num_workers=args.num_workers)
-    
-    # test the dataloaders
-    for _, label in DataSet.GetTrainData():
-        print(label)
-    for _, label in DataSet.GetTestData():
-        print(label)
     
     # set the models
     ModelContainer = models.ModelContainer()
     for model in MODELLIST:
         NetClassifier = models.Model(name=model, dataset=DataSet, device=args.device, explain=args.showProgress, isTorchvision=True)
         ModelContainer.add_model(NetClassifier)
-    
-    
-    

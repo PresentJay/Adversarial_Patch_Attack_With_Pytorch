@@ -9,7 +9,7 @@ import numpy as np
 
 
 class DataSet():
-    def __init__(self, source, name, shape, trainsize, testsize, explain):
+    def __init__(self, source, name, shape, trainfull, trainsize, testfull, testsize, explain):
         self.name = name
         self.shape = shape
         self.explain = explain
@@ -26,21 +26,22 @@ class DataSet():
             
         # TODO: figure out the space to EOT variables.
         # self.transformed = kwargs.pop('transformed')
-        self.trainsize = trainsize
-        self.testsize = testsize
         
-        self.train_index = np.arange(self.trainsize)
-        self.test_index = np.arange(self.testsize)
-        np.random.shuffle(self.train_index)
-        np.random.shuffle(self.test_index)
+        self.train_index = self.Shuffle(fullsize=trainfull, size=trainsize)
+        self.test_index = self.Shuffle(fullsize=testfull, size=testsize)
             
         self.LoadByFolder(source)
         # LoadByImageNet(source)
         
         if self.explain:
             print(f'dataset {self.name} is loaded from [{source}].')
-            print(f'train data size is {self.trainsize}, test data size is {self.testsize}.')
-        
+            print(f'train data size is {trainsize}, test data size is {testsize}.')
+            
+    
+    def Shuffle(self, fullsize, size):
+        index = np.arange(fullsize)
+        np.random.shuffle(index)
+        return index[:size]
         
 
     def Prepare(self):

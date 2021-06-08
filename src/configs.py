@@ -15,7 +15,9 @@ def Initialization():
     parser.add_argument('--num_workers', type=int, default=4, help="num_workers (to be half of your CPU cores")
     
     # about Dataset
+    parser.add_argument('--trainfull', type=int, default=1200000, help="number of training data")
     parser.add_argument('--trainsize', type=int, default=2000, help="number of training data")
+    parser.add_argument('--testfull', type=int, default=50000, help="number of training data")
     parser.add_argument('--testsize', type=int, default=400, help="number of testing data")
     
     parser.add_argument('--data_dir', type=str, default='D:\datasets\ImageNet', help="dir of the dataset")
