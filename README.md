@@ -4,34 +4,8 @@
 [![Updated Badge](https://badges.pufler.dev/updated/PresentJay/Adversarial_Patch_Attack_With_Pytorch)](https://badges.pufler.dev)
 [![Created Badge](https://badges.pufler.dev/created/PresentJay/Adversarial_Patch_Attack_With_Pytorch)](https://badges.pufler.dev)
 
-First, Implement Adversarial Patch (<a href="https://arxiv.org/pdf/1712.09665.pdf">Adversarial Patch paper</a>) Attacks to below `targets`. (It's `Not official` implementation of this paper)
-
-- Target `Networks`
-
-  - [x] `ResNet50`
-  - [ ] `ResNet101`
-  - [ ] `VGG16`
-  - [ ] `VGG19_with_bn`
-  - [ ] `GoogLeNet`
-  - [ ] `Inception_v3`
-
-- Target `DataSets`
-
-  - [x] `ImageNet1k`
-
-- Experiments
-  - [x] `ResNet50` + `ImageNet1k`
-
-<br>
-
-Second, Build `semi-automatic patch generator and evaluator`.
-
-<br>
-<br>
-
-## This Repository currently coded from a day ago.
-
-(Not much implemented yet)
+Implement Adversarial Patch (<a href="https://arxiv.org/pdf/1712.09665.pdf">Adversarial Patch paper</a>) Attacks.
+(It's `Not official` implementation of this paper)
 
 <br>
 
@@ -73,13 +47,6 @@ Second, Build `semi-automatic patch generator and evaluator`.
 | `Terminal` | `==`    | `Git Bash`      |
 | `Python`   | `>`     | `3.7`           |
 | `Windows`  | `>`     | `10`            |
-
-<br>
-
-- `Support`
-  - [x] CUDA(1 GPU)
-  - [ ] CPU
-  - [ ] multi-GPU
 
 <br>
 
