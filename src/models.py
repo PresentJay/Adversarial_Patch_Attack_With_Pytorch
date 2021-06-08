@@ -1,5 +1,7 @@
-from torchvision import models as tvmodels
 import torch
+from utils import imgUtil
+
+from torchvision import models as tvmodels
 
 # this class enable you to experiments ensembled models or so.
 class ModelContainer():
@@ -61,12 +63,18 @@ class Model():
                 print(f'\nstart test {self.name} model. . .')
             
             for index, (images, labels) in enumerate(self.dataset.GetTestData()):
+                
+                imgUtil.show(images=images, title='original', text=labels.item())
+                
                 images = images.to(self.device)
                 labels = labels.to(self.device)
                 outputs = self.model(images)
                 
                 # rank 1
                 _, predicted = torch.max(outputs, 1)
+                
+                imgUtil.show(images=images, title='prediction', text=predicted.item(), block=True)
+                
                 total += labels.size(0)  # concern batch_size
                 correct += (predicted == labels).sum().item()
                 

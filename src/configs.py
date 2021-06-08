@@ -22,7 +22,7 @@ def Initialization():
     
     parser.add_argument('--data_dir', type=str, default='D:\datasets\ImageNet', help="dir of the dataset")
     parser.add_argument('--image_size', type=int, default=244, help='the height / width of the input image to network (basically 244, inception_v3 is 299')
-    parser.add_argument('--batch_size', type=int, default=20, help="batch size")
+    parser.add_argument('--batch_size', type=int, default=1, help="batch size")
     
     # about Training Adversarial Patch
     parser.add_argument('--noise_percentage', type=float, default=0.1, help="percentage of the patch size compared with the image size")
@@ -30,7 +30,6 @@ def Initialization():
     parser.add_argument('--patch_size', type=float, default=0.5, help='patch size. E.g. 0.05 ~= 5% of image ')
     parser.add_argument('--lr', type=float, default=1.0, help="learning rate")
     parser.add_argument('--epochs', type=int, default=20, help="total epoch")
-    parser.add_argument('--momentum', type=float, default=0.9, help="set momentum parameter (in SGD optimizer)")
 
     # about Adversarial Patch Condition
     parser.add_argument('--target', type=int, default=859, help="The target class index: 859 == toaster")

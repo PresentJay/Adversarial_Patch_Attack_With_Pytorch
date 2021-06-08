@@ -26,7 +26,6 @@ if __name__ == '__main__':
         torch.manual_seed(args.manualSeed)
     
     # load the dataset
-    # TODO: apply statusbar
     DataSet = datasets.DataSet(
         source=args.data_dir,
         name="ImageNet",
