@@ -63,18 +63,16 @@ class Model():
                 print(f'\nstart test {self.name} model. . .')
             
             for index, (images, labels) in enumerate(self.dataset.GetTestData()):
-                
-                imgUtil.show(images=images, title='original', text=labels.item())
-                
+                # imgUtil.show_tensor(images=images, title='original', text=labels.item())
+                imgUtil.show_batch_data(images=images, labels=labels, block=True)
                 images = images.to(self.device)
                 labels = labels.to(self.device)
                 outputs = self.model(images)
                 
                 # rank 1
                 _, predicted = torch.max(outputs, 1)
-                
-                imgUtil.show(images=images, title='prediction', text=predicted.item(), block=True)
-                
+
+                # imgUtil.show_tensor(images=images, title='prediction', text=predicted.item(), block=True)
                 total += labels.size(0)  # concern batch_size
                 correct += (predicted == labels).sum().item()
                 

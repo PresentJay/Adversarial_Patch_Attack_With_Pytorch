@@ -22,7 +22,7 @@ def Initialization():
     
     parser.add_argument('--data_dir', type=str, default='D:\datasets\ImageNet', help="dir of the dataset")
     parser.add_argument('--image_size', type=int, default=244, help='the height / width of the input image to network (basically 244, inception_v3 is 299')
-    parser.add_argument('--batch_size', type=int, default=1, help="batch size")
+    parser.add_argument('--batch_size', type=int, default=20, help="batch size")
     
     # about Training Adversarial Patch
     parser.add_argument('--noise_percentage', type=float, default=0.1, help="percentage of the patch size compared with the image size")
