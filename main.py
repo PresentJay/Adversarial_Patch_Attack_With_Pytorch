@@ -44,5 +44,6 @@ if __name__ == '__main__':
         NetClassifier = models.Model(name=model, dataset=DataSet, device=args.device, explain=args.showProgress, isTorchvision=True)
         model_list.add_model(NetClassifier)
         
+    # TODO: concerns to logging!!!!!!!!!!
     # test the original models
-    model_list.test_models()
+    model_list.test_models(original=True)

@@ -65,6 +65,7 @@ class DataSet():
                     # ---/>
                     
                     # plain prepare
+                    transforms.Resize((self.shape[1], self.shape[2])),
                     transforms.ToTensor(),
                     transforms.Normalize(self.mean, self.std)
                 ]

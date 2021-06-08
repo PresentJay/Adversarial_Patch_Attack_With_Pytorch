@@ -12,9 +12,12 @@ class ModelContainer():
     def get_model(self, index):
         return self.tvmodels[index]
     
-    def test_models(self):
+    def test_models(self, original=False):
         for model in self.tvmodels:
-            model.test()
+            if original:
+                model.test(original)
+            else:
+                model.test()
     
 
 # this class contains all variables about network models
@@ -24,6 +27,7 @@ class Model():
         self.explain = explain
         self.dataset = dataset
         self.device = device
+        self.scores = []
         if isTorchvision:
             self.model = self.load_model_from_torchvision()
             self.model.to(self.device)
@@ -47,7 +51,7 @@ class Model():
         return model
 
 
-    def test(self):
+    def test(self, original=False):
         correct = 0
         total = 0
         accuracy = 0.0
@@ -73,16 +77,25 @@ class Model():
             accuracy = correct / total * 100
             if self.explain:
                 print(f'{total} of images are tested complete . . . result score = {accuracy}')
-                
-        return accuracy
-
+        
+        if original:
+            self.original_score = accuracy
+        else:
+            self.scores.append(accuracy)
+            
 
     def predict_once(self, image):
-        output = self.NetClassifier.model(image)
-        _, predicted = torch.max(output.data, 1)
-        prediction = predicted[0].data.cpu().numpy()
+        image.to(self.device)
+        output = self.model(image)
+    
+        # rank 1
+        _, predicted = torch.max(output, 1)
+        prediction = predicted.item()
         
         if self.explain:
             print(f'test image - - - {prediction} : {self.target}')
-            print('success\n' if prediction == self.target else 'failed\n')
-            return 1 if prediction == self.target else 0
+            print('success' if prediction == self.target else 'failed', end='\n\n')
+            
+        return 1 if prediction == self.target else 0
+        
+        
