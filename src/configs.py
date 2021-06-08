@@ -10,7 +10,7 @@ def Initialization():
     parser = argparse.ArgumentParser()
     
     # about Environments of this experiment
-    parser.add_argument('--manualSeed', type=int, default=1338, help='manual seed')
+    parser.add_argument('--manualSeed', type=int, default=None, help='manual seed')
     parser.add_argument('--showProgress', action='store_true', default=True, help='show process logs for your understanding')
     parser.add_argument('--num_workers', type=int, default=4, help="num_workers (to be half of your CPU cores")
     
@@ -22,7 +22,7 @@ def Initialization():
     
     parser.add_argument('--data_dir', type=str, default='D:\datasets\ImageNet', help="dir of the dataset")
     parser.add_argument('--image_size', type=int, default=244, help='the height / width of the input image to network (basically 244, inception_v3 is 299')
-    parser.add_argument('--batch_size', type=int, default=10, help="batch size")
+    parser.add_argument('--batch_size', type=int, default=20, help="batch size")
     
     # about Training Adversarial Patch
     parser.add_argument('--noise_percentage', type=float, default=0.1, help="percentage of the patch size compared with the image size")

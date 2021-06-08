@@ -13,7 +13,7 @@ from src import configs, datasets, models, patches
 if __name__ == '__main__':
     # load the Network Settings
     args = configs.Initialization()
-    MODELLIST = ["resnet50"]
+    MODELLIST = ["resnet50", "vgg19"]
     DATASET = "imagenet"
         
     # set device
@@ -39,7 +39,10 @@ if __name__ == '__main__':
     DataSet.SetDataLoader(batch_size=args.batch_size, num_workers=args.num_workers)
     
     # set the models
-    ModelContainer = models.ModelContainer()
+    model_list = models.ModelContainer()
     for model in MODELLIST:
         NetClassifier = models.Model(name=model, dataset=DataSet, device=args.device, explain=args.showProgress, isTorchvision=True)
-        ModelContainer.add_model(NetClassifier)
+        model_list.add_model(NetClassifier)
+        
+    # test the original models
+    model_list.test_models()

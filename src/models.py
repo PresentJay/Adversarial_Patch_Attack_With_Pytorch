@@ -12,6 +12,10 @@ class ModelContainer():
     def get_model(self, index):
         return self.tvmodels[index]
     
+    def test_models(self):
+        for model in self.tvmodels:
+            model.test()
+    
 
 # this class contains all variables about network models
 class Model():
@@ -19,15 +23,16 @@ class Model():
         self.name = name
         self.explain = explain
         self.dataset = dataset
+        self.device = device
         if isTorchvision:
             self.model = self.load_model_from_torchvision()
-            self.model.to(device)
+            self.model.to(self.device)
         else:
             # TODO: setting for another models
             self.model = None
             
         if self.explain:
-            print(f'Model {self.name} is loaded.\n. . . input shape is {self.dataset.shape}.')
+            print(f'\nModel {self.name} is loaded.\n. . . input shape is {self.dataset.shape}.')
         
     
     def load_model_from_torchvision(self):
@@ -42,25 +47,30 @@ class Model():
         return model
 
 
-    def test(self, dataloader, device):
+    def test(self):
         correct = 0
         total = 0
+        accuracy = 0.0
         
         with torch.no_grad():
-            for index, (image, label) in enumerate(dataloader):
-                images = images.to(device)
-                labels = labels.to(device)
-                outputs = self.NetClassifier.model(images)
+            if self.explain:
+                print(f'\nstart test {self.name} model. . .')
+            
+            for index, (images, labels) in enumerate(self.dataset.GetTestData()):
+                images = images.to(self.device)
+                labels = labels.to(self.device)
+                outputs = self.model(images)
                 
                 # rank 1
                 _, predicted = torch.max(outputs, 1)
-                total += labels.size(0)
+                total += labels.size(0)  # concern batch_size
                 correct += (predicted == labels).sum().item()
                 
                 if total % 500 == 0 and self.explain:
                     accuracy = correct / total * 100
                     print(f'{total} of images are tested . . . intermediate score = {accuracy}')
                     
+            accuracy = correct / total * 100
             if self.explain:
                 print(f'{total} of images are tested complete . . . result score = {accuracy}')
                 
