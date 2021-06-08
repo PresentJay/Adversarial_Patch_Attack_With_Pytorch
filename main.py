@@ -12,29 +12,35 @@ from src import configs, datasets, models, patches
 
 if __name__ == '__main__':
     # load the Network Settings
-    args = configs.init_args()
+    args = configs.Initialization()
     MODELLIST = ["resnet50"]
     DATASET = "imagenet"
         
     # set device
     if torch.cuda.is_available():
         torch.backends.cudnn.benchmark = True
+        torch.cuda.manual_seed_all(args.manualSeed)
         args.device = torch.device("cuda")
     else:
         args.device = torch.device("cpu")
+        torch.manual_seed(args.manualSeed)
     
     # load the dataset
     # TODO: apply statusbar
-    DataSet = datasets.DataSet(source=args.data_dir, name="ImageNet", shape=[3, args.image_size, args.image_size], size=args.datasize,, explain=args.showProgress)
+    DataSet = datasets.DataSet(source=args.data_dir, name="ImageNet", shape=args.imageshape, trainsize=args.trainsize, testsize=args.testsize, explain=args.showProgress)
+    DataSet.SetDataLoader(batch_size=args.batch_size, num_workers=args.num_workers)
     
-    # set the model
-    ModelContainer = models.ModelContainer(device=args.device)
+    # test the dataloaders
+    for _, label in DataSet.GetTrainData():
+        print(label)
+    for _, label in DataSet.GetTestData():
+        print(label)
+    
+    # set the models
+    ModelContainer = models.ModelContainer()
     for model in MODELLIST:
-        NetClassifier = models.Model(name=model, explain=args.showProgress, isTorchvision=True)
-        ModelContainer.add_model(NetClassifier.to(args.device))
-        
+        NetClassifier = models.Model(name=model, dataset=DataSet, device=args.device, explain=args.showProgress, isTorchvision=True)
+        ModelContainer.add_model(NetClassifier)
     
     
     
-        
-        

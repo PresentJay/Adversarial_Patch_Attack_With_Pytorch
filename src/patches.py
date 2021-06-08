@@ -1,12 +1,3 @@
-import numpy as np
-import torch
-import torch.cuda
-import torch.nn
-from typing import Optional, Union
-from torch.types import Number
-from utils.images import create_circular_mask, transform
-from torchvision import transforms
-
 
 class AdversarialPatch():
     

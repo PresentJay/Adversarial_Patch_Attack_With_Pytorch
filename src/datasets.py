@@ -12,6 +12,7 @@ class DataSet():
     def __init__(self, source, name, shape, trainsize, testsize, explain):
         self.name = name
         self.shape = shape
+        self.explain = explain
         
         if self.shape[1] == 299:    # when input image shape is 299x299 something
             self.mean = [0.5, 0.5, 0.5]
@@ -28,17 +29,17 @@ class DataSet():
         self.trainsize = trainsize
         self.testsize = testsize
         
-        index = np.arange(self.size)
-        np.random.shuffle(index)
-        train_index = index[  : (self.train) ]
-        test_index = index[ (self.size*self.train_test_ratio) : self.size ]
-                
-        LoadByFolder(source)
+        self.train_index = np.arange(self.trainsize)
+        self.test_index = np.arange(self.testsize)
+        np.random.shuffle(self.train_index)
+        np.random.shuffle(self.test_index)
+            
+        self.LoadByFolder(source)
         # LoadByImageNet(source)
         
         if self.explain:
-            print(f'dataset {self.name} is loaded from {self.source}.')
-            print(f'train data size is {self.size * self.train_test_ratio}, test data size is {self.size * (1-self.train_test_ratio)}.')
+            print(f'dataset {self.name} is loaded from [{source}].')
+            print(f'train data size is {self.trainsize}, test data size is {self.testsize}.')
         
         
 
@@ -48,6 +49,7 @@ class DataSet():
         return transforms.Compose(
             [
                 # plain prepare
+                transforms.Resize((self.shape[1], self.shape[2])),
                 transforms.ToTensor(),
                 transforms.Normalize(self.mean, self.std)
             ]
@@ -69,13 +71,13 @@ class DataSet():
             
         
     def LoadByFolder(self, source):
-        self.trainset = ImageFolder(root=os.path.join(source, 'train'), transform=Prepare)
-        self.testset = ImageFolder(root=os.path.join(source, 'test'), transform=Prepare)
+        self.trainset = ImageFolder(root=os.path.join(source, 'train'), transform=self.Prepare())
+        self.testset = ImageFolder(root=os.path.join(source, 'val'), transform=self.Prepare())
     
         
     def LoadByImageNet(self, source):
-        self.trainset = ImageNet(root=source, split="train", transform=Prepare)
-        self.testset = ImageNet(root=source, split="test", transform=Prepare)
+        self.trainset = ImageNet(root=source, split="train", transform=self.Prepare())
+        self.testset = ImageNet(root=source, split="val", transform=self.Prepare())
         
         
     def SetDataLoader(self, batch_size, num_workers, pin_memory=True, shuffle=False):
@@ -100,7 +102,14 @@ class DataSet():
             shuffle=shuffle
         )
         
+        if self.explain:
+            print('. . . dataloaders are ready.')
+        
     
     
-    def GetDataLoader(self, train):
-        return {'train': self.train_loader, 'test': self.test_loader}
+    def GetTrainData(self):
+        return self.train_loader
+    
+    
+    def GetTestData(self):
+        return self.test_loader

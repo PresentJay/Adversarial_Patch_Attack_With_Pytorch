@@ -45,9 +45,8 @@ def Initialization():
     print("Random Seed: ", args.manualSeed)
     random.seed(args.manualSeed)
     np.random.seed(args.manualSeed)
-    torch.manual_seed(args.manualSeed)
-    if args.cuda:
-        torch.cuda.manual_seed_all(args.manualSeed)
+    
+    args.imageshape = [3, args.image_size, args.image_size]
     
     return args
 
