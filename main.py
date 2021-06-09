@@ -8,6 +8,7 @@ Reference:
 
 import torch
 from src import configs, datasets, models, patches
+from utils import imgUtil
 
 
 if __name__ == '__main__':
@@ -45,4 +46,7 @@ if __name__ == '__main__':
         
     # TODO: concerns to logging!!!!!!!!!!
     # test the original models
-    model_list.test_models(original=True)
+    # model_list.test_models(original=True)
+    
+    for epoch in range(args.epoch):
+        patch = patches.AdversarialPatch(dataset=DataSet, target=args.target, device=args.device)

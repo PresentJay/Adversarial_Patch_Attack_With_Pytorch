@@ -64,7 +64,7 @@ class Model():
             
             for index, (images, labels) in enumerate(self.dataset.GetTestData()):
                 # imgUtil.show_tensor(images=images, title='original', text=labels.item())
-                imgUtil.show_batch_data(images=images, labels=labels, block=True)
+                # imgUtil.show_batch_data(images=images, labels=labels, block=True)
                 images = images.to(self.device)
                 labels = labels.to(self.device)
                 outputs = self.model(images)

@@ -14,15 +14,30 @@ def show_tensor(images, title="", text="", block=False):
              horizontalalignment='center',
              verticalalignment='bottom')
     plt.show(block=block)
+    
+    
+def show_numpy(images, title="", text="", block=False):
+    if len(images) == 1:
+        plt.imshow(images, interpolation="nearest")
+    else:
+        # set batch case
+        pass
+    
+    plt.axis('off')
+    plt.show(block=block)
 
 
 def show_batch_data(images, labels, title="", block=False):
-    batch = utils.make_grid(images, nrows=2, padding=20, normalize=True).permute(1,2,0)
+    batch = utils.make_grid(images, nrow=2, padding=20, normalize=True).permute(1,2,0)
     plt.imshow(batch)
     plt.axis('off')
     plt.show(block=block)
 
+
+def test_random_transform():
+    image_shape = [3, 100, 100]
     
-def prediction_report(images, label, title=""):
-    images = utils.make_grid(images, normalize=True)
-    fig, ax = plt.subplots(1, squeeze=False, frameon=False, dpi=300)
+    image = np.zeros(image_shape)
+    show_numpy(images=image, block=True)
+    
+    
