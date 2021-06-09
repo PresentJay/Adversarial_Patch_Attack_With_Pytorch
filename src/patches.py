@@ -4,19 +4,19 @@ import numpy as np
 from utils import imgUtil
 
 class AdversarialPatch():
-    def __init__(self, dataset, target, device):
+    def __init__(self, dataset, target, device, _type):
         self.dataset = dataset
         self.shape = dataset.shape[-2:]
         self.adversarial_image = None
         self.device = device
+        self._type = _type
         self.mask = self.init_Mask()
         self.target = target
     
-    def SetSquarePatch(self):
-        pass
     
     def SetCirclePatch(self):
         pass
+    
     
     def init_Patch(self):
         mean = torch.tensor(self.dataset.mean, dtype=torch.float)

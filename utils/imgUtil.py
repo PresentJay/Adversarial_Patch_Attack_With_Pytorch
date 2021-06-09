@@ -40,4 +40,8 @@ def test_random_transform():
     image = np.zeros(image_shape)
     show_numpy(images=image, block=True)
     
+
+def get_rectangle_zeros(image_size, decreasing_rate):
+    image_size = (image_size**2) * decreasing_rate
+    width, height = int(image_size ** 0.5)
     
