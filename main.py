@@ -48,5 +48,5 @@ if __name__ == '__main__':
     # test the original models
     # model_list.test_models(original=True)
     
-    for epoch in range(args.epochs):
-        patch = patches.AdversarialPatch(dataset=DataSet, target=args.target, device=args.device, _type=args.patch_type)
+    # for epoch in range(args.epochs):
+    patch = patches.AdversarialPatch(dataset=DataSet, target=args.target, device=args.device, _type=args.patch_type, explain=args.showProgress)

@@ -41,7 +41,8 @@ def test_random_transform():
     show_numpy(images=image, block=True)
     
 
-def get_rectangle_zeros(image_size, decreasing_rate):
-    image_size = (image_size**2) * decreasing_rate
-    width, height = int(image_size ** 0.5)
+# def reducing_rectangle(image_shape, reduce_rate):
+#     image_size = (image_size**2) * reduce_rate
+#     width = height = int(image_size ** 0.5)
+#     return (3, width, height)
     
