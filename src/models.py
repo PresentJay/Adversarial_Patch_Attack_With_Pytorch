@@ -85,8 +85,8 @@ class Model():
                 _, predicted = torch.max(outputs, 1)
                 
                 
-                for idx, (i, l, p) in enumerate(zip(images, labels, predicted)):
-                    print(f'{index} batch / {idx} : label {GetWORDFromLabel_ImageNet(l, imgnet)} : predicted {GetWORDFromLabel_ImageNet(p, imgnet)}  correct? <{l==p}>')
+                # for idx, (i, l, p) in enumerate(zip(images, labels, predicted)):
+                #     print(f'{index} batch / {idx} : label {GetWORDFromLabel_ImageNet(l, imgnet)} : predicted {GetWORDFromLabel_ImageNet(p, imgnet)}  correct? <{l==p}>')
                     # imgUtil.show_tensor(images=i, title=GetWORDFromLabel_ImageNet(l, imgnet), text=GetWORDFromLabel_ImageNet(p, imgnet), block=True)  
                 
             

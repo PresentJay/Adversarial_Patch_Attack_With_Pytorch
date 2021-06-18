@@ -1,6 +1,7 @@
 import torch
 import numpy as np
 
+from torchvision import transforms
 from utils import imgUtil
 
 class AdversarialPatch():
@@ -16,33 +17,21 @@ class AdversarialPatch():
         val = lambda x: ((x - mean) / std).to(self.device).unsqueeze(1).unsqueeze(1)
         self.val = {'min': val(0), 'max': val(1)}
         
-        self.adversarial_example = self.init_Adversarial_Example(random_init)
+        self.patch = self.init_patch(random_init)
 
     
-    def init_Adversarial_Example(self, random_init):
+    def init_patch(self, random_init):
         if random_init:
-            adversarial_example = torch.randn(self.dataset.shape).to(self.device)
-            adversarial_example = adversarial_example * (self.val['max'] - self.val['min']) + self.val['min']
+            patch = torch.randn(self.dataset.shape).to(self.device)
+            patch = patch * (self.val['max'] - self.val['min']) + self.val['min']
         else:
-            adversarial_example = torch.zeros(self.dataset.shape).to(self.device)
-             
-        if not self.hideProgress:
-            imgUtil.show_tensor(adversarial_example, block=True)
-        
-        return adversarial_example
+            patch = torch.zeros(self.dataset.shape).to(self.device)
+        return patch
     
     
-    def clamp_patch_to_valid(self, patch):
-        ch_ranges = [
-            [-self.dataset.mean[0] / self.dataset.std[0], (1 - self.dataset.mean[0]) / self.dataset.std[0]],
-            [-self.dataset.mean[1] / self.dataset.std[1], (1 - self.dataset.mean[1]) / self.dataset.std[1]],
-            [-self.dataset.mean[2] / self.dataset.std[2], (1 - self.dataset.mean[2]) / self.dataset.std[2]]
-        ]
-        with torch.no_grad():
-            self.patch[0] = torch.clamp(self.patch[0], ch_ranges[0][0], ch_ranges[0][1])
-            self.patch[1] = torch.clamp(self.patch[1], ch_ranges[1][0], ch_ranges[1][1])
-            self.patch[2] = torch.clamp(self.patch[2], ch_ranges[2][0], ch_ranges[2][1])
-
+    def show(self):
+        imgUtil.show_tensor(self.patch, block=True)
+    
     
     def init_mask(self):        
         width = self.adversarial_image.shape[1]
@@ -58,15 +47,37 @@ class AdversarialPatch():
         if _type == 'circle':
             pass
         
-        return mask
     
     
     # train patch for a one epoch
-    def train(self, model, dataset):
+    def train(self, model, dataloader, target):
         model.eval()
         
         success = total = 0
         
-        for batch_index, (data, labels) in enumerate(dataset.getTrainData()):
+        for batch_index, (data, labels) in enumerate(dataloader):
             batch_data = data.to(self.device)
             batch_labels = labels.to(self.device)
+            
+            imgUtil.show_tensor(self.Transformation(), block=True)
+            
+            
+    def apply(self, image):
+        pass
+    
+    
+    def Transformation(self):        
+        INTERPOLATION = transforms.InterpolationMode.BILINEAR
+        
+        rotation = transforms.RandomRotation(degrees=45)
+        scale = transforms.RandomAffine(degrees=0, scale=(0.05, 0.3), interpolation=INTERPOLATION)
+        location = transforms.RandomAffine(degrees=0, translate=(0.3, 0.3), interpolation=INTERPOLATION)
+        brightness = transforms.ColorJitter(brightness=(.4, 1.75))
+
+        return transforms.Compose([
+            scale,
+            rotation,
+            brightness,
+            location
+        ])\
+            (self.patch)
