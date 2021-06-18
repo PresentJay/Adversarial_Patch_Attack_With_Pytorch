@@ -9,10 +9,10 @@ import numpy as np
 
 
 class DataSet():
-    def __init__(self, source, name, shape, trainfull, trainsize, testfull, testsize, explain):
+    def __init__(self, source, name, shape, trainfull, trainsize, testfull, testsize, hideProgress):
         self.name = name
         self.shape = shape
-        self.explain = explain
+        self.hideProgress = hideProgress
         
         if self.shape[1] == 299:    # when input image shape is 299x299 something
             self.mean = [0.5, 0.5, 0.5]
@@ -33,7 +33,7 @@ class DataSet():
         self.LoadByFolder(source)
         # LoadByImageNet(source)
         
-        if self.explain:
+        if not self.hideProgress:
             print(f'dataset {self.name} is loaded from [{source}].')
             print(f'train data size is {trainsize}, test data size is {testsize}.')
             
@@ -86,6 +86,9 @@ class DataSet():
         # pin_memory setting is good for GPU environments!
         # https://discuss.pytorch.org/t/when-to-set-pin-memory-to-true/19723
         
+        # Dataloader returns mini-batch data
+        # if shuffle is True, dataloader shuffles all data every epoch. (it's opposite to sampler)
+        
         self.train_loader = DataLoader(
             dataset=self.trainset,
             batch_size=batch_size,
@@ -104,7 +107,7 @@ class DataSet():
             shuffle=shuffle
         )
         
-        if self.explain:
+        if not self.hideProgress:
             print('. . . dataloaders are ready.')
         
     

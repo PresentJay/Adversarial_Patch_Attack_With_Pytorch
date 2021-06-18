@@ -24,20 +24,21 @@ class ModelContainer():
 
 # this class contains all variables about network models
 class Model():
-    def __init__(self, name, dataset, device, isTorchvision=True, explain=True):
+    def __init__(self, name, dataset, device, isTorchvision=True, hideProgress=False):
         self.name = name
-        self.explain = explain
+        self.hideProgress = hideProgress
         self.dataset = dataset
         self.device = device
         self.scores = []
         if isTorchvision:
             self.model = self.load_model_from_torchvision()
-            self.model.to(self.device)
         else:
             # TODO: setting for another models
             self.model = None
             
-        if self.explain:
+        
+            
+        if not self.hideProgress:
             print(f'\nModel {self.name} is loaded.\n. . . input shape is {self.dataset.shape}.')
         
     
@@ -49,6 +50,7 @@ class Model():
         
         for param in model.parameters():
             param.requires_grad = False
+        
             
         return model
 
@@ -59,7 +61,7 @@ class Model():
         accuracy = 0.0
         
         with torch.no_grad():
-            if self.explain:
+            if not self.hideProgress:
                 print(f'\nstart test {self.name} model. . .')
             
             for index, (images, labels) in enumerate(self.dataset.GetTestData()):
@@ -76,12 +78,12 @@ class Model():
                 total += labels.size(0)  # concern batch_size
                 correct += (predicted == labels).sum().item()
                 
-                if total % 500 == 0 and self.explain:
+                if total % 500 == 0 and not self.hideProgress:
                     accuracy = correct / total * 100
                     print(f'{total} of images are tested . . . intermediate score = {accuracy}')
                     
             accuracy = correct / total * 100
-            if self.explain:
+            if not self.hideProgress:
                 print(f'{total} of images are tested complete . . . result score = {accuracy}')
         
         if original:
@@ -98,10 +100,18 @@ class Model():
         _, predicted = torch.max(output, 1)
         prediction = predicted.item()
         
-        if self.explain:
+        if not self.hideProgress:
             print(f'test image - - - {prediction} : {self.target}')
             print('success' if prediction == self.target else 'failed', end='\n\n')
             
         return 1 if prediction == self.target else 0
         
-        
+
+def get_model_names():
+    names = []
+    for name in tvmodels.__dict__:
+        if name.islower() and \
+            not name.startswith('__') and\
+                callable(tvmodels.__dict__[name]):
+            names.append(name)
+    return sorted(names)

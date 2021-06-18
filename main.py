@@ -14,17 +14,17 @@ from utils import imgUtil
 if __name__ == '__main__':
     # load the Network Settings
     args = configs.Initialization()
-    MODELLIST = ["resnet50", "vgg19"]
+    MODELLIST = ["vgg19"]
     DATASET = "imagenet"
         
     # set device
     if torch.cuda.is_available():
         torch.backends.cudnn.benchmark = True
-        torch.cuda.manual_seed_all(args.manualSeed)
+        torch.cuda.manual_seed_all(args.seed)
         args.device = torch.device("cuda")
     else:
         args.device = torch.device("cpu")
-        torch.manual_seed(args.manualSeed)
+        torch.manual_seed(args.seed)
     
     # load the dataset
     DataSet = datasets.DataSet(
@@ -35,13 +35,13 @@ if __name__ == '__main__':
         trainsize=args.trainsize,
         testfull=args.testfull,
         testsize=args.testsize,
-        explain=args.showProgress)
+        hideProgress=args.hideProgress)
     DataSet.SetDataLoader(batch_size=args.batch_size, num_workers=args.num_workers)
     
     # set the models
     model_list = models.ModelContainer()
     for model in MODELLIST:
-        NetClassifier = models.Model(name=model, dataset=DataSet, device=args.device, explain=args.showProgress, isTorchvision=True)
+        NetClassifier = models.Model(name=model, dataset=DataSet, device=args.device, hideProgress=args.hideProgress, isTorchvision=True)
         model_list.add_model(NetClassifier)
         
     # TODO: concerns to logging!!!!!!!!!!
@@ -49,4 +49,4 @@ if __name__ == '__main__':
     # model_list.test_models(original=True)
     
     # for epoch in range(args.epochs):
-    patch = patches.AdversarialPatch(dataset=DataSet, target=args.target, device=args.device, _type=args.patch_type, explain=args.showProgress)
+    patch = patches.AdversarialPatch(dataset=DataSet, target=args.target, device=args.device, _type=args.patch_type, hideProgress=args.hideProgress)
