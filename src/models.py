@@ -51,6 +51,11 @@ class Model():
         for param in model.parameters():
             param.requires_grad = False
         
+        if self.name.startswith('alexnet') or self.name.startswith('vgg'):
+            model.features = torch.nn.DataParallel(model.features)
+            model.to(self.device)
+        else:
+            model = torch.nn.DataParallel(model).to(self.device)
             
         return model
 
