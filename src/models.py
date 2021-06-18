@@ -14,20 +14,23 @@ class ModelContainer():
     def get_model(self, index):
         return self.tvmodels[index]
     
+    # don't use. . .!
     def test_models(self, original=False):
         for model in self.tvmodels:
             if original:
                 model.test(original)
             else:
                 model.test()
+                
+    def get_models(self):
+        return self.tvmodels
     
 
 # this class contains all variables about network models
 class Model():
-    def __init__(self, name, dataset, device, isTorchvision=True, hideProgress=False):
+    def __init__(self, name, device, isTorchvision=True, hideProgress=False):
         self.name = name
         self.hideProgress = hideProgress
-        self.dataset = dataset
         self.device = device
         self.scores = []
         if isTorchvision:
@@ -39,7 +42,7 @@ class Model():
         
             
         if not self.hideProgress:
-            print(f'\nModel {self.name} is loaded.\n. . . input shape is {self.dataset.shape}.')
+            print(f'\nModel {self.name} is loaded.\n. . .')
         
     
     def load_model_from_torchvision(self):
@@ -60,7 +63,7 @@ class Model():
         return model
 
 
-    def test(self, original=False):
+    def test(self, dataloader, original=False):
         correct = 0
         total = 0
         accuracy = 0.0
@@ -71,7 +74,7 @@ class Model():
             
             imgnet = GetInfoFromLabel_ImageNet()
             
-            for index, (images, labels) in enumerate(self.dataset.GetTestData()):
+            for index, (images, labels) in enumerate(dataloader):
                 # imgUtil.show_tensor(images=images, title='original', text=labels.item())
                 # imgUtil.show_batch_data(images=images, labels=labels, block=True)
                 images = images.to(self.device)
@@ -82,9 +85,9 @@ class Model():
                 _, predicted = torch.max(outputs, 1)
                 
                 
-                # for idx, (i, l, p) in enumerate(zip(images, labels, predicted)):
-                #     print(f'{index} batch / {idx} : label {GetWORDFromLabel_ImageNet(l, imgnet)} : predicted {GetWORDFromLabel_ImageNet(p, imgnet)}  correct? <{l==p}>')
-                #     imgUtil.show_tensor(images=i, title=GetWORDFromLabel_ImageNet(l, imgnet), text=GetWORDFromLabel_ImageNet(p, imgnet), block=True)  
+                for idx, (i, l, p) in enumerate(zip(images, labels, predicted)):
+                    print(f'{index} batch / {idx} : label {GetWORDFromLabel_ImageNet(l, imgnet)} : predicted {GetWORDFromLabel_ImageNet(p, imgnet)}  correct? <{l==p}>')
+                    # imgUtil.show_tensor(images=i, title=GetWORDFromLabel_ImageNet(l, imgnet), text=GetWORDFromLabel_ImageNet(p, imgnet), block=True)  
                 
             
                 # imgUtil.show_tensor(images=images, title='prediction', text=predicted.item(), block=True)

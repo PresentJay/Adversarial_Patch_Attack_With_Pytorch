@@ -39,16 +39,17 @@ if __name__ == '__main__':
     DataSet.SetDataLoader(batch_size=args.batch_size, num_workers=args.num_workers)
     
     # set the models
+    # TODO: concerns to logging!!!!!!!!!!
     model_list = models.ModelContainer()
     for model in MODELLIST:
-        NetClassifier = models.Model(name=model, dataset=DataSet, device=args.device, hideProgress=args.hideProgress, isTorchvision=True)
+        NetClassifier = models.Model(name=model, device=args.device, hideProgress=args.hideProgress, isTorchvision=True)
         model_list.add_model(NetClassifier)
         
-    
+        # test the original model_list
+        # if you load Test Data, each trials returns same test data (but order is different)
+        NetClassifier.test(dataloader=DataSet.GetTestData(), original=True)
         
-    # TODO: concerns to logging!!!!!!!!!!
-    # test the original models
-    model_list.test_models(original=True)
+
     
     # for epoch in range(args.epochs):
     # patch = patches.AdversarialPatch(dataset=DataSet, target=args.target, device=args.device, _type=args.patch_type, hideProgress=args.hideProgress, random_init=args.random_init)

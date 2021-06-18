@@ -24,7 +24,7 @@ def Initialization():
     # about Dataset
     parser.add_argument('--data_dir', '--data', metavar='D_DIR', default='D:\datasets\ImageNet', help="dir of the dataset")
     parser.add_argument('--trainsize', type=int, default=2000, help="number of training data")
-    parser.add_argument('--testsize', type=int, default=100, help="number of testing data")
+    parser.add_argument('--testsize', type=int, default=20, help="number of testing data")
     parser.add_argument('--trainfull', type=int, default=1200000, help="number of training data")
     parser.add_argument('--testfull', type=int, default=50000, help="number of testing data")
     parser.add_argument('--image_size', type=int, default=244, help='the height / width of the input image to network (basically 244, inception_v3(299) is not supported)')
