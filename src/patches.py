@@ -61,8 +61,12 @@ class AdversarialPatch():
         return mask
     
     
-    # train patch
-    def train(self, model, ):
+    # train patch for a one epoch
+    def train(self, model, dataset):
         model.eval()
         
         success = total = 0
+        
+        for batch_index, (data, labels) in enumerate(dataset.getTrainData()):
+            batch_data = data.to(self.device)
+            batch_labels = labels.to(self.device)

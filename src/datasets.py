@@ -14,12 +14,12 @@ class DataSet():
         self.shape = shape
         self.hideProgress = hideProgress
         
-        if self.shape[1] == 299:    # when input image shape is 299x299 something
-            self.mean = [0.5, 0.5, 0.5]
-            self.std = [0.5, 0.5, 0.5]
-        elif self.shape[1] == 244:  # when input image shape is 244x244 something
+        if self.shape[1] == 244:  # when input image shape is 244x244 something
             self.mean = [0.485, 0.456, 0.406]
             self.std = [0.229, 0.224, 0.225]
+        else:
+            # TODO: concerns another model that uses not 244 size input
+            pass
             
         # expandable area <---
         
