@@ -4,40 +4,32 @@ import numpy as np
 from utils import imgUtil
 
 class AdversarialPatch():
-    def __init__(self, dataset, target, device, _type, hideProgress):
+    def __init__(self, dataset, target, device, _type, hideProgress, random_init):
         self.dataset = dataset
         self.device = device
         self.hideProgress = hideProgress
         self._type = _type
         self.target = target
-        
-        # self.shape = imgUtil.reducing_rectangle(dataset.shape, reduce_rate=reduce_rate)
-        
+                
         mean = torch.tensor(self.dataset.mean, dtype=torch.float)
         std = torch.tensor(self.dataset.std, dtype=torch.float)
         val = lambda x: ((x - mean) / std).to(self.device).unsqueeze(1).unsqueeze(1)
         self.val = {'min': val(0), 'max': val(1)}
         
-        self.adversarial_image = self.init_Adversarial_Image()
+        self.adversarial_example = self.init_Adversarial_Example(random_init)
 
-        # self.mask = self.init()
     
-    
-    
-    def init_Adversarial_Image(self, random_init=False):
+    def init_Adversarial_Example(self, random_init):
         if random_init:
-            adversarial_image = torch.rand(self.dataset.shape).to(self.device)
+            adversarial_example = torch.randn(self.dataset.shape).to(self.device)
+            adversarial_example = adversarial_example * (self.val['max'] - self.val['min']) + self.val['min']
         else:
-            adversarial_image = torch.zeros(self.dataset.shape).to(self.device)
-        
-        # rand val[min] to val[max]
-        adversarial_image = adversarial_image * (self.val['max'] - self.val['min']) + self.val['min']
-        
+            adversarial_example = torch.zeros(self.dataset.shape).to(self.device)
+             
         if not self.hideProgress:
-            imgUtil.show_tensor(adversarial_image, block=True)
-            print(adversarial_image.is_cuda)
+            imgUtil.show_tensor(adversarial_example, block=True)
         
-        return adversarial_image
+        return adversarial_example
     
     
     def clamp_patch_to_valid(self, patch):

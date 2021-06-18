@@ -14,7 +14,7 @@ from utils import imgUtil
 if __name__ == '__main__':
     # load the Network Settings
     args = configs.Initialization()
-    MODELLIST = ["vgg19"]
+    MODELLIST = ["resnet101"]
     DATASET = "imagenet"
         
     # set device
@@ -44,9 +44,11 @@ if __name__ == '__main__':
         NetClassifier = models.Model(name=model, dataset=DataSet, device=args.device, hideProgress=args.hideProgress, isTorchvision=True)
         model_list.add_model(NetClassifier)
         
+    
+        
     # TODO: concerns to logging!!!!!!!!!!
     # test the original models
-    # model_list.test_models(original=True)
+    model_list.test_models(original=True)
     
     # for epoch in range(args.epochs):
-    patch = patches.AdversarialPatch(dataset=DataSet, target=args.target, device=args.device, _type=args.patch_type, hideProgress=args.hideProgress)
+    # patch = patches.AdversarialPatch(dataset=DataSet, target=args.target, device=args.device, _type=args.patch_type, hideProgress=args.hideProgress, random_init=args.random_init)

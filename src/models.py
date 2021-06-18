@@ -1,6 +1,6 @@
 import torch
 from utils import imgUtil
-
+from src.datasets import GetInfoFromLabel_ImageNet, GetWORDFromLabel_ImageNet
 from torchvision import models as tvmodels
 
 # this class enable you to experiments ensembled models or so.
@@ -30,6 +30,7 @@ class Model():
         self.dataset = dataset
         self.device = device
         self.scores = []
+        self.batched_data = []
         if isTorchvision:
             self.model = self.load_model_from_torchvision()
         else:
@@ -69,6 +70,8 @@ class Model():
             if not self.hideProgress:
                 print(f'\nstart test {self.name} model. . .')
             
+            imgnet = GetInfoFromLabel_ImageNet()
+            
             for index, (images, labels) in enumerate(self.dataset.GetTestData()):
                 # imgUtil.show_tensor(images=images, title='original', text=labels.item())
                 # imgUtil.show_batch_data(images=images, labels=labels, block=True)
@@ -78,14 +81,16 @@ class Model():
                 
                 # rank 1
                 _, predicted = torch.max(outputs, 1)
-
+                
+                
+                for idx, (i, l, p) in enumerate(zip(images, labels, predicted)):
+                    print(f'{index} batch / {idx} : label {GetWORDFromLabel_ImageNet(l, imgnet)} : predicted {GetWORDFromLabel_ImageNet(p, imgnet)}  correct? <{l==p}>')
+                    imgUtil.show_tensor(images=i, title=GetWORDFromLabel_ImageNet(l, imgnet), text=GetWORDFromLabel_ImageNet(p, imgnet), block=True)  
+                
+            
                 # imgUtil.show_tensor(images=images, title='prediction', text=predicted.item(), block=True)
                 total += labels.size(0)  # concern batch_size
                 correct += (predicted == labels).sum().item()
-                
-                if total % 500 == 0 and not self.hideProgress:
-                    accuracy = correct / total * 100
-                    print(f'{total} of images are tested . . . intermediate score = {accuracy}')
                     
             accuracy = correct / total * 100
             if not self.hideProgress:
@@ -120,3 +125,4 @@ def get_model_names():
                 callable(tvmodels.__dict__[name]):
             names.append(name)
     return sorted(names)
+

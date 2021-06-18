@@ -1,0 +1,4002 @@
+[
+    {
+        "WNID": "n01440764",
+        "words": "tench, Tinca tinca"
+    },
+    {
+        "WNID": "n01443537",
+        "words": "goldfish, Carassius auratus"
+    },
+    {
+        "WNID": "n01484850",
+        "words": "great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias"
+    },
+    {
+        "WNID": "n01491361",
+        "words": "tiger shark, Galeocerdo cuvieri"
+    },
+    {
+        "WNID": "n01494475",
+        "words": "hammerhead, hammerhead shark"
+    },
+    {
+        "WNID": "n01496331",
+        "words": "electric ray, crampfish, numbfish, torpedo"
+    },
+    {
+        "WNID": "n01498041",
+        "words": "stingray"
+    },
+    {
+        "WNID": "n01514668",
+        "words": "cock"
+    },
+    {
+        "WNID": "n01514859",
+        "words": "hen"
+    },
+    {
+        "WNID": "n01518878",
+        "words": "ostrich, Struthio camelus"
+    },
+    {
+        "WNID": "n01530575",
+        "words": "brambling, Fringilla montifringilla"
+    },
+    {
+        "WNID": "n01531178",
+        "words": "goldfinch, Carduelis carduelis"
+    },
+    {
+        "WNID": "n01532829",
+        "words": "house finch, linnet, Carpodacus mexicanus"
+    },
+    {
+        "WNID": "n01534433",
+        "words": "junco, snowbird"
+    },
+    {
+        "WNID": "n01537544",
+        "words": "indigo bunting, indigo finch, indigo bird, Passerina cyanea"
+    },
+    {
+        "WNID": "n01558993",
+        "words": "robin, American robin, Turdus migratorius"
+    },
+    {
+        "WNID": "n01560419",
+        "words": "bulbul"
+    },
+    {
+        "WNID": "n01580077",
+        "words": "jay"
+    },
+    {
+        "WNID": "n01582220",
+        "words": "magpie"
+    },
+    {
+        "WNID": "n01592084",
+        "words": "chickadee"
+    },
+    {
+        "WNID": "n01601694",
+        "words": "water ouzel, dipper"
+    },
+    {
+        "WNID": "n01608432",
+        "words": "kite"
+    },
+    {
+        "WNID": "n01614925",
+        "words": "bald eagle, American eagle, Haliaeetus leucocephalus"
+    },
+    {
+        "WNID": "n01616318",
+        "words": "vulture"
+    },
+    {
+        "WNID": "n01622779",
+        "words": "great grey owl, great gray owl, Strix nebulosa"
+    },
+    {
+        "WNID": "n01629819",
+        "words": "European fire salamander, Salamandra salamandra"
+    },
+    {
+        "WNID": "n01630670",
+        "words": "common newt, Triturus vulgaris"
+    },
+    {
+        "WNID": "n01631663",
+        "words": "eft"
+    },
+    {
+        "WNID": "n01632458",
+        "words": "spotted salamander, Ambystoma maculatum"
+    },
+    {
+        "WNID": "n01632777",
+        "words": "axolotl, mud puppy, Ambystoma mexicanum"
+    },
+    {
+        "WNID": "n01641577",
+        "words": "bullfrog, Rana catesbeiana"
+    },
+    {
+        "WNID": "n01644373",
+        "words": "tree frog, tree-frog"
+    },
+    {
+        "WNID": "n01644900",
+        "words": "tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui"
+    },
+    {
+        "WNID": "n01664065",
+        "words": "loggerhead, loggerhead turtle, Caretta caretta"
+    },
+    {
+        "WNID": "n01665541",
+        "words": "leatherback turtle, leatherback, leathery turtle, Dermochelys coriacea"
+    },
+    {
+        "WNID": "n01667114",
+        "words": "mud turtle"
+    },
+    {
+        "WNID": "n01667778",
+        "words": "terrapin"
+    },
+    {
+        "WNID": "n01669191",
+        "words": "box turtle, box tortoise"
+    },
+    {
+        "WNID": "n01675722",
+        "words": "banded gecko"
+    },
+    {
+        "WNID": "n01677366",
+        "words": "common iguana, iguana, Iguana iguana"
+    },
+    {
+        "WNID": "n01682714",
+        "words": "American chameleon, anole, Anolis carolinensis"
+    },
+    {
+        "WNID": "n01685808",
+        "words": "whiptail, whiptail lizard"
+    },
+    {
+        "WNID": "n01687978",
+        "words": "agama"
+    },
+    {
+        "WNID": "n01688243",
+        "words": "frilled lizard, Chlamydosaurus kingi"
+    },
+    {
+        "WNID": "n01689811",
+        "words": "alligator lizard"
+    },
+    {
+        "WNID": "n01692333",
+        "words": "Gila monster, Heloderma suspectum"
+    },
+    {
+        "WNID": "n01693334",
+        "words": "green lizard, Lacerta viridis"
+    },
+    {
+        "WNID": "n01694178",
+        "words": "African chameleon, Chamaeleo chamaeleon"
+    },
+    {
+        "WNID": "n01695060",
+        "words": "Komodo dragon, Komodo lizard, dragon lizard, giant lizard, Varanus komodoensis"
+    },
+    {
+        "WNID": "n01697457",
+        "words": "African crocodile, Nile crocodile, Crocodylus niloticus"
+    },
+    {
+        "WNID": "n01698640",
+        "words": "American alligator, Alligator mississipiensis"
+    },
+    {
+        "WNID": "n01704323",
+        "words": "triceratops"
+    },
+    {
+        "WNID": "n01728572",
+        "words": "thunder snake, worm snake, Carphophis amoenus"
+    },
+    {
+        "WNID": "n01728920",
+        "words": "ringneck snake, ring-necked snake, ring snake"
+    },
+    {
+        "WNID": "n01729322",
+        "words": "hognose snake, puff adder, sand viper"
+    },
+    {
+        "WNID": "n01729977",
+        "words": "green snake, grass snake"
+    },
+    {
+        "WNID": "n01734418",
+        "words": "king snake, kingsnake"
+    },
+    {
+        "WNID": "n01735189",
+        "words": "garter snake, grass snake"
+    },
+    {
+        "WNID": "n01737021",
+        "words": "water snake"
+    },
+    {
+        "WNID": "n01739381",
+        "words": "vine snake"
+    },
+    {
+        "WNID": "n01740131",
+        "words": "night snake, Hypsiglena torquata"
+    },
+    {
+        "WNID": "n01742172",
+        "words": "boa constrictor, Constrictor constrictor"
+    },
+    {
+        "WNID": "n01744401",
+        "words": "rock python, rock snake, Python sebae"
+    },
+    {
+        "WNID": "n01748264",
+        "words": "Indian cobra, Naja naja"
+    },
+    {
+        "WNID": "n01749939",
+        "words": "green mamba"
+    },
+    {
+        "WNID": "n01751748",
+        "words": "sea snake"
+    },
+    {
+        "WNID": "n01753488",
+        "words": "horned viper, cerastes, sand viper, horned asp, Cerastes cornutus"
+    },
+    {
+        "WNID": "n01755581",
+        "words": "diamondback, diamondback rattlesnake, Crotalus adamanteus"
+    },
+    {
+        "WNID": "n01756291",
+        "words": "sidewinder, horned rattlesnake, Crotalus cerastes"
+    },
+    {
+        "WNID": "n01768244",
+        "words": "trilobite"
+    },
+    {
+        "WNID": "n01770081",
+        "words": "harvestman, daddy longlegs, Phalangium opilio"
+    },
+    {
+        "WNID": "n01770393",
+        "words": "scorpion"
+    },
+    {
+        "WNID": "n01773157",
+        "words": "black and gold garden spider, Argiope aurantia"
+    },
+    {
+        "WNID": "n01773549",
+        "words": "barn spider, Araneus cavaticus"
+    },
+    {
+        "WNID": "n01773797",
+        "words": "garden spider, Aranea diademata"
+    },
+    {
+        "WNID": "n01774384",
+        "words": "black widow, Latrodectus mactans"
+    },
+    {
+        "WNID": "n01774750",
+        "words": "tarantula"
+    },
+    {
+        "WNID": "n01775062",
+        "words": "wolf spider, hunting spider"
+    },
+    {
+        "WNID": "n01776313",
+        "words": "tick"
+    },
+    {
+        "WNID": "n01784675",
+        "words": "centipede"
+    },
+    {
+        "WNID": "n01795545",
+        "words": "black grouse"
+    },
+    {
+        "WNID": "n01796340",
+        "words": "ptarmigan"
+    },
+    {
+        "WNID": "n01797886",
+        "words": "ruffed grouse, partridge, Bonasa umbellus"
+    },
+    {
+        "WNID": "n01798484",
+        "words": "prairie chicken, prairie grouse, prairie fowl"
+    },
+    {
+        "WNID": "n01806143",
+        "words": "peacock"
+    },
+    {
+        "WNID": "n01806567",
+        "words": "quail"
+    },
+    {
+        "WNID": "n01807496",
+        "words": "partridge"
+    },
+    {
+        "WNID": "n01817953",
+        "words": "African grey, African gray, Psittacus erithacus"
+    },
+    {
+        "WNID": "n01818515",
+        "words": "macaw"
+    },
+    {
+        "WNID": "n01819313",
+        "words": "sulphur-crested cockatoo, Kakatoe galerita, Cacatua galerita"
+    },
+    {
+        "WNID": "n01820546",
+        "words": "lorikeet"
+    },
+    {
+        "WNID": "n01824575",
+        "words": "coucal"
+    },
+    {
+        "WNID": "n01828970",
+        "words": "bee eater"
+    },
+    {
+        "WNID": "n01829413",
+        "words": "hornbill"
+    },
+    {
+        "WNID": "n01833805",
+        "words": "hummingbird"
+    },
+    {
+        "WNID": "n01843065",
+        "words": "jacamar"
+    },
+    {
+        "WNID": "n01843383",
+        "words": "toucan"
+    },
+    {
+        "WNID": "n01847000",
+        "words": "drake"
+    },
+    {
+        "WNID": "n01855032",
+        "words": "red-breasted merganser, Mergus serrator"
+    },
+    {
+        "WNID": "n01855672",
+        "words": "goose"
+    },
+    {
+        "WNID": "n01860187",
+        "words": "black swan, Cygnus atratus"
+    },
+    {
+        "WNID": "n01871265",
+        "words": "tusker"
+    },
+    {
+        "WNID": "n01872401",
+        "words": "echidna, spiny anteater, anteater"
+    },
+    {
+        "WNID": "n01873310",
+        "words": "platypus, duckbill, duckbilled platypus, duck-billed platypus, Ornithorhynchus anatinus"
+    },
+    {
+        "WNID": "n01877812",
+        "words": "wallaby, brush kangaroo"
+    },
+    {
+        "WNID": "n01882714",
+        "words": "koala, koala bear, kangaroo bear, native bear, Phascolarctos cinereus"
+    },
+    {
+        "WNID": "n01883070",
+        "words": "wombat"
+    },
+    {
+        "WNID": "n01910747",
+        "words": "jellyfish"
+    },
+    {
+        "WNID": "n01914609",
+        "words": "sea anemone, anemone"
+    },
+    {
+        "WNID": "n01917289",
+        "words": "brain coral"
+    },
+    {
+        "WNID": "n01924916",
+        "words": "flatworm, platyhelminth"
+    },
+    {
+        "WNID": "n01930112",
+        "words": "nematode, nematode worm, roundworm"
+    },
+    {
+        "WNID": "n01943899",
+        "words": "conch"
+    },
+    {
+        "WNID": "n01944390",
+        "words": "snail"
+    },
+    {
+        "WNID": "n01945685",
+        "words": "slug"
+    },
+    {
+        "WNID": "n01950731",
+        "words": "sea slug, nudibranch"
+    },
+    {
+        "WNID": "n01955084",
+        "words": "chiton, coat-of-mail shell, sea cradle, polyplacophore"
+    },
+    {
+        "WNID": "n01968897",
+        "words": "chambered nautilus, pearly nautilus, nautilus"
+    },
+    {
+        "WNID": "n01978287",
+        "words": "Dungeness crab, Cancer magister"
+    },
+    {
+        "WNID": "n01978455",
+        "words": "rock crab, Cancer irroratus"
+    },
+    {
+        "WNID": "n01980166",
+        "words": "fiddler crab"
+    },
+    {
+        "WNID": "n01981276",
+        "words": "king crab, Alaska crab, Alaskan king crab, Alaska king crab, Paralithodes camtschatica"
+    },
+    {
+        "WNID": "n01983481",
+        "words": "American lobster, Northern lobster, Maine lobster, Homarus americanus"
+    },
+    {
+        "WNID": "n01984695",
+        "words": "spiny lobster, langouste, rock lobster, crawfish, crayfish, sea crawfish"
+    },
+    {
+        "WNID": "n01985128",
+        "words": "crayfish, crawfish, crawdad, crawdaddy"
+    },
+    {
+        "WNID": "n01986214",
+        "words": "hermit crab"
+    },
+    {
+        "WNID": "n01990800",
+        "words": "isopod"
+    },
+    {
+        "WNID": "n02002556",
+        "words": "white stork, Ciconia ciconia"
+    },
+    {
+        "WNID": "n02002724",
+        "words": "black stork, Ciconia nigra"
+    },
+    {
+        "WNID": "n02006656",
+        "words": "spoonbill"
+    },
+    {
+        "WNID": "n02007558",
+        "words": "flamingo"
+    },
+    {
+        "WNID": "n02009229",
+        "words": "little blue heron, Egretta caerulea"
+    },
+    {
+        "WNID": "n02009912",
+        "words": "American egret, great white heron, Egretta albus"
+    },
+    {
+        "WNID": "n02011460",
+        "words": "bittern"
+    },
+    {
+        "WNID": "n02012849",
+        "words": "crane"
+    },
+    {
+        "WNID": "n02013706",
+        "words": "limpkin, Aramus pictus"
+    },
+    {
+        "WNID": "n02017213",
+        "words": "European gallinule, Porphyrio porphyrio"
+    },
+    {
+        "WNID": "n02018207",
+        "words": "American coot, marsh hen, mud hen, water hen, Fulica americana"
+    },
+    {
+        "WNID": "n02018795",
+        "words": "bustard"
+    },
+    {
+        "WNID": "n02025239",
+        "words": "ruddy turnstone, Arenaria interpres"
+    },
+    {
+        "WNID": "n02027492",
+        "words": "red-backed sandpiper, dunlin, Erolia alpina"
+    },
+    {
+        "WNID": "n02028035",
+        "words": "redshank, Tringa totanus"
+    },
+    {
+        "WNID": "n02033041",
+        "words": "dowitcher"
+    },
+    {
+        "WNID": "n02037110",
+        "words": "oystercatcher, oyster catcher"
+    },
+    {
+        "WNID": "n02051845",
+        "words": "pelican"
+    },
+    {
+        "WNID": "n02056570",
+        "words": "king penguin, Aptenodytes patagonica"
+    },
+    {
+        "WNID": "n02058221",
+        "words": "albatross, mollymawk"
+    },
+    {
+        "WNID": "n02066245",
+        "words": "grey whale, gray whale, devilfish, Eschrichtius gibbosus, Eschrichtius robustus"
+    },
+    {
+        "WNID": "n02071294",
+        "words": "killer whale, killer, orca, grampus, sea wolf, Orcinus orca"
+    },
+    {
+        "WNID": "n02074367",
+        "words": "dugong, Dugong dugon"
+    },
+    {
+        "WNID": "n02077923",
+        "words": "sea lion"
+    },
+    {
+        "WNID": "n02085620",
+        "words": "Chihuahua"
+    },
+    {
+        "WNID": "n02085782",
+        "words": "Japanese spaniel"
+    },
+    {
+        "WNID": "n02085936",
+        "words": "Maltese dog, Maltese terrier, Maltese"
+    },
+    {
+        "WNID": "n02086079",
+        "words": "Pekinese, Pekingese, Peke"
+    },
+    {
+        "WNID": "n02086240",
+        "words": "Shih-Tzu"
+    },
+    {
+        "WNID": "n02086646",
+        "words": "Blenheim spaniel"
+    },
+    {
+        "WNID": "n02086910",
+        "words": "papillon"
+    },
+    {
+        "WNID": "n02087046",
+        "words": "toy terrier"
+    },
+    {
+        "WNID": "n02087394",
+        "words": "Rhodesian ridgeback"
+    },
+    {
+        "WNID": "n02088094",
+        "words": "Afghan hound, Afghan"
+    },
+    {
+        "WNID": "n02088238",
+        "words": "basset, basset hound"
+    },
+    {
+        "WNID": "n02088364",
+        "words": "beagle"
+    },
+    {
+        "WNID": "n02088466",
+        "words": "bloodhound, sleuthhound"
+    },
+    {
+        "WNID": "n02088632",
+        "words": "bluetick"
+    },
+    {
+        "WNID": "n02089078",
+        "words": "black-and-tan coonhound"
+    },
+    {
+        "WNID": "n02089867",
+        "words": "Walker hound, Walker foxhound"
+    },
+    {
+        "WNID": "n02089973",
+        "words": "English foxhound"
+    },
+    {
+        "WNID": "n02090379",
+        "words": "redbone"
+    },
+    {
+        "WNID": "n02090622",
+        "words": "borzoi, Russian wolfhound"
+    },
+    {
+        "WNID": "n02090721",
+        "words": "Irish wolfhound"
+    },
+    {
+        "WNID": "n02091032",
+        "words": "Italian greyhound"
+    },
+    {
+        "WNID": "n02091134",
+        "words": "whippet"
+    },
+    {
+        "WNID": "n02091244",
+        "words": "Ibizan hound, Ibizan Podenco"
+    },
+    {
+        "WNID": "n02091467",
+        "words": "Norwegian elkhound, elkhound"
+    },
+    {
+        "WNID": "n02091635",
+        "words": "otterhound, otter hound"
+    },
+    {
+        "WNID": "n02091831",
+        "words": "Saluki, gazelle hound"
+    },
+    {
+        "WNID": "n02092002",
+        "words": "Scottish deerhound, deerhound"
+    },
+    {
+        "WNID": "n02092339",
+        "words": "Weimaraner"
+    },
+    {
+        "WNID": "n02093256",
+        "words": "Staffordshire bullterrier, Staffordshire bull terrier"
+    },
+    {
+        "WNID": "n02093428",
+        "words": "American Staffordshire terrier, Staffordshire terrier, American pit bull terrier, pit bull terrier"
+    },
+    {
+        "WNID": "n02093647",
+        "words": "Bedlington terrier"
+    },
+    {
+        "WNID": "n02093754",
+        "words": "Border terrier"
+    },
+    {
+        "WNID": "n02093859",
+        "words": "Kerry blue terrier"
+    },
+    {
+        "WNID": "n02093991",
+        "words": "Irish terrier"
+    },
+    {
+        "WNID": "n02094114",
+        "words": "Norfolk terrier"
+    },
+    {
+        "WNID": "n02094258",
+        "words": "Norwich terrier"
+    },
+    {
+        "WNID": "n02094433",
+        "words": "Yorkshire terrier"
+    },
+    {
+        "WNID": "n02095314",
+        "words": "wire-haired fox terrier"
+    },
+    {
+        "WNID": "n02095570",
+        "words": "Lakeland terrier"
+    },
+    {
+        "WNID": "n02095889",
+        "words": "Sealyham terrier, Sealyham"
+    },
+    {
+        "WNID": "n02096051",
+        "words": "Airedale, Airedale terrier"
+    },
+    {
+        "WNID": "n02096177",
+        "words": "cairn, cairn terrier"
+    },
+    {
+        "WNID": "n02096294",
+        "words": "Australian terrier"
+    },
+    {
+        "WNID": "n02096437",
+        "words": "Dandie Dinmont, Dandie Dinmont terrier"
+    },
+    {
+        "WNID": "n02096585",
+        "words": "Boston bull, Boston terrier"
+    },
+    {
+        "WNID": "n02097047",
+        "words": "miniature schnauzer"
+    },
+    {
+        "WNID": "n02097130",
+        "words": "giant schnauzer"
+    },
+    {
+        "WNID": "n02097209",
+        "words": "standard schnauzer"
+    },
+    {
+        "WNID": "n02097298",
+        "words": "Scotch terrier, Scottish terrier, Scottie"
+    },
+    {
+        "WNID": "n02097474",
+        "words": "Tibetan terrier, chrysanthemum dog"
+    },
+    {
+        "WNID": "n02097658",
+        "words": "silky terrier, Sydney silky"
+    },
+    {
+        "WNID": "n02098105",
+        "words": "soft-coated wheaten terrier"
+    },
+    {
+        "WNID": "n02098286",
+        "words": "West Highland white terrier"
+    },
+    {
+        "WNID": "n02098413",
+        "words": "Lhasa, Lhasa apso"
+    },
+    {
+        "WNID": "n02099267",
+        "words": "flat-coated retriever"
+    },
+    {
+        "WNID": "n02099429",
+        "words": "curly-coated retriever"
+    },
+    {
+        "WNID": "n02099601",
+        "words": "golden retriever"
+    },
+    {
+        "WNID": "n02099712",
+        "words": "Labrador retriever"
+    },
+    {
+        "WNID": "n02099849",
+        "words": "Chesapeake Bay retriever"
+    },
+    {
+        "WNID": "n02100236",
+        "words": "German short-haired pointer"
+    },
+    {
+        "WNID": "n02100583",
+        "words": "vizsla, Hungarian pointer"
+    },
+    {
+        "WNID": "n02100735",
+        "words": "English setter"
+    },
+    {
+        "WNID": "n02100877",
+        "words": "Irish setter, red setter"
+    },
+    {
+        "WNID": "n02101006",
+        "words": "Gordon setter"
+    },
+    {
+        "WNID": "n02101388",
+        "words": "Brittany spaniel"
+    },
+    {
+        "WNID": "n02101556",
+        "words": "clumber, clumber spaniel"
+    },
+    {
+        "WNID": "n02102040",
+        "words": "English springer, English springer spaniel"
+    },
+    {
+        "WNID": "n02102177",
+        "words": "Welsh springer spaniel"
+    },
+    {
+        "WNID": "n02102318",
+        "words": "cocker spaniel, English cocker spaniel, cocker"
+    },
+    {
+        "WNID": "n02102480",
+        "words": "Sussex spaniel"
+    },
+    {
+        "WNID": "n02102973",
+        "words": "Irish water spaniel"
+    },
+    {
+        "WNID": "n02104029",
+        "words": "kuvasz"
+    },
+    {
+        "WNID": "n02104365",
+        "words": "schipperke"
+    },
+    {
+        "WNID": "n02105056",
+        "words": "groenendael"
+    },
+    {
+        "WNID": "n02105162",
+        "words": "malinois"
+    },
+    {
+        "WNID": "n02105251",
+        "words": "briard"
+    },
+    {
+        "WNID": "n02105412",
+        "words": "kelpie"
+    },
+    {
+        "WNID": "n02105505",
+        "words": "komondor"
+    },
+    {
+        "WNID": "n02105641",
+        "words": "Old English sheepdog, bobtail"
+    },
+    {
+        "WNID": "n02105855",
+        "words": "Shetland sheepdog, Shetland sheep dog, Shetland"
+    },
+    {
+        "WNID": "n02106030",
+        "words": "collie"
+    },
+    {
+        "WNID": "n02106166",
+        "words": "Border collie"
+    },
+    {
+        "WNID": "n02106382",
+        "words": "Bouvier des Flandres, Bouviers des Flandres"
+    },
+    {
+        "WNID": "n02106550",
+        "words": "Rottweiler"
+    },
+    {
+        "WNID": "n02106662",
+        "words": "German shepherd, German shepherd dog, German police dog, alsatian"
+    },
+    {
+        "WNID": "n02107142",
+        "words": "Doberman, Doberman pinscher"
+    },
+    {
+        "WNID": "n02107312",
+        "words": "miniature pinscher"
+    },
+    {
+        "WNID": "n02107574",
+        "words": "Greater Swiss Mountain dog"
+    },
+    {
+        "WNID": "n02107683",
+        "words": "Bernese mountain dog"
+    },
+    {
+        "WNID": "n02107908",
+        "words": "Appenzeller"
+    },
+    {
+        "WNID": "n02108000",
+        "words": "EntleBucher"
+    },
+    {
+        "WNID": "n02108089",
+        "words": "boxer"
+    },
+    {
+        "WNID": "n02108422",
+        "words": "bull mastiff"
+    },
+    {
+        "WNID": "n02108551",
+        "words": "Tibetan mastiff"
+    },
+    {
+        "WNID": "n02108915",
+        "words": "French bulldog"
+    },
+    {
+        "WNID": "n02109047",
+        "words": "Great Dane"
+    },
+    {
+        "WNID": "n02109525",
+        "words": "Saint Bernard, St Bernard"
+    },
+    {
+        "WNID": "n02109961",
+        "words": "Eskimo dog, husky"
+    },
+    {
+        "WNID": "n02110063",
+        "words": "malamute, malemute, Alaskan malamute"
+    },
+    {
+        "WNID": "n02110185",
+        "words": "Siberian husky"
+    },
+    {
+        "WNID": "n02110341",
+        "words": "dalmatian, coach dog, carriage dog"
+    },
+    {
+        "WNID": "n02110627",
+        "words": "affenpinscher, monkey pinscher, monkey dog"
+    },
+    {
+        "WNID": "n02110806",
+        "words": "basenji"
+    },
+    {
+        "WNID": "n02110958",
+        "words": "pug, pug-dog"
+    },
+    {
+        "WNID": "n02111129",
+        "words": "Leonberg"
+    },
+    {
+        "WNID": "n02111277",
+        "words": "Newfoundland, Newfoundland dog"
+    },
+    {
+        "WNID": "n02111500",
+        "words": "Great Pyrenees"
+    },
+    {
+        "WNID": "n02111889",
+        "words": "Samoyed, Samoyede"
+    },
+    {
+        "WNID": "n02112018",
+        "words": "Pomeranian"
+    },
+    {
+        "WNID": "n02112137",
+        "words": "chow, chow chow"
+    },
+    {
+        "WNID": "n02112350",
+        "words": "keeshond"
+    },
+    {
+        "WNID": "n02112706",
+        "words": "Brabancon griffon"
+    },
+    {
+        "WNID": "n02113023",
+        "words": "Pembroke, Pembroke Welsh corgi"
+    },
+    {
+        "WNID": "n02113186",
+        "words": "Cardigan, Cardigan Welsh corgi"
+    },
+    {
+        "WNID": "n02113624",
+        "words": "toy poodle"
+    },
+    {
+        "WNID": "n02113712",
+        "words": "miniature poodle"
+    },
+    {
+        "WNID": "n02113799",
+        "words": "standard poodle"
+    },
+    {
+        "WNID": "n02113978",
+        "words": "Mexican hairless"
+    },
+    {
+        "WNID": "n02114367",
+        "words": "timber wolf, grey wolf, gray wolf, Canis lupus"
+    },
+    {
+        "WNID": "n02114548",
+        "words": "white wolf, Arctic wolf, Canis lupus tundrarum"
+    },
+    {
+        "WNID": "n02114712",
+        "words": "red wolf, maned wolf, Canis rufus, Canis niger"
+    },
+    {
+        "WNID": "n02114855",
+        "words": "coyote, prairie wolf, brush wolf, Canis latrans"
+    },
+    {
+        "WNID": "n02115641",
+        "words": "dingo, warrigal, warragal, Canis dingo"
+    },
+    {
+        "WNID": "n02115913",
+        "words": "dhole, Cuon alpinus"
+    },
+    {
+        "WNID": "n02116738",
+        "words": "African hunting dog, hyena dog, Cape hunting dog, Lycaon pictus"
+    },
+    {
+        "WNID": "n02117135",
+        "words": "hyena, hyaena"
+    },
+    {
+        "WNID": "n02119022",
+        "words": "red fox, Vulpes vulpes"
+    },
+    {
+        "WNID": "n02119789",
+        "words": "kit fox, Vulpes macrotis"
+    },
+    {
+        "WNID": "n02120079",
+        "words": "Arctic fox, white fox, Alopex lagopus"
+    },
+    {
+        "WNID": "n02120505",
+        "words": "grey fox, gray fox, Urocyon cinereoargenteus"
+    },
+    {
+        "WNID": "n02123045",
+        "words": "tabby, tabby cat"
+    },
+    {
+        "WNID": "n02123159",
+        "words": "tiger cat"
+    },
+    {
+        "WNID": "n02123394",
+        "words": "Persian cat"
+    },
+    {
+        "WNID": "n02123597",
+        "words": "Siamese cat, Siamese"
+    },
+    {
+        "WNID": "n02124075",
+        "words": "Egyptian cat"
+    },
+    {
+        "WNID": "n02125311",
+        "words": "cougar, puma, catamount, mountain lion, painter, panther, Felis concolor"
+    },
+    {
+        "WNID": "n02127052",
+        "words": "lynx, catamount"
+    },
+    {
+        "WNID": "n02128385",
+        "words": "leopard, Panthera pardus"
+    },
+    {
+        "WNID": "n02128757",
+        "words": "snow leopard, ounce, Panthera uncia"
+    },
+    {
+        "WNID": "n02128925",
+        "words": "jaguar, panther, Panthera onca, Felis onca"
+    },
+    {
+        "WNID": "n02129165",
+        "words": "lion, king of beasts, Panthera leo"
+    },
+    {
+        "WNID": "n02129604",
+        "words": "tiger, Panthera tigris"
+    },
+    {
+        "WNID": "n02130308",
+        "words": "cheetah, chetah, Acinonyx jubatus"
+    },
+    {
+        "WNID": "n02132136",
+        "words": "brown bear, bruin, Ursus arctos"
+    },
+    {
+        "WNID": "n02133161",
+        "words": "American black bear, black bear, Ursus americanus, Euarctos americanus"
+    },
+    {
+        "WNID": "n02134084",
+        "words": "ice bear, polar bear, Ursus Maritimus, Thalarctos maritimus"
+    },
+    {
+        "WNID": "n02134418",
+        "words": "sloth bear, Melursus ursinus, Ursus ursinus"
+    },
+    {
+        "WNID": "n02137549",
+        "words": "mongoose"
+    },
+    {
+        "WNID": "n02138441",
+        "words": "meerkat, mierkat"
+    },
+    {
+        "WNID": "n02165105",
+        "words": "tiger beetle"
+    },
+    {
+        "WNID": "n02165456",
+        "words": "ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle"
+    },
+    {
+        "WNID": "n02167151",
+        "words": "ground beetle, carabid beetle"
+    },
+    {
+        "WNID": "n02168699",
+        "words": "long-horned beetle, longicorn, longicorn beetle"
+    },
+    {
+        "WNID": "n02169497",
+        "words": "leaf beetle, chrysomelid"
+    },
+    {
+        "WNID": "n02172182",
+        "words": "dung beetle"
+    },
+    {
+        "WNID": "n02174001",
+        "words": "rhinoceros beetle"
+    },
+    {
+        "WNID": "n02177972",
+        "words": "weevil"
+    },
+    {
+        "WNID": "n02190166",
+        "words": "fly"
+    },
+    {
+        "WNID": "n02206856",
+        "words": "bee"
+    },
+    {
+        "WNID": "n02219486",
+        "words": "ant, emmet, pismire"
+    },
+    {
+        "WNID": "n02226429",
+        "words": "grasshopper, hopper"
+    },
+    {
+        "WNID": "n02229544",
+        "words": "cricket"
+    },
+    {
+        "WNID": "n02231487",
+        "words": "walking stick, walkingstick, stick insect"
+    },
+    {
+        "WNID": "n02233338",
+        "words": "cockroach, roach"
+    },
+    {
+        "WNID": "n02236044",
+        "words": "mantis, mantid"
+    },
+    {
+        "WNID": "n02256656",
+        "words": "cicada, cicala"
+    },
+    {
+        "WNID": "n02259212",
+        "words": "leafhopper"
+    },
+    {
+        "WNID": "n02264363",
+        "words": "lacewing, lacewing fly"
+    },
+    {
+        "WNID": "n02268443",
+        "words": "dragonfly, darning needle, devil's darning needle, sewing needle, snake feeder, snake doctor, mosquito hawk, skeeter hawk"
+    },
+    {
+        "WNID": "n02268853",
+        "words": "damselfly"
+    },
+    {
+        "WNID": "n02276258",
+        "words": "admiral"
+    },
+    {
+        "WNID": "n02277742",
+        "words": "ringlet, ringlet butterfly"
+    },
+    {
+        "WNID": "n02279972",
+        "words": "monarch, monarch butterfly, milkweed butterfly, Danaus plexippus"
+    },
+    {
+        "WNID": "n02280649",
+        "words": "cabbage butterfly"
+    },
+    {
+        "WNID": "n02281406",
+        "words": "sulphur butterfly, sulfur butterfly"
+    },
+    {
+        "WNID": "n02281787",
+        "words": "lycaenid, lycaenid butterfly"
+    },
+    {
+        "WNID": "n02317335",
+        "words": "starfish, sea star"
+    },
+    {
+        "WNID": "n02319095",
+        "words": "sea urchin"
+    },
+    {
+        "WNID": "n02321529",
+        "words": "sea cucumber, holothurian"
+    },
+    {
+        "WNID": "n02325366",
+        "words": "wood rabbit, cottontail, cottontail rabbit"
+    },
+    {
+        "WNID": "n02326432",
+        "words": "hare"
+    },
+    {
+        "WNID": "n02328150",
+        "words": "Angora, Angora rabbit"
+    },
+    {
+        "WNID": "n02342885",
+        "words": "hamster"
+    },
+    {
+        "WNID": "n02346627",
+        "words": "porcupine, hedgehog"
+    },
+    {
+        "WNID": "n02356798",
+        "words": "fox squirrel, eastern fox squirrel, Sciurus niger"
+    },
+    {
+        "WNID": "n02361337",
+        "words": "marmot"
+    },
+    {
+        "WNID": "n02363005",
+        "words": "beaver"
+    },
+    {
+        "WNID": "n02364673",
+        "words": "guinea pig, Cavia cobaya"
+    },
+    {
+        "WNID": "n02389026",
+        "words": "sorrel"
+    },
+    {
+        "WNID": "n02391049",
+        "words": "zebra"
+    },
+    {
+        "WNID": "n02395406",
+        "words": "hog, pig, grunter, squealer, Sus scrofa"
+    },
+    {
+        "WNID": "n02396427",
+        "words": "wild boar, boar, Sus scrofa"
+    },
+    {
+        "WNID": "n02397096",
+        "words": "warthog"
+    },
+    {
+        "WNID": "n02398521",
+        "words": "hippopotamus, hippo, river horse, Hippopotamus amphibius"
+    },
+    {
+        "WNID": "n02403003",
+        "words": "ox"
+    },
+    {
+        "WNID": "n02408429",
+        "words": "water buffalo, water ox, Asiatic buffalo, Bubalus bubalis"
+    },
+    {
+        "WNID": "n02410509",
+        "words": "bison"
+    },
+    {
+        "WNID": "n02412080",
+        "words": "ram, tup"
+    },
+    {
+        "WNID": "n02415577",
+        "words": "bighorn, bighorn sheep, cimarron, Rocky Mountain bighorn, Rocky Mountain sheep, Ovis canadensis"
+    },
+    {
+        "WNID": "n02417914",
+        "words": "ibex, Capra ibex"
+    },
+    {
+        "WNID": "n02422106",
+        "words": "hartebeest"
+    },
+    {
+        "WNID": "n02422699",
+        "words": "impala, Aepyceros melampus"
+    },
+    {
+        "WNID": "n02423022",
+        "words": "gazelle"
+    },
+    {
+        "WNID": "n02437312",
+        "words": "Arabian camel, dromedary, Camelus dromedarius"
+    },
+    {
+        "WNID": "n02437616",
+        "words": "llama"
+    },
+    {
+        "WNID": "n02441942",
+        "words": "weasel"
+    },
+    {
+        "WNID": "n02442845",
+        "words": "mink"
+    },
+    {
+        "WNID": "n02443114",
+        "words": "polecat, fitch, foulmart, foumart, Mustela putorius"
+    },
+    {
+        "WNID": "n02443484",
+        "words": "black-footed ferret, ferret, Mustela nigripes"
+    },
+    {
+        "WNID": "n02444819",
+        "words": "otter"
+    },
+    {
+        "WNID": "n02445715",
+        "words": "skunk, polecat, wood pussy"
+    },
+    {
+        "WNID": "n02447366",
+        "words": "badger"
+    },
+    {
+        "WNID": "n02454379",
+        "words": "armadillo"
+    },
+    {
+        "WNID": "n02457408",
+        "words": "three-toed sloth, ai, Bradypus tridactylus"
+    },
+    {
+        "WNID": "n02480495",
+        "words": "orangutan, orang, orangutang, Pongo pygmaeus"
+    },
+    {
+        "WNID": "n02480855",
+        "words": "gorilla, Gorilla gorilla"
+    },
+    {
+        "WNID": "n02481823",
+        "words": "chimpanzee, chimp, Pan troglodytes"
+    },
+    {
+        "WNID": "n02483362",
+        "words": "gibbon, Hylobates lar"
+    },
+    {
+        "WNID": "n02483708",
+        "words": "siamang, Hylobates syndactylus, Symphalangus syndactylus"
+    },
+    {
+        "WNID": "n02484975",
+        "words": "guenon, guenon monkey"
+    },
+    {
+        "WNID": "n02486261",
+        "words": "patas, hussar monkey, Erythrocebus patas"
+    },
+    {
+        "WNID": "n02486410",
+        "words": "baboon"
+    },
+    {
+        "WNID": "n02487347",
+        "words": "macaque"
+    },
+    {
+        "WNID": "n02488291",
+        "words": "langur"
+    },
+    {
+        "WNID": "n02488702",
+        "words": "colobus, colobus monkey"
+    },
+    {
+        "WNID": "n02489166",
+        "words": "proboscis monkey, Nasalis larvatus"
+    },
+    {
+        "WNID": "n02490219",
+        "words": "marmoset"
+    },
+    {
+        "WNID": "n02492035",
+        "words": "capuchin, ringtail, Cebus capucinus"
+    },
+    {
+        "WNID": "n02492660",
+        "words": "howler monkey, howler"
+    },
+    {
+        "WNID": "n02493509",
+        "words": "titi, titi monkey"
+    },
+    {
+        "WNID": "n02493793",
+        "words": "spider monkey, Ateles geoffroyi"
+    },
+    {
+        "WNID": "n02494079",
+        "words": "squirrel monkey, Saimiri sciureus"
+    },
+    {
+        "WNID": "n02497673",
+        "words": "Madagascar cat, ring-tailed lemur, Lemur catta"
+    },
+    {
+        "WNID": "n02500267",
+        "words": "indri, indris, Indri indri, Indri brevicaudatus"
+    },
+    {
+        "WNID": "n02504013",
+        "words": "Indian elephant, Elephas maximus"
+    },
+    {
+        "WNID": "n02504458",
+        "words": "African elephant, Loxodonta africana"
+    },
+    {
+        "WNID": "n02509815",
+        "words": "lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens"
+    },
+    {
+        "WNID": "n02510455",
+        "words": "giant panda, panda, panda bear, coon bear, Ailuropoda melanoleuca"
+    },
+    {
+        "WNID": "n02514041",
+        "words": "barracouta, snoek"
+    },
+    {
+        "WNID": "n02526121",
+        "words": "eel"
+    },
+    {
+        "WNID": "n02536864",
+        "words": "coho, cohoe, coho salmon, blue jack, silver salmon, Oncorhynchus kisutch"
+    },
+    {
+        "WNID": "n02606052",
+        "words": "rock beauty, Holocanthus tricolor"
+    },
+    {
+        "WNID": "n02607072",
+        "words": "anemone fish"
+    },
+    {
+        "WNID": "n02640242",
+        "words": "sturgeon"
+    },
+    {
+        "WNID": "n02641379",
+        "words": "gar, garfish, garpike, billfish, Lepisosteus osseus"
+    },
+    {
+        "WNID": "n02643566",
+        "words": "lionfish"
+    },
+    {
+        "WNID": "n02655020",
+        "words": "puffer, pufferfish, blowfish, globefish"
+    },
+    {
+        "WNID": "n02666196",
+        "words": "abacus"
+    },
+    {
+        "WNID": "n02667093",
+        "words": "abaya"
+    },
+    {
+        "WNID": "n02669723",
+        "words": "academic gown, academic robe, judge's robe"
+    },
+    {
+        "WNID": "n02672831",
+        "words": "accordion, piano accordion, squeeze box"
+    },
+    {
+        "WNID": "n02676566",
+        "words": "acoustic guitar"
+    },
+    {
+        "WNID": "n02687172",
+        "words": "aircraft carrier, carrier, flattop, attack aircraft carrier"
+    },
+    {
+        "WNID": "n02690373",
+        "words": "airliner"
+    },
+    {
+        "WNID": "n02692877",
+        "words": "airship, dirigible"
+    },
+    {
+        "WNID": "n02699494",
+        "words": "altar"
+    },
+    {
+        "WNID": "n02701002",
+        "words": "ambulance"
+    },
+    {
+        "WNID": "n02704792",
+        "words": "amphibian, amphibious vehicle"
+    },
+    {
+        "WNID": "n02708093",
+        "words": "analog clock"
+    },
+    {
+        "WNID": "n02727426",
+        "words": "apiary, bee house"
+    },
+    {
+        "WNID": "n02730930",
+        "words": "apron"
+    },
+    {
+        "WNID": "n02747177",
+        "words": "ashcan, trash can, garbage can, wastebin, ash bin, ash-bin, ashbin, dustbin, trash barrel, trash bin"
+    },
+    {
+        "WNID": "n02749479",
+        "words": "assault rifle, assault gun"
+    },
+    {
+        "WNID": "n02769748",
+        "words": "backpack, back pack, knapsack, packsack, rucksack, haversack"
+    },
+    {
+        "WNID": "n02776631",
+        "words": "bakery, bakeshop, bakehouse"
+    },
+    {
+        "WNID": "n02777292",
+        "words": "balance beam, beam"
+    },
+    {
+        "WNID": "n02782093",
+        "words": "balloon"
+    },
+    {
+        "WNID": "n02783161",
+        "words": "ballpoint, ballpoint pen, ballpen, Biro"
+    },
+    {
+        "WNID": "n02786058",
+        "words": "Band Aid"
+    },
+    {
+        "WNID": "n02787622",
+        "words": "banjo"
+    },
+    {
+        "WNID": "n02788148",
+        "words": "bannister, banister, balustrade, balusters, handrail"
+    },
+    {
+        "WNID": "n02790996",
+        "words": "barbell"
+    },
+    {
+        "WNID": "n02791124",
+        "words": "barber chair"
+    },
+    {
+        "WNID": "n02791270",
+        "words": "barbershop"
+    },
+    {
+        "WNID": "n02793495",
+        "words": "barn"
+    },
+    {
+        "WNID": "n02794156",
+        "words": "barometer"
+    },
+    {
+        "WNID": "n02795169",
+        "words": "barrel, cask"
+    },
+    {
+        "WNID": "n02797295",
+        "words": "barrow, garden cart, lawn cart, wheelbarrow"
+    },
+    {
+        "WNID": "n02799071",
+        "words": "baseball"
+    },
+    {
+        "WNID": "n02802426",
+        "words": "basketball"
+    },
+    {
+        "WNID": "n02804414",
+        "words": "bassinet"
+    },
+    {
+        "WNID": "n02804610",
+        "words": "bassoon"
+    },
+    {
+        "WNID": "n02807133",
+        "words": "bathing cap, swimming cap"
+    },
+    {
+        "WNID": "n02808304",
+        "words": "bath towel"
+    },
+    {
+        "WNID": "n02808440",
+        "words": "bathtub, bathing tub, bath, tub"
+    },
+    {
+        "WNID": "n02814533",
+        "words": "beach wagon, station wagon, wagon, estate car, beach waggon, station waggon, waggon"
+    },
+    {
+        "WNID": "n02814860",
+        "words": "beacon, lighthouse, beacon light, pharos"
+    },
+    {
+        "WNID": "n02815834",
+        "words": "beaker"
+    },
+    {
+        "WNID": "n02817516",
+        "words": "bearskin, busby, shako"
+    },
+    {
+        "WNID": "n02823428",
+        "words": "beer bottle"
+    },
+    {
+        "WNID": "n02823750",
+        "words": "beer glass"
+    },
+    {
+        "WNID": "n02825657",
+        "words": "bell cote, bell cot"
+    },
+    {
+        "WNID": "n02834397",
+        "words": "bib"
+    },
+    {
+        "WNID": "n02835271",
+        "words": "bicycle-built-for-two, tandem bicycle, tandem"
+    },
+    {
+        "WNID": "n02837789",
+        "words": "bikini, two-piece"
+    },
+    {
+        "WNID": "n02840245",
+        "words": "binder, ring-binder"
+    },
+    {
+        "WNID": "n02841315",
+        "words": "binoculars, field glasses, opera glasses"
+    },
+    {
+        "WNID": "n02843684",
+        "words": "birdhouse"
+    },
+    {
+        "WNID": "n02859443",
+        "words": "boathouse"
+    },
+    {
+        "WNID": "n02860847",
+        "words": "bobsled, bobsleigh, bob"
+    },
+    {
+        "WNID": "n02865351",
+        "words": "bolo tie, bolo, bola tie, bola"
+    },
+    {
+        "WNID": "n02869837",
+        "words": "bonnet, poke bonnet"
+    },
+    {
+        "WNID": "n02870880",
+        "words": "bookcase"
+    },
+    {
+        "WNID": "n02871525",
+        "words": "bookshop, bookstore, bookstall"
+    },
+    {
+        "WNID": "n02877765",
+        "words": "bottlecap"
+    },
+    {
+        "WNID": "n02879718",
+        "words": "bow"
+    },
+    {
+        "WNID": "n02883205",
+        "words": "bow tie, bow-tie, bowtie"
+    },
+    {
+        "WNID": "n02892201",
+        "words": "brass, memorial tablet, plaque"
+    },
+    {
+        "WNID": "n02892767",
+        "words": "brassiere, bra, bandeau"
+    },
+    {
+        "WNID": "n02894605",
+        "words": "breakwater, groin, groyne, mole, bulwark, seawall, jetty"
+    },
+    {
+        "WNID": "n02895154",
+        "words": "breastplate, aegis, egis"
+    },
+    {
+        "WNID": "n02906734",
+        "words": "broom"
+    },
+    {
+        "WNID": "n02909870",
+        "words": "bucket, pail"
+    },
+    {
+        "WNID": "n02910353",
+        "words": "buckle"
+    },
+    {
+        "WNID": "n02916936",
+        "words": "bulletproof vest"
+    },
+    {
+        "WNID": "n02917067",
+        "words": "bullet train, bullet"
+    },
+    {
+        "WNID": "n02927161",
+        "words": "butcher shop, meat market"
+    },
+    {
+        "WNID": "n02930766",
+        "words": "cab, hack, taxi, taxicab"
+    },
+    {
+        "WNID": "n02939185",
+        "words": "caldron, cauldron"
+    },
+    {
+        "WNID": "n02948072",
+        "words": "candle, taper, wax light"
+    },
+    {
+        "WNID": "n02950826",
+        "words": "cannon"
+    },
+    {
+        "WNID": "n02951358",
+        "words": "canoe"
+    },
+    {
+        "WNID": "n02951585",
+        "words": "can opener, tin opener"
+    },
+    {
+        "WNID": "n02963159",
+        "words": "cardigan"
+    },
+    {
+        "WNID": "n02965783",
+        "words": "car mirror"
+    },
+    {
+        "WNID": "n02966193",
+        "words": "carousel, carrousel, merry-go-round, roundabout, whirligig"
+    },
+    {
+        "WNID": "n02966687",
+        "words": "carpenter's kit, tool kit"
+    },
+    {
+        "WNID": "n02971356",
+        "words": "carton"
+    },
+    {
+        "WNID": "n02974003",
+        "words": "car wheel"
+    },
+    {
+        "WNID": "n02977058",
+        "words": "cash machine, cash dispenser, automated teller machine, automatic teller machine, automated teller, automatic teller, ATM"
+    },
+    {
+        "WNID": "n02978881",
+        "words": "cassette"
+    },
+    {
+        "WNID": "n02979186",
+        "words": "cassette player"
+    },
+    {
+        "WNID": "n02980441",
+        "words": "castle"
+    },
+    {
+        "WNID": "n02981792",
+        "words": "catamaran"
+    },
+    {
+        "WNID": "n02988304",
+        "words": "CD player"
+    },
+    {
+        "WNID": "n02992211",
+        "words": "cello, violoncello"
+    },
+    {
+        "WNID": "n02992529",
+        "words": "cellular telephone, cellular phone, cellphone, cell, mobile phone"
+    },
+    {
+        "WNID": "n02999410",
+        "words": "chain"
+    },
+    {
+        "WNID": "n03000134",
+        "words": "chainlink fence"
+    },
+    {
+        "WNID": "n03000247",
+        "words": "chain mail, ring mail, mail, chain armor, chain armour, ring armor, ring armour"
+    },
+    {
+        "WNID": "n03000684",
+        "words": "chain saw, chainsaw"
+    },
+    {
+        "WNID": "n03014705",
+        "words": "chest"
+    },
+    {
+        "WNID": "n03016953",
+        "words": "chiffonier, commode"
+    },
+    {
+        "WNID": "n03017168",
+        "words": "chime, bell, gong"
+    },
+    {
+        "WNID": "n03018349",
+        "words": "china cabinet, china closet"
+    },
+    {
+        "WNID": "n03026506",
+        "words": "Christmas stocking"
+    },
+    {
+        "WNID": "n03028079",
+        "words": "church, church building"
+    },
+    {
+        "WNID": "n03032252",
+        "words": "cinema, movie theater, movie theatre, movie house, picture palace"
+    },
+    {
+        "WNID": "n03041632",
+        "words": "cleaver, meat cleaver, chopper"
+    },
+    {
+        "WNID": "n03042490",
+        "words": "cliff dwelling"
+    },
+    {
+        "WNID": "n03045698",
+        "words": "cloak"
+    },
+    {
+        "WNID": "n03047690",
+        "words": "clog, geta, patten, sabot"
+    },
+    {
+        "WNID": "n03062245",
+        "words": "cocktail shaker"
+    },
+    {
+        "WNID": "n03063599",
+        "words": "coffee mug"
+    },
+    {
+        "WNID": "n03063689",
+        "words": "coffeepot"
+    },
+    {
+        "WNID": "n03065424",
+        "words": "coil, spiral, volute, whorl, helix"
+    },
+    {
+        "WNID": "n03075370",
+        "words": "combination lock"
+    },
+    {
+        "WNID": "n03085013",
+        "words": "computer keyboard, keypad"
+    },
+    {
+        "WNID": "n03089624",
+        "words": "confectionery, confectionary, candy store"
+    },
+    {
+        "WNID": "n03095699",
+        "words": "container ship, containership, container vessel"
+    },
+    {
+        "WNID": "n03100240",
+        "words": "convertible"
+    },
+    {
+        "WNID": "n03109150",
+        "words": "corkscrew, bottle screw"
+    },
+    {
+        "WNID": "n03110669",
+        "words": "cornet, horn, trumpet, trump"
+    },
+    {
+        "WNID": "n03124043",
+        "words": "cowboy boot"
+    },
+    {
+        "WNID": "n03124170",
+        "words": "cowboy hat, ten-gallon hat"
+    },
+    {
+        "WNID": "n03125729",
+        "words": "cradle"
+    },
+    {
+        "WNID": "n03126707",
+        "words": "crane"
+    },
+    {
+        "WNID": "n03127747",
+        "words": "crash helmet"
+    },
+    {
+        "WNID": "n03127925",
+        "words": "crate"
+    },
+    {
+        "WNID": "n03131574",
+        "words": "crib, cot"
+    },
+    {
+        "WNID": "n03133878",
+        "words": "Crock Pot"
+    },
+    {
+        "WNID": "n03134739",
+        "words": "croquet ball"
+    },
+    {
+        "WNID": "n03141823",
+        "words": "crutch"
+    },
+    {
+        "WNID": "n03146219",
+        "words": "cuirass"
+    },
+    {
+        "WNID": "n03160309",
+        "words": "dam, dike, dyke"
+    },
+    {
+        "WNID": "n03179701",
+        "words": "desk"
+    },
+    {
+        "WNID": "n03180011",
+        "words": "desktop computer"
+    },
+    {
+        "WNID": "n03187595",
+        "words": "dial telephone, dial phone"
+    },
+    {
+        "WNID": "n03188531",
+        "words": "diaper, nappy, napkin"
+    },
+    {
+        "WNID": "n03196217",
+        "words": "digital clock"
+    },
+    {
+        "WNID": "n03197337",
+        "words": "digital watch"
+    },
+    {
+        "WNID": "n03201208",
+        "words": "dining table, board"
+    },
+    {
+        "WNID": "n03207743",
+        "words": "dishrag, dishcloth"
+    },
+    {
+        "WNID": "n03207941",
+        "words": "dishwasher, dish washer, dishwashing machine"
+    },
+    {
+        "WNID": "n03208938",
+        "words": "disk brake, disc brake"
+    },
+    {
+        "WNID": "n03216828",
+        "words": "dock, dockage, docking facility"
+    },
+    {
+        "WNID": "n03218198",
+        "words": "dogsled, dog sled, dog sleigh"
+    },
+    {
+        "WNID": "n03220513",
+        "words": "dome"
+    },
+    {
+        "WNID": "n03223299",
+        "words": "doormat, welcome mat"
+    },
+    {
+        "WNID": "n03240683",
+        "words": "drilling platform, offshore rig"
+    },
+    {
+        "WNID": "n03249569",
+        "words": "drum, membranophone, tympan"
+    },
+    {
+        "WNID": "n03250847",
+        "words": "drumstick"
+    },
+    {
+        "WNID": "n03255030",
+        "words": "dumbbell"
+    },
+    {
+        "WNID": "n03259280",
+        "words": "Dutch oven"
+    },
+    {
+        "WNID": "n03271574",
+        "words": "electric fan, blower"
+    },
+    {
+        "WNID": "n03272010",
+        "words": "electric guitar"
+    },
+    {
+        "WNID": "n03272562",
+        "words": "electric locomotive"
+    },
+    {
+        "WNID": "n03290653",
+        "words": "entertainment center"
+    },
+    {
+        "WNID": "n03291819",
+        "words": "envelope"
+    },
+    {
+        "WNID": "n03297495",
+        "words": "espresso maker"
+    },
+    {
+        "WNID": "n03314780",
+        "words": "face powder"
+    },
+    {
+        "WNID": "n03325584",
+        "words": "feather boa, boa"
+    },
+    {
+        "WNID": "n03337140",
+        "words": "file, file cabinet, filing cabinet"
+    },
+    {
+        "WNID": "n03344393",
+        "words": "fireboat"
+    },
+    {
+        "WNID": "n03345487",
+        "words": "fire engine, fire truck"
+    },
+    {
+        "WNID": "n03347037",
+        "words": "fire screen, fireguard"
+    },
+    {
+        "WNID": "n03355925",
+        "words": "flagpole, flagstaff"
+    },
+    {
+        "WNID": "n03372029",
+        "words": "flute, transverse flute"
+    },
+    {
+        "WNID": "n03376595",
+        "words": "folding chair"
+    },
+    {
+        "WNID": "n03379051",
+        "words": "football helmet"
+    },
+    {
+        "WNID": "n03384352",
+        "words": "forklift"
+    },
+    {
+        "WNID": "n03388043",
+        "words": "fountain"
+    },
+    {
+        "WNID": "n03388183",
+        "words": "fountain pen"
+    },
+    {
+        "WNID": "n03388549",
+        "words": "four-poster"
+    },
+    {
+        "WNID": "n03393912",
+        "words": "freight car"
+    },
+    {
+        "WNID": "n03394916",
+        "words": "French horn, horn"
+    },
+    {
+        "WNID": "n03400231",
+        "words": "frying pan, frypan, skillet"
+    },
+    {
+        "WNID": "n03404251",
+        "words": "fur coat"
+    },
+    {
+        "WNID": "n03417042",
+        "words": "garbage truck, dustcart"
+    },
+    {
+        "WNID": "n03424325",
+        "words": "gasmask, respirator, gas helmet"
+    },
+    {
+        "WNID": "n03425413",
+        "words": "gas pump, gasoline pump, petrol pump, island dispenser"
+    },
+    {
+        "WNID": "n03443371",
+        "words": "goblet"
+    },
+    {
+        "WNID": "n03444034",
+        "words": "go-kart"
+    },
+    {
+        "WNID": "n03445777",
+        "words": "golf ball"
+    },
+    {
+        "WNID": "n03445924",
+        "words": "golfcart, golf cart"
+    },
+    {
+        "WNID": "n03447447",
+        "words": "gondola"
+    },
+    {
+        "WNID": "n03447721",
+        "words": "gong, tam-tam"
+    },
+    {
+        "WNID": "n03450230",
+        "words": "gown"
+    },
+    {
+        "WNID": "n03452741",
+        "words": "grand piano, grand"
+    },
+    {
+        "WNID": "n03457902",
+        "words": "greenhouse, nursery, glasshouse"
+    },
+    {
+        "WNID": "n03459775",
+        "words": "grille, radiator grille"
+    },
+    {
+        "WNID": "n03461385",
+        "words": "grocery store, grocery, food market, market"
+    },
+    {
+        "WNID": "n03467068",
+        "words": "guillotine"
+    },
+    {
+        "WNID": "n03476684",
+        "words": "hair slide"
+    },
+    {
+        "WNID": "n03476991",
+        "words": "hair spray"
+    },
+    {
+        "WNID": "n03478589",
+        "words": "half track"
+    },
+    {
+        "WNID": "n03481172",
+        "words": "hammer"
+    },
+    {
+        "WNID": "n03482405",
+        "words": "hamper"
+    },
+    {
+        "WNID": "n03483316",
+        "words": "hand blower, blow dryer, blow drier, hair dryer, hair drier"
+    },
+    {
+        "WNID": "n03485407",
+        "words": "hand-held computer, hand-held microcomputer"
+    },
+    {
+        "WNID": "n03485794",
+        "words": "handkerchief, hankie, hanky, hankey"
+    },
+    {
+        "WNID": "n03492542",
+        "words": "hard disc, hard disk, fixed disk"
+    },
+    {
+        "WNID": "n03494278",
+        "words": "harmonica, mouth organ, harp, mouth harp"
+    },
+    {
+        "WNID": "n03495258",
+        "words": "harp"
+    },
+    {
+        "WNID": "n03496892",
+        "words": "harvester, reaper"
+    },
+    {
+        "WNID": "n03498962",
+        "words": "hatchet"
+    },
+    {
+        "WNID": "n03527444",
+        "words": "holster"
+    },
+    {
+        "WNID": "n03529860",
+        "words": "home theater, home theatre"
+    },
+    {
+        "WNID": "n03530642",
+        "words": "honeycomb"
+    },
+    {
+        "WNID": "n03532672",
+        "words": "hook, claw"
+    },
+    {
+        "WNID": "n03534580",
+        "words": "hoopskirt, crinoline"
+    },
+    {
+        "WNID": "n03535780",
+        "words": "horizontal bar, high bar"
+    },
+    {
+        "WNID": "n03538406",
+        "words": "horse cart, horse-cart"
+    },
+    {
+        "WNID": "n03544143",
+        "words": "hourglass"
+    },
+    {
+        "WNID": "n03584254",
+        "words": "iPod"
+    },
+    {
+        "WNID": "n03584829",
+        "words": "iron, smoothing iron"
+    },
+    {
+        "WNID": "n03590841",
+        "words": "jack-o'-lantern"
+    },
+    {
+        "WNID": "n03594734",
+        "words": "jean, blue jean, denim"
+    },
+    {
+        "WNID": "n03594945",
+        "words": "jeep, landrover"
+    },
+    {
+        "WNID": "n03595614",
+        "words": "jersey, T-shirt, tee shirt"
+    },
+    {
+        "WNID": "n03598930",
+        "words": "jigsaw puzzle"
+    },
+    {
+        "WNID": "n03599486",
+        "words": "jinrikisha, ricksha, rickshaw"
+    },
+    {
+        "WNID": "n03602883",
+        "words": "joystick"
+    },
+    {
+        "WNID": "n03617480",
+        "words": "kimono"
+    },
+    {
+        "WNID": "n03623198",
+        "words": "knee pad"
+    },
+    {
+        "WNID": "n03627232",
+        "words": "knot"
+    },
+    {
+        "WNID": "n03630383",
+        "words": "lab coat, laboratory coat"
+    },
+    {
+        "WNID": "n03633091",
+        "words": "ladle"
+    },
+    {
+        "WNID": "n03637318",
+        "words": "lampshade, lamp shade"
+    },
+    {
+        "WNID": "n03642806",
+        "words": "laptop, laptop computer"
+    },
+    {
+        "WNID": "n03649909",
+        "words": "lawn mower, mower"
+    },
+    {
+        "WNID": "n03657121",
+        "words": "lens cap, lens cover"
+    },
+    {
+        "WNID": "n03658185",
+        "words": "letter opener, paper knife, paperknife"
+    },
+    {
+        "WNID": "n03661043",
+        "words": "library"
+    },
+    {
+        "WNID": "n03662601",
+        "words": "lifeboat"
+    },
+    {
+        "WNID": "n03666591",
+        "words": "lighter, light, igniter, ignitor"
+    },
+    {
+        "WNID": "n03670208",
+        "words": "limousine, limo"
+    },
+    {
+        "WNID": "n03673027",
+        "words": "liner, ocean liner"
+    },
+    {
+        "WNID": "n03676483",
+        "words": "lipstick, lip rouge"
+    },
+    {
+        "WNID": "n03680355",
+        "words": "Loafer"
+    },
+    {
+        "WNID": "n03690938",
+        "words": "lotion"
+    },
+    {
+        "WNID": "n03691459",
+        "words": "loudspeaker, speaker, speaker unit, loudspeaker system, speaker system"
+    },
+    {
+        "WNID": "n03692522",
+        "words": "loupe, jeweler's loupe"
+    },
+    {
+        "WNID": "n03697007",
+        "words": "lumbermill, sawmill"
+    },
+    {
+        "WNID": "n03706229",
+        "words": "magnetic compass"
+    },
+    {
+        "WNID": "n03709823",
+        "words": "mailbag, postbag"
+    },
+    {
+        "WNID": "n03710193",
+        "words": "mailbox, letter box"
+    },
+    {
+        "WNID": "n03710637",
+        "words": "maillot"
+    },
+    {
+        "WNID": "n03710721",
+        "words": "maillot, tank suit"
+    },
+    {
+        "WNID": "n03717622",
+        "words": "manhole cover"
+    },
+    {
+        "WNID": "n03720891",
+        "words": "maraca"
+    },
+    {
+        "WNID": "n03721384",
+        "words": "marimba, xylophone"
+    },
+    {
+        "WNID": "n03724870",
+        "words": "mask"
+    },
+    {
+        "WNID": "n03729826",
+        "words": "matchstick"
+    },
+    {
+        "WNID": "n03733131",
+        "words": "maypole"
+    },
+    {
+        "WNID": "n03733281",
+        "words": "maze, labyrinth"
+    },
+    {
+        "WNID": "n03733805",
+        "words": "measuring cup"
+    },
+    {
+        "WNID": "n03742115",
+        "words": "medicine chest, medicine cabinet"
+    },
+    {
+        "WNID": "n03743016",
+        "words": "megalith, megalithic structure"
+    },
+    {
+        "WNID": "n03759954",
+        "words": "microphone, mike"
+    },
+    {
+        "WNID": "n03761084",
+        "words": "microwave, microwave oven"
+    },
+    {
+        "WNID": "n03763968",
+        "words": "military uniform"
+    },
+    {
+        "WNID": "n03764736",
+        "words": "milk can"
+    },
+    {
+        "WNID": "n03769881",
+        "words": "minibus"
+    },
+    {
+        "WNID": "n03770439",
+        "words": "miniskirt, mini"
+    },
+    {
+        "WNID": "n03770679",
+        "words": "minivan"
+    },
+    {
+        "WNID": "n03773504",
+        "words": "missile"
+    },
+    {
+        "WNID": "n03775071",
+        "words": "mitten"
+    },
+    {
+        "WNID": "n03775546",
+        "words": "mixing bowl"
+    },
+    {
+        "WNID": "n03776460",
+        "words": "mobile home, manufactured home"
+    },
+    {
+        "WNID": "n03777568",
+        "words": "Model T"
+    },
+    {
+        "WNID": "n03777754",
+        "words": "modem"
+    },
+    {
+        "WNID": "n03781244",
+        "words": "monastery"
+    },
+    {
+        "WNID": "n03782006",
+        "words": "monitor"
+    },
+    {
+        "WNID": "n03785016",
+        "words": "moped"
+    },
+    {
+        "WNID": "n03786901",
+        "words": "mortar"
+    },
+    {
+        "WNID": "n03787032",
+        "words": "mortarboard"
+    },
+    {
+        "WNID": "n03788195",
+        "words": "mosque"
+    },
+    {
+        "WNID": "n03788365",
+        "words": "mosquito net"
+    },
+    {
+        "WNID": "n03791053",
+        "words": "motor scooter, scooter"
+    },
+    {
+        "WNID": "n03792782",
+        "words": "mountain bike, all-terrain bike, off-roader"
+    },
+    {
+        "WNID": "n03792972",
+        "words": "mountain tent"
+    },
+    {
+        "WNID": "n03793489",
+        "words": "mouse, computer mouse"
+    },
+    {
+        "WNID": "n03794056",
+        "words": "mousetrap"
+    },
+    {
+        "WNID": "n03796401",
+        "words": "moving van"
+    },
+    {
+        "WNID": "n03803284",
+        "words": "muzzle"
+    },
+    {
+        "WNID": "n03804744",
+        "words": "nail"
+    },
+    {
+        "WNID": "n03814639",
+        "words": "neck brace"
+    },
+    {
+        "WNID": "n03814906",
+        "words": "necklace"
+    },
+    {
+        "WNID": "n03825788",
+        "words": "nipple"
+    },
+    {
+        "WNID": "n03832673",
+        "words": "notebook, notebook computer"
+    },
+    {
+        "WNID": "n03837869",
+        "words": "obelisk"
+    },
+    {
+        "WNID": "n03838899",
+        "words": "oboe, hautboy, hautbois"
+    },
+    {
+        "WNID": "n03840681",
+        "words": "ocarina, sweet potato"
+    },
+    {
+        "WNID": "n03841143",
+        "words": "odometer, hodometer, mileometer, milometer"
+    },
+    {
+        "WNID": "n03843555",
+        "words": "oil filter"
+    },
+    {
+        "WNID": "n03854065",
+        "words": "organ, pipe organ"
+    },
+    {
+        "WNID": "n03857828",
+        "words": "oscilloscope, scope, cathode-ray oscilloscope, CRO"
+    },
+    {
+        "WNID": "n03866082",
+        "words": "overskirt"
+    },
+    {
+        "WNID": "n03868242",
+        "words": "oxcart"
+    },
+    {
+        "WNID": "n03868863",
+        "words": "oxygen mask"
+    },
+    {
+        "WNID": "n03871628",
+        "words": "packet"
+    },
+    {
+        "WNID": "n03873416",
+        "words": "paddle, boat paddle"
+    },
+    {
+        "WNID": "n03874293",
+        "words": "paddlewheel, paddle wheel"
+    },
+    {
+        "WNID": "n03874599",
+        "words": "padlock"
+    },
+    {
+        "WNID": "n03876231",
+        "words": "paintbrush"
+    },
+    {
+        "WNID": "n03877472",
+        "words": "pajama, pyjama, pj's, jammies"
+    },
+    {
+        "WNID": "n03877845",
+        "words": "palace"
+    },
+    {
+        "WNID": "n03884397",
+        "words": "panpipe, pandean pipe, syrinx"
+    },
+    {
+        "WNID": "n03887697",
+        "words": "paper towel"
+    },
+    {
+        "WNID": "n03888257",
+        "words": "parachute, chute"
+    },
+    {
+        "WNID": "n03888605",
+        "words": "parallel bars, bars"
+    },
+    {
+        "WNID": "n03891251",
+        "words": "park bench"
+    },
+    {
+        "WNID": "n03891332",
+        "words": "parking meter"
+    },
+    {
+        "WNID": "n03895866",
+        "words": "passenger car, coach, carriage"
+    },
+    {
+        "WNID": "n03899768",
+        "words": "patio, terrace"
+    },
+    {
+        "WNID": "n03902125",
+        "words": "pay-phone, pay-station"
+    },
+    {
+        "WNID": "n03903868",
+        "words": "pedestal, plinth, footstall"
+    },
+    {
+        "WNID": "n03908618",
+        "words": "pencil box, pencil case"
+    },
+    {
+        "WNID": "n03908714",
+        "words": "pencil sharpener"
+    },
+    {
+        "WNID": "n03916031",
+        "words": "perfume, essence"
+    },
+    {
+        "WNID": "n03920288",
+        "words": "Petri dish"
+    },
+    {
+        "WNID": "n03924679",
+        "words": "photocopier"
+    },
+    {
+        "WNID": "n03929660",
+        "words": "pick, plectrum, plectron"
+    },
+    {
+        "WNID": "n03929855",
+        "words": "pickelhaube"
+    },
+    {
+        "WNID": "n03930313",
+        "words": "picket fence, paling"
+    },
+    {
+        "WNID": "n03930630",
+        "words": "pickup, pickup truck"
+    },
+    {
+        "WNID": "n03933933",
+        "words": "pier"
+    },
+    {
+        "WNID": "n03935335",
+        "words": "piggy bank, penny bank"
+    },
+    {
+        "WNID": "n03937543",
+        "words": "pill bottle"
+    },
+    {
+        "WNID": "n03938244",
+        "words": "pillow"
+    },
+    {
+        "WNID": "n03942813",
+        "words": "ping-pong ball"
+    },
+    {
+        "WNID": "n03944341",
+        "words": "pinwheel"
+    },
+    {
+        "WNID": "n03947888",
+        "words": "pirate, pirate ship"
+    },
+    {
+        "WNID": "n03950228",
+        "words": "pitcher, ewer"
+    },
+    {
+        "WNID": "n03954731",
+        "words": "plane, carpenter's plane, woodworking plane"
+    },
+    {
+        "WNID": "n03956157",
+        "words": "planetarium"
+    },
+    {
+        "WNID": "n03958227",
+        "words": "plastic bag"
+    },
+    {
+        "WNID": "n03961711",
+        "words": "plate rack"
+    },
+    {
+        "WNID": "n03967562",
+        "words": "plow, plough"
+    },
+    {
+        "WNID": "n03970156",
+        "words": "plunger, plumber's helper"
+    },
+    {
+        "WNID": "n03976467",
+        "words": "Polaroid camera, Polaroid Land camera"
+    },
+    {
+        "WNID": "n03976657",
+        "words": "pole"
+    },
+    {
+        "WNID": "n03977966",
+        "words": "police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria"
+    },
+    {
+        "WNID": "n03980874",
+        "words": "poncho"
+    },
+    {
+        "WNID": "n03982430",
+        "words": "pool table, billiard table, snooker table"
+    },
+    {
+        "WNID": "n03983396",
+        "words": "pop bottle, soda bottle"
+    },
+    {
+        "WNID": "n03991062",
+        "words": "pot, flowerpot"
+    },
+    {
+        "WNID": "n03992509",
+        "words": "potter's wheel"
+    },
+    {
+        "WNID": "n03995372",
+        "words": "power drill"
+    },
+    {
+        "WNID": "n03998194",
+        "words": "prayer rug, prayer mat"
+    },
+    {
+        "WNID": "n04004767",
+        "words": "printer"
+    },
+    {
+        "WNID": "n04005630",
+        "words": "prison, prison house"
+    },
+    {
+        "WNID": "n04008634",
+        "words": "projectile, missile"
+    },
+    {
+        "WNID": "n04009552",
+        "words": "projector"
+    },
+    {
+        "WNID": "n04019541",
+        "words": "puck, hockey puck"
+    },
+    {
+        "WNID": "n04023962",
+        "words": "punching bag, punch bag, punching ball, punchball"
+    },
+    {
+        "WNID": "n04026417",
+        "words": "purse"
+    },
+    {
+        "WNID": "n04033901",
+        "words": "quill, quill pen"
+    },
+    {
+        "WNID": "n04033995",
+        "words": "quilt, comforter, comfort, puff"
+    },
+    {
+        "WNID": "n04037443",
+        "words": "racer, race car, racing car"
+    },
+    {
+        "WNID": "n04039381",
+        "words": "racket, racquet"
+    },
+    {
+        "WNID": "n04040759",
+        "words": "radiator"
+    },
+    {
+        "WNID": "n04041544",
+        "words": "radio, wireless"
+    },
+    {
+        "WNID": "n04044716",
+        "words": "radio telescope, radio reflector"
+    },
+    {
+        "WNID": "n04049303",
+        "words": "rain barrel"
+    },
+    {
+        "WNID": "n04065272",
+        "words": "recreational vehicle, RV, R.V."
+    },
+    {
+        "WNID": "n04067472",
+        "words": "reel"
+    },
+    {
+        "WNID": "n04069434",
+        "words": "reflex camera"
+    },
+    {
+        "WNID": "n04070727",
+        "words": "refrigerator, icebox"
+    },
+    {
+        "WNID": "n04074963",
+        "words": "remote control, remote"
+    },
+    {
+        "WNID": "n04081281",
+        "words": "restaurant, eating house, eating place, eatery"
+    },
+    {
+        "WNID": "n04086273",
+        "words": "revolver, six-gun, six-shooter"
+    },
+    {
+        "WNID": "n04090263",
+        "words": "rifle"
+    },
+    {
+        "WNID": "n04099969",
+        "words": "rocking chair, rocker"
+    },
+    {
+        "WNID": "n04111531",
+        "words": "rotisserie"
+    },
+    {
+        "WNID": "n04116512",
+        "words": "rubber eraser, rubber, pencil eraser"
+    },
+    {
+        "WNID": "n04118538",
+        "words": "rugby ball"
+    },
+    {
+        "WNID": "n04118776",
+        "words": "rule, ruler"
+    },
+    {
+        "WNID": "n04120489",
+        "words": "running shoe"
+    },
+    {
+        "WNID": "n04125021",
+        "words": "safe"
+    },
+    {
+        "WNID": "n04127249",
+        "words": "safety pin"
+    },
+    {
+        "WNID": "n04131690",
+        "words": "saltshaker, salt shaker"
+    },
+    {
+        "WNID": "n04133789",
+        "words": "sandal"
+    },
+    {
+        "WNID": "n04136333",
+        "words": "sarong"
+    },
+    {
+        "WNID": "n04141076",
+        "words": "sax, saxophone"
+    },
+    {
+        "WNID": "n04141327",
+        "words": "scabbard"
+    },
+    {
+        "WNID": "n04141975",
+        "words": "scale, weighing machine"
+    },
+    {
+        "WNID": "n04146614",
+        "words": "school bus"
+    },
+    {
+        "WNID": "n04147183",
+        "words": "schooner"
+    },
+    {
+        "WNID": "n04149813",
+        "words": "scoreboard"
+    },
+    {
+        "WNID": "n04152593",
+        "words": "screen, CRT screen"
+    },
+    {
+        "WNID": "n04153751",
+        "words": "screw"
+    },
+    {
+        "WNID": "n04154565",
+        "words": "screwdriver"
+    },
+    {
+        "WNID": "n04162706",
+        "words": "seat belt, seatbelt"
+    },
+    {
+        "WNID": "n04179913",
+        "words": "sewing machine"
+    },
+    {
+        "WNID": "n04192698",
+        "words": "shield, buckler"
+    },
+    {
+        "WNID": "n04200800",
+        "words": "shoe shop, shoe-shop, shoe store"
+    },
+    {
+        "WNID": "n04201297",
+        "words": "shoji"
+    },
+    {
+        "WNID": "n04204238",
+        "words": "shopping basket"
+    },
+    {
+        "WNID": "n04204347",
+        "words": "shopping cart"
+    },
+    {
+        "WNID": "n04208210",
+        "words": "shovel"
+    },
+    {
+        "WNID": "n04209133",
+        "words": "shower cap"
+    },
+    {
+        "WNID": "n04209239",
+        "words": "shower curtain"
+    },
+    {
+        "WNID": "n04228054",
+        "words": "ski"
+    },
+    {
+        "WNID": "n04229816",
+        "words": "ski mask"
+    },
+    {
+        "WNID": "n04235860",
+        "words": "sleeping bag"
+    },
+    {
+        "WNID": "n04238763",
+        "words": "slide rule, slipstick"
+    },
+    {
+        "WNID": "n04239074",
+        "words": "sliding door"
+    },
+    {
+        "WNID": "n04243546",
+        "words": "slot, one-armed bandit"
+    },
+    {
+        "WNID": "n04251144",
+        "words": "snorkel"
+    },
+    {
+        "WNID": "n04252077",
+        "words": "snowmobile"
+    },
+    {
+        "WNID": "n04252225",
+        "words": "snowplow, snowplough"
+    },
+    {
+        "WNID": "n04254120",
+        "words": "soap dispenser"
+    },
+    {
+        "WNID": "n04254680",
+        "words": "soccer ball"
+    },
+    {
+        "WNID": "n04254777",
+        "words": "sock"
+    },
+    {
+        "WNID": "n04258138",
+        "words": "solar dish, solar collector, solar furnace"
+    },
+    {
+        "WNID": "n04259630",
+        "words": "sombrero"
+    },
+    {
+        "WNID": "n04263257",
+        "words": "soup bowl"
+    },
+    {
+        "WNID": "n04264628",
+        "words": "space bar"
+    },
+    {
+        "WNID": "n04265275",
+        "words": "space heater"
+    },
+    {
+        "WNID": "n04266014",
+        "words": "space shuttle"
+    },
+    {
+        "WNID": "n04270147",
+        "words": "spatula"
+    },
+    {
+        "WNID": "n04273569",
+        "words": "speedboat"
+    },
+    {
+        "WNID": "n04275548",
+        "words": "spider web, spider's web"
+    },
+    {
+        "WNID": "n04277352",
+        "words": "spindle"
+    },
+    {
+        "WNID": "n04285008",
+        "words": "sports car, sport car"
+    },
+    {
+        "WNID": "n04286575",
+        "words": "spotlight, spot"
+    },
+    {
+        "WNID": "n04296562",
+        "words": "stage"
+    },
+    {
+        "WNID": "n04310018",
+        "words": "steam locomotive"
+    },
+    {
+        "WNID": "n04311004",
+        "words": "steel arch bridge"
+    },
+    {
+        "WNID": "n04311174",
+        "words": "steel drum"
+    },
+    {
+        "WNID": "n04317175",
+        "words": "stethoscope"
+    },
+    {
+        "WNID": "n04325704",
+        "words": "stole"
+    },
+    {
+        "WNID": "n04326547",
+        "words": "stone wall"
+    },
+    {
+        "WNID": "n04328186",
+        "words": "stopwatch, stop watch"
+    },
+    {
+        "WNID": "n04330267",
+        "words": "stove"
+    },
+    {
+        "WNID": "n04332243",
+        "words": "strainer"
+    },
+    {
+        "WNID": "n04335435",
+        "words": "streetcar, tram, tramcar, trolley, trolley car"
+    },
+    {
+        "WNID": "n04336792",
+        "words": "stretcher"
+    },
+    {
+        "WNID": "n04344873",
+        "words": "studio couch, day bed"
+    },
+    {
+        "WNID": "n04346328",
+        "words": "stupa, tope"
+    },
+    {
+        "WNID": "n04347754",
+        "words": "submarine, pigboat, sub, U-boat"
+    },
+    {
+        "WNID": "n04350905",
+        "words": "suit, suit of clothes"
+    },
+    {
+        "WNID": "n04355338",
+        "words": "sundial"
+    },
+    {
+        "WNID": "n04355933",
+        "words": "sunglass"
+    },
+    {
+        "WNID": "n04356056",
+        "words": "sunglasses, dark glasses, shades"
+    },
+    {
+        "WNID": "n04357314",
+        "words": "sunscreen, sunblock, sun blocker"
+    },
+    {
+        "WNID": "n04366367",
+        "words": "suspension bridge"
+    },
+    {
+        "WNID": "n04367480",
+        "words": "swab, swob, mop"
+    },
+    {
+        "WNID": "n04370456",
+        "words": "sweatshirt"
+    },
+    {
+        "WNID": "n04371430",
+        "words": "swimming trunks, bathing trunks"
+    },
+    {
+        "WNID": "n04371774",
+        "words": "swing"
+    },
+    {
+        "WNID": "n04372370",
+        "words": "switch, electric switch, electrical switch"
+    },
+    {
+        "WNID": "n04376876",
+        "words": "syringe"
+    },
+    {
+        "WNID": "n04380533",
+        "words": "table lamp"
+    },
+    {
+        "WNID": "n04389033",
+        "words": "tank, army tank, armored combat vehicle, armoured combat vehicle"
+    },
+    {
+        "WNID": "n04392985",
+        "words": "tape player"
+    },
+    {
+        "WNID": "n04398044",
+        "words": "teapot"
+    },
+    {
+        "WNID": "n04399382",
+        "words": "teddy, teddy bear"
+    },
+    {
+        "WNID": "n04404412",
+        "words": "television, television system"
+    },
+    {
+        "WNID": "n04409515",
+        "words": "tennis ball"
+    },
+    {
+        "WNID": "n04417672",
+        "words": "thatch, thatched roof"
+    },
+    {
+        "WNID": "n04418357",
+        "words": "theater curtain, theatre curtain"
+    },
+    {
+        "WNID": "n04423845",
+        "words": "thimble"
+    },
+    {
+        "WNID": "n04428191",
+        "words": "thresher, thrasher, threshing machine"
+    },
+    {
+        "WNID": "n04429376",
+        "words": "throne"
+    },
+    {
+        "WNID": "n04435653",
+        "words": "tile roof"
+    },
+    {
+        "WNID": "n04442312",
+        "words": "toaster"
+    },
+    {
+        "WNID": "n04443257",
+        "words": "tobacco shop, tobacconist shop, tobacconist"
+    },
+    {
+        "WNID": "n04447861",
+        "words": "toilet seat"
+    },
+    {
+        "WNID": "n04456115",
+        "words": "torch"
+    },
+    {
+        "WNID": "n04458633",
+        "words": "totem pole"
+    },
+    {
+        "WNID": "n04461696",
+        "words": "tow truck, tow car, wrecker"
+    },
+    {
+        "WNID": "n04462240",
+        "words": "toyshop"
+    },
+    {
+        "WNID": "n04465501",
+        "words": "tractor"
+    },
+    {
+        "WNID": "n04467665",
+        "words": "trailer truck, tractor trailer, trucking rig, rig, articulated lorry, semi"
+    },
+    {
+        "WNID": "n04476259",
+        "words": "tray"
+    },
+    {
+        "WNID": "n04479046",
+        "words": "trench coat"
+    },
+    {
+        "WNID": "n04482393",
+        "words": "tricycle, trike, velocipede"
+    },
+    {
+        "WNID": "n04483307",
+        "words": "trimaran"
+    },
+    {
+        "WNID": "n04485082",
+        "words": "tripod"
+    },
+    {
+        "WNID": "n04486054",
+        "words": "triumphal arch"
+    },
+    {
+        "WNID": "n04487081",
+        "words": "trolleybus, trolley coach, trackless trolley"
+    },
+    {
+        "WNID": "n04487394",
+        "words": "trombone"
+    },
+    {
+        "WNID": "n04493381",
+        "words": "tub, vat"
+    },
+    {
+        "WNID": "n04501370",
+        "words": "turnstile"
+    },
+    {
+        "WNID": "n04505470",
+        "words": "typewriter keyboard"
+    },
+    {
+        "WNID": "n04507155",
+        "words": "umbrella"
+    },
+    {
+        "WNID": "n04509417",
+        "words": "unicycle, monocycle"
+    },
+    {
+        "WNID": "n04515003",
+        "words": "upright, upright piano"
+    },
+    {
+        "WNID": "n04517823",
+        "words": "vacuum, vacuum cleaner"
+    },
+    {
+        "WNID": "n04522168",
+        "words": "vase"
+    },
+    {
+        "WNID": "n04523525",
+        "words": "vault"
+    },
+    {
+        "WNID": "n04525038",
+        "words": "velvet"
+    },
+    {
+        "WNID": "n04525305",
+        "words": "vending machine"
+    },
+    {
+        "WNID": "n04532106",
+        "words": "vestment"
+    },
+    {
+        "WNID": "n04532670",
+        "words": "viaduct"
+    },
+    {
+        "WNID": "n04536866",
+        "words": "violin, fiddle"
+    },
+    {
+        "WNID": "n04540053",
+        "words": "volleyball"
+    },
+    {
+        "WNID": "n04542943",
+        "words": "waffle iron"
+    },
+    {
+        "WNID": "n04548280",
+        "words": "wall clock"
+    },
+    {
+        "WNID": "n04548362",
+        "words": "wallet, billfold, notecase, pocketbook"
+    },
+    {
+        "WNID": "n04550184",
+        "words": "wardrobe, closet, press"
+    },
+    {
+        "WNID": "n04552348",
+        "words": "warplane, military plane"
+    },
+    {
+        "WNID": "n04553703",
+        "words": "washbasin, handbasin, washbowl, lavabo, wash-hand basin"
+    },
+    {
+        "WNID": "n04554684",
+        "words": "washer, automatic washer, washing machine"
+    },
+    {
+        "WNID": "n04557648",
+        "words": "water bottle"
+    },
+    {
+        "WNID": "n04560804",
+        "words": "water jug"
+    },
+    {
+        "WNID": "n04562935",
+        "words": "water tower"
+    },
+    {
+        "WNID": "n04579145",
+        "words": "whiskey jug"
+    },
+    {
+        "WNID": "n04579432",
+        "words": "whistle"
+    },
+    {
+        "WNID": "n04584207",
+        "words": "wig"
+    },
+    {
+        "WNID": "n04589890",
+        "words": "window screen"
+    },
+    {
+        "WNID": "n04590129",
+        "words": "window shade"
+    },
+    {
+        "WNID": "n04591157",
+        "words": "Windsor tie"
+    },
+    {
+        "WNID": "n04591713",
+        "words": "wine bottle"
+    },
+    {
+        "WNID": "n04592741",
+        "words": "wing"
+    },
+    {
+        "WNID": "n04596742",
+        "words": "wok"
+    },
+    {
+        "WNID": "n04597913",
+        "words": "wooden spoon"
+    },
+    {
+        "WNID": "n04599235",
+        "words": "wool, woolen, woollen"
+    },
+    {
+        "WNID": "n04604644",
+        "words": "worm fence, snake fence, snake-rail fence, Virginia fence"
+    },
+    {
+        "WNID": "n04606251",
+        "words": "wreck"
+    },
+    {
+        "WNID": "n04612504",
+        "words": "yawl"
+    },
+    {
+        "WNID": "n04613696",
+        "words": "yurt"
+    },
+    {
+        "WNID": "n06359193",
+        "words": "web site, website, internet site, site"
+    },
+    {
+        "WNID": "n06596364",
+        "words": "comic book"
+    },
+    {
+        "WNID": "n06785654",
+        "words": "crossword puzzle, crossword"
+    },
+    {
+        "WNID": "n06794110",
+        "words": "street sign"
+    },
+    {
+        "WNID": "n06874185",
+        "words": "traffic light, traffic signal, stoplight"
+    },
+    {
+        "WNID": "n07248320",
+        "words": "book jacket, dust cover, dust jacket, dust wrapper"
+    },
+    {
+        "WNID": "n07565083",
+        "words": "menu"
+    },
+    {
+        "WNID": "n07579787",
+        "words": "plate"
+    },
+    {
+        "WNID": "n07583066",
+        "words": "guacamole"
+    },
+    {
+        "WNID": "n07584110",
+        "words": "consomme"
+    },
+    {
+        "WNID": "n07590611",
+        "words": "hot pot, hotpot"
+    },
+    {
+        "WNID": "n07613480",
+        "words": "trifle"
+    },
+    {
+        "WNID": "n07614500",
+        "words": "ice cream, icecream"
+    },
+    {
+        "WNID": "n07615774",
+        "words": "ice lolly, lolly, lollipop, popsicle"
+    },
+    {
+        "WNID": "n07684084",
+        "words": "French loaf"
+    },
+    {
+        "WNID": "n07693725",
+        "words": "bagel, beigel"
+    },
+    {
+        "WNID": "n07695742",
+        "words": "pretzel"
+    },
+    {
+        "WNID": "n07697313",
+        "words": "cheeseburger"
+    },
+    {
+        "WNID": "n07697537",
+        "words": "hotdog, hot dog, red hot"
+    },
+    {
+        "WNID": "n07711569",
+        "words": "mashed potato"
+    },
+    {
+        "WNID": "n07714571",
+        "words": "head cabbage"
+    },
+    {
+        "WNID": "n07714990",
+        "words": "broccoli"
+    },
+    {
+        "WNID": "n07715103",
+        "words": "cauliflower"
+    },
+    {
+        "WNID": "n07716358",
+        "words": "zucchini, courgette"
+    },
+    {
+        "WNID": "n07716906",
+        "words": "spaghetti squash"
+    },
+    {
+        "WNID": "n07717410",
+        "words": "acorn squash"
+    },
+    {
+        "WNID": "n07717556",
+        "words": "butternut squash"
+    },
+    {
+        "WNID": "n07718472",
+        "words": "cucumber, cuke"
+    },
+    {
+        "WNID": "n07718747",
+        "words": "artichoke, globe artichoke"
+    },
+    {
+        "WNID": "n07720875",
+        "words": "bell pepper"
+    },
+    {
+        "WNID": "n07730033",
+        "words": "cardoon"
+    },
+    {
+        "WNID": "n07734744",
+        "words": "mushroom"
+    },
+    {
+        "WNID": "n07742313",
+        "words": "Granny Smith"
+    },
+    {
+        "WNID": "n07745940",
+        "words": "strawberry"
+    },
+    {
+        "WNID": "n07747607",
+        "words": "orange"
+    },
+    {
+        "WNID": "n07749582",
+        "words": "lemon"
+    },
+    {
+        "WNID": "n07753113",
+        "words": "fig"
+    },
+    {
+        "WNID": "n07753275",
+        "words": "pineapple, ananas"
+    },
+    {
+        "WNID": "n07753592",
+        "words": "banana"
+    },
+    {
+        "WNID": "n07754684",
+        "words": "jackfruit, jak, jack"
+    },
+    {
+        "WNID": "n07760859",
+        "words": "custard apple"
+    },
+    {
+        "WNID": "n07768694",
+        "words": "pomegranate"
+    },
+    {
+        "WNID": "n07802026",
+        "words": "hay"
+    },
+    {
+        "WNID": "n07831146",
+        "words": "carbonara"
+    },
+    {
+        "WNID": "n07836838",
+        "words": "chocolate sauce, chocolate syrup"
+    },
+    {
+        "WNID": "n07860988",
+        "words": "dough"
+    },
+    {
+        "WNID": "n07871810",
+        "words": "meat loaf, meatloaf"
+    },
+    {
+        "WNID": "n07873807",
+        "words": "pizza, pizza pie"
+    },
+    {
+        "WNID": "n07875152",
+        "words": "potpie"
+    },
+    {
+        "WNID": "n07880968",
+        "words": "burrito"
+    },
+    {
+        "WNID": "n07892512",
+        "words": "red wine"
+    },
+    {
+        "WNID": "n07920052",
+        "words": "espresso"
+    },
+    {
+        "WNID": "n07930864",
+        "words": "cup"
+    },
+    {
+        "WNID": "n07932039",
+        "words": "eggnog"
+    },
+    {
+        "WNID": "n09193705",
+        "words": "alp"
+    },
+    {
+        "WNID": "n09229709",
+        "words": "bubble"
+    },
+    {
+        "WNID": "n09246464",
+        "words": "cliff, drop, drop-off"
+    },
+    {
+        "WNID": "n09256479",
+        "words": "coral reef"
+    },
+    {
+        "WNID": "n09288635",
+        "words": "geyser"
+    },
+    {
+        "WNID": "n09332890",
+        "words": "lakeside, lakeshore"
+    },
+    {
+        "WNID": "n09399592",
+        "words": "promontory, headland, head, foreland"
+    },
+    {
+        "WNID": "n09421951",
+        "words": "sandbar, sand bar"
+    },
+    {
+        "WNID": "n09428293",
+        "words": "seashore, coast, seacoast, sea-coast"
+    },
+    {
+        "WNID": "n09468604",
+        "words": "valley, vale"
+    },
+    {
+        "WNID": "n09472597",
+        "words": "volcano"
+    },
+    {
+        "WNID": "n09835506",
+        "words": "ballplayer, baseball player"
+    },
+    {
+        "WNID": "n10148035",
+        "words": "groom, bridegroom"
+    },
+    {
+        "WNID": "n10565667",
+        "words": "scuba diver"
+    },
+    {
+        "WNID": "n11879895",
+        "words": "rapeseed"
+    },
+    {
+        "WNID": "n11939491",
+        "words": "daisy"
+    },
+    {
+        "WNID": "n12057211",
+        "words": "yellow lady's slipper, yellow lady-slipper, Cypripedium calceolus, Cypripedium parviflorum"
+    },
+    {
+        "WNID": "n12144580",
+        "words": "corn"
+    },
+    {
+        "WNID": "n12267677",
+        "words": "acorn"
+    },
+    {
+        "WNID": "n12620546",
+        "words": "hip, rose hip, rosehip"
+    },
+    {
+        "WNID": "n12768682",
+        "words": "buckeye, horse chestnut, conker"
+    },
+    {
+        "WNID": "n12985857",
+        "words": "coral fungus"
+    },
+    {
+        "WNID": "n12998815",
+        "words": "agaric"
+    },
+    {
+        "WNID": "n13037406",
+        "words": "gyromitra"
+    },
+    {
+        "WNID": "n13040303",
+        "words": "stinkhorn, carrion fungus"
+    },
+    {
+        "WNID": "n13044778",
+        "words": "earthstar"
+    },
+    {
+        "WNID": "n13052670",
+        "words": "hen-of-the-woods, hen of the woods, Polyporus frondosus, Grifola frondosa"
+    },
+    {
+        "WNID": "n13054560",
+        "words": "bolete"
+    },
+    {
+        "WNID": "n13133613",
+        "words": "ear, spike, capitulum"
+    },
+    {
+        "WNID": "n15075141",
+        "words": "toilet tissue, toilet paper, bathroom tissue"
+    }
+]
