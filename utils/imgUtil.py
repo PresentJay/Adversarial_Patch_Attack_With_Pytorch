@@ -4,7 +4,7 @@ from torchvision import utils
 
 
 def show_tensor(images, title="", text="", block=False):
-    images = utils.make_grid(images, normalize=True)
+    images = utils.make_grid(images)
     
     fig, ax = plt.subplots(1, squeeze=False, frameon=False, dpi=300)
     ax[0][0].imshow(np.transpose(images.cpu().detach().numpy(), (1,2,0)), interpolation='nearest')

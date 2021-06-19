@@ -18,6 +18,13 @@ class AdversarialPatch():
         self.val = {'min': val(0), 'max': val(1)}
         
         self.patch = self.init_patch(random_init)
+        self.mask = self.init_mask()
+        
+        
+    def init_mask(self):
+        mask = torch.full(self.dataset.shape, 255.).to(self.device)
+        # mask = torch.ones(self.dataset.shape).to(self.device)
+        return mask
 
     
     def init_patch(self, random_init):
@@ -33,21 +40,6 @@ class AdversarialPatch():
         imgUtil.show_tensor(self.patch, block=True)
     
     
-    def init_mask(self):        
-        width = self.adversarial_image.shape[1]
-        height = self.adversarial_image.shape[2]
-        
-        min_index = np.argmin(self.shape)
-        print(min_index)
-        
-        start = (self.shape[min_index-1] - self.shape[min_index])/2
-        print(start)
-        
-        # make shape to circle
-        if _type == 'circle':
-            pass
-        
-    
     
     # train patch for a one epoch
     def train(self, model, dataloader, target):
@@ -59,25 +51,59 @@ class AdversarialPatch():
             batch_data = data.to(self.device)
             batch_labels = labels.to(self.device)
             
-            imgUtil.show_tensor(self.Transformation(), block=True)
-            
-            
-    def apply(self, image):
-        pass
-    
-    
-    def Transformation(self):        
-        INTERPOLATION = transforms.InterpolationMode.BILINEAR
+            for idx, (i, l) in enumerate(zip(batch_data, batch_labels)):
+                transformed_patch, transformed_mask, factors = self.Transformation()
+                # print(f'{batch_index} batch / {idx} : label {l}')
+                patched_image = self.apply(transformed_patch, transformed_mask, i)
+                
         
-        rotation = transforms.RandomRotation(degrees=45)
-        scale = transforms.RandomAffine(degrees=0, scale=(0.05, 0.3), interpolation=INTERPOLATION)
-        location = transforms.RandomAffine(degrees=0, translate=(0.3, 0.3), interpolation=INTERPOLATION)
-        brightness = transforms.ColorJitter(brightness=(.4, 1.75))
+            
+    def apply(self, transformed_patch, transformed_mask, image):
+        masked_image = torch.clamp(image - transformed_mask,0,255)
+        # imgUtil.show_tensor(image, title="image", block=False)
+        # imgUtil.show_tensor(transformed_patch, title="patch", block=False)
+        # imgUtil.show_tensor(masked_image, title="image - mask", block=False)
+        patched_image = masked_image + transformed_patch
+        # imgUtil.show_tensor(patched_image, title="image + patch", block=True)
+        return patched_image
+        
+        
+    def getRandomFactors(self):
+        rotation = transforms.RandomRotation.get_params(degrees=(-45, 45))
+        _, location, scale, __ = transforms.RandomAffine.get_params(
+            degrees=(0, 0),
+            translate=(0.3, 0.3),
+            scale_ranges=(0.05, 0.3),
+            shears=[0, 0],
+            img_size=self.dataset.shape[1:]
+        )
+        brightness = transforms.ColorJitter.get_params(brightness=(.4, 1.75), contrast=None, saturation=None, hue=None)
+        
+        return rotation, location, scale, brightness
+    
+    
+    def Transformation(self):
+        # TODO: BILINEAR와 NEAREST 사이 성능 차이?
+        INTERPOLATION = transforms.InterpolationMode.NEAREST
+        
+        rotation, location, scale, brightness = self.getRandomFactors()
+        expectation_over_transformation_factors = [rotation, location, scale, brightness[1]]
+        
+        print(expectation_over_transformation_factors)
+        
+        # scale
+        patch = transforms.functional.affine(img=self.patch, angle=0, scale=scale, translate=[0, 0], shear=[0, 0], interpolation=INTERPOLATION)
+        mask = transforms.functional.affine(img=self.mask, angle=0, scale=scale, translate=[0, 0], shear=[0, 0], interpolation=INTERPOLATION)
+        
+        # rotation
+        patch = transforms.functional.rotate(img=patch, angle=rotation, interpolation=INTERPOLATION)
+        mask = transforms.functional.rotate(img=mask, angle=rotation, interpolation=INTERPOLATION)
+        
+        # brightness
+        patch = transforms.functional.adjust_brightness(img=patch, brightness_factor=brightness[1])
+        
+        # location
+        patch = transforms.functional.affine(img=patch, angle=0, scale=1.0, translate=location, shear=[0, 0], interpolation=INTERPOLATION)
+        mask = transforms.functional.affine(img=mask, angle=0, scale=1.0, translate=location, shear=[0, 0], interpolation=INTERPOLATION)
 
-        return transforms.Compose([
-            scale,
-            rotation,
-            brightness,
-            location
-        ])\
-            (self.patch)
+        return patch, mask, expectation_over_transformation_factors
