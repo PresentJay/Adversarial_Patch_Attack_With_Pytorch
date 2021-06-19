@@ -39,8 +39,6 @@ class Model():
             # TODO: setting for another models
             self.model = None
             
-        
-            
         if not self.hideProgress:
             print(f'\nModel {self.name} is loaded.\n. . .')
         
@@ -55,8 +53,8 @@ class Model():
             param.requires_grad = False
         
         if self.name.startswith('alexnet') or self.name.startswith('vgg'):
-            model.features = torch.nn.DataParallel(model.features)
             model.to(self.device)
+            model.features = torch.nn.DataParallel(model.features)
         else:
             model = torch.nn.DataParallel(model).to(self.device)
             
@@ -84,7 +82,6 @@ class Model():
                 # rank 1
                 _, predicted = torch.max(outputs, 1)
                 
-                
                 # for idx, (i, l, p) in enumerate(zip(images, labels, predicted)):
                 #     print(f'{index} batch / {idx} : label {GetWORDFromLabel_ImageNet(l, imgnet)} : predicted {GetWORDFromLabel_ImageNet(p, imgnet)}  correct? <{l==p}>')
                     # imgUtil.show_tensor(images=i, title=GetWORDFromLabel_ImageNet(l, imgnet), text=GetWORDFromLabel_ImageNet(p, imgnet), block=True)  
@@ -104,19 +101,16 @@ class Model():
             self.scores.append(accuracy)
             
 
-    def predict_once(self, image):
+    def predict(self, image):
+        self.model.eval()
+        
         image.to(self.device)
         output = self.model(image)
     
-        # rank 1
         _, predicted = torch.max(output, 1)
-        prediction = predicted.item()
-        
-        if not self.hideProgress:
-            print(f'test image - - - {prediction} : {self.target}')
-            print('success' if prediction == self.target else 'failed', end='\n\n')
-            
-        return 1 if prediction == self.target else 0
+        if len(predicted)==1:
+            return predicted.item()
+        return predicted
         
 
 def get_model_names():

@@ -54,6 +54,6 @@ if __name__ == '__main__':
         # patch.show()
         
         for model in model_list.get_models():
-            patch.train(model=model.model, target=args.target, dataloader=DataSet.GetTrainData(),)
+            patch.train(model=model, target=args.target, dataloader=DataSet.GetTrainData())
     
     

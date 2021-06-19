@@ -43,19 +43,29 @@ class AdversarialPatch():
     
     # train patch for a one epoch
     def train(self, model, dataloader, target):
-        model.eval()
-        
         success = total = 0
         
         for batch_index, (data, labels) in enumerate(dataloader):
             batch_data = data.to(self.device)
             batch_labels = labels.to(self.device)
             
-            for idx, (i, l) in enumerate(zip(batch_data, batch_labels)):
-                transformed_patch, transformed_mask, factors = self.Transformation()
-                # print(f'{batch_index} batch / {idx} : label {l}')
-                patched_image = self.apply(transformed_patch, transformed_mask, i)
-                
+            # add batch_size to total size
+            total += batch_data.shape[0]
+            
+            transformed_patch, transformed_mask, factors = self.Transformation()
+            patched_image = self.apply(transformed_patch, transformed_mask, batch_data)
+            predict = model.predict(patched_image)
+            
+            correct = batch_labels==self.target
+            attacked = predict==self.target
+            success += (correct!=attacked).sum()
+            print(f'{batch_index} batch : attacked {attacked.sum()} / already target {correct.sum()} >> ({success}/{total})')
+            
+            # success += (predict == batch_labels)
+            
+            # if predict == self.target:
+            #     success += (predict != batch_labels)
+            #     print(f'{batch_index} batch : ({success}/{total})')
         
             
     def apply(self, transformed_patch, transformed_mask, image):
@@ -87,9 +97,14 @@ class AdversarialPatch():
         INTERPOLATION = transforms.InterpolationMode.NEAREST
         
         rotation, location, scale, brightness = self.getRandomFactors()
-        expectation_over_transformation_factors = [rotation, location, scale, brightness[1]]
+        expectation_over_transformation_factors = {
+            "rotation" : rotation,
+            "location" : location,
+            "scale" : scale,
+            "brightness" : brightness[1]
+        }
         
-        print(expectation_over_transformation_factors)
+        # print(expectation_over_transformation_factors)
         
         # scale
         patch = transforms.functional.affine(img=self.patch, angle=0, scale=scale, translate=[0, 0], shear=[0, 0], interpolation=INTERPOLATION)
