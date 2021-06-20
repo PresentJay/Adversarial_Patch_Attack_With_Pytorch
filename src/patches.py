@@ -1,5 +1,6 @@
 import torch
 import torch.nn.functional as F
+from torch.autograd import Variable
 from torchvision import transforms
 from utils import imgUtil
 
@@ -41,79 +42,106 @@ class AdversarialPatch():
         
         
     def attach(self, data):
-        transformed_patches = []
-        transformed_masks = []
-        factors = []
-        for i in range(data.shape[0]):
-            transformed_patch, transformed_mask, factor = self.Transformation()
-            transformed_patches.append(transformed_patch)
-            transformed_masks.append(transformed_mask)
-            factors.append(factor)
+        # transformed_patches = []
+        # transformed_masks = []
+        # factors = []
+        
+        # for i in range(data.shape[0]):
+        #     transformed_patch, transformed_mask, factor = self.Transformation()
+        #     transformed_patches.append(transformed_patch)
+        #     transformed_masks.append(transformed_mask)
+        #     factors.append(factor)
             
+        
         # stack을 통해 batch 단위로 patch작업!
-        transformed_patches = torch.stack(transformed_patches)
-        transformed_masks = torch.stack(transformed_masks)
-            
+        # transformed_patches = torch.stack(transformed_patches, dim=0)
+        # transformed_masks = torch.stack(transformed_masks, dim=0)
+        
+        transformed_patch, transformed_mask, factor = self.Transformation()
+        
         # clamp 안 하면 patch 안 붙여짐!
-        masked_image = torch.clamp(data - transformed_masks, 0, 255)
+        masked_image = torch.clamp(data - transformed_mask, 0, 255)
         
         # patch 붙임!
-        patched_image = masked_image + transformed_patches
+        patched_image = masked_image + transformed_patch
         
-        return patched_image, factors
+        return patched_image, factor
     
     
     # train patch for a one epoch
-    def train(self, model, dataloader, target, lr):
+    def train(self, model, dataloader, target, lr, prob_threshold, max_iteration):
         success = 0
         total = 0
         # success = total = 0 하면 공유되나..? !TODO: 알아보기
         
-        lr = lr
         criterion = torch.nn.CrossEntropyLoss()
         
         for batch_index, (data, labels) in enumerate(dataloader):
             batch_data = data.to(self.device)
             batch_labels = labels.to(self.device)
             
-            # add batch_size to total size
-            total += batch_data.shape[0]
-
-            # except incorrect predictions and except original label is target.
             _, original_predict = model.predict(batch_data)
-              
+
+            # 정확한 분류를 한 케이스 :1
             correct_candidate = (batch_labels == original_predict).type(torch.IntTensor)
+            # 분류 결과가 target이 아닌 케이스 :2
             predict_candidate = (original_predict != self.target).type(torch.IntTensor)
+            # 원래 레이블이 target이 아닌 케이스 :3
             label_candidate = (batch_labels != self.target).type(torch.IntTensor)
+            
+            # 1, 2, 3을 모두 만족하는 경우 candidate로 설정
             candidate_index = correct_candidate + predict_candidate + label_candidate
             candidate = batch_data[candidate_index == 3]
-            candidate_labels = batch_labels[candidate_index == 3]
             
-            patched_image, factors = self.attach(candidate)
-            _, predict = model.predict(patched_image)
+            # add candidate to total size
+            total += candidate.shape[0]
             
-            # except attacked candidate
-            patched_candidate = patched_image[predict!=self.target]
+            # candidate에 대해 patch attach 수행
+            patched_candidate, factors = self.attach(candidate)
             
+            
+            # patched_candidate가 존재하는 경우 학습 페이즈
             if patched_candidate.shape[0] > 0:
-                target_tensor = torch.tensor([target]).repeat(patched_candidate.shape[0]).to(self.device)
-                
-                self.patch.detach_()
-                self.patch.requires_grad = True
-                
                 output = model.model(patched_candidate)
-                loss = criterion(output, target_tensor)
-                loss.backward()
+                target_probability = F.softmax(output, dim=1)[0][target].item()
+                print(f'batch {batch_index} : start prob={target_probability:.2f}%')
                 
-                self.patch.data -= lr * self.patch.grad.data
-                self.patch.data = torch.clamp(self.patch.data, 0, 255)
+                target_tensor = torch.tensor([target]).repeat(patched_candidate.shape[0]).to(self.device)
+                iteration = 0
                 
-                self.show()
+                while target_probability < prob_threshold:
+                    
+                    iteration += 1
+                    patched_variable = Variable(patched_candidate.data, requires_grad=True)
+                    output = model.model(patched_variable)
+                    logit = F.log_softmax(output)
+                    loss = -logit[0][target]
+                    # loss = criterion(output, target_tensor)
+                    loss.backward()
+                    
+                    patched_grad = patched_variable.grad.clone()
+                    patched_variable.grad.data.zero_()
+                    
+                    for i in range(patched_grad.shape[0]):
+                        # temp = self.patch
+                        # print("loss:", patched_grad[i])
+                        self.patch = self.patch - lr * patched_grad[i]
+                        # print("sub:", self.patch - temp)
+                        
+                    self.patch = torch.clamp(self.patch, min=0, max=255)
+                    
+                    # delete GPU cache data
+                    torch.cuda.empty_cache()
+                    
+                    patched_candidate, factors = self.attach(candidate)
+                    output = model.model(patched_candidate)
+                    target_probability = F.softmax(output, dim=1)[0][target].item()
+                    print(f'batch {batch_index} : {iteration} attacked prob={target_probability:.2f}%')
+
+                    if iteration==max_iteration:
+                        break
                 
-                # imgUtil.show_batch_data(patched_candidate, title="show_candidates", block=True)
                 
-                
-            
             # correct = batch_labels==self.target
             # attacked = predict==self.target
             # success += (correct!=attacked).sum()
@@ -124,7 +152,7 @@ class AdversarialPatch():
             # if predict == self.target:
             #     success += (predict != batch_labels)
             #     print(f'{batch_index} batch : ({success}/{total})')
-        
+            
         
     def getRandomFactors(self):
         rotation = transforms.RandomRotation.get_params(degrees=(-45, 45))

@@ -23,16 +23,16 @@ def Initialization():
     
     # about Dataset
     parser.add_argument('--data_dir', '--data', metavar='D_DIR', default='D:\datasets\ImageNet', help="dir of the dataset")
-    parser.add_argument('--trainsize', type=int, default=2000, help="number of training data")
+    parser.add_argument('--trainsize', type=int, default=1000, help="number of training data")
     parser.add_argument('--testsize', type=int, default=100, help="number of testing data")
     parser.add_argument('--trainfull', type=int, default=1200000, help="number of training data")
     parser.add_argument('--testfull', type=int, default=50000, help="number of testing data")
     parser.add_argument('--image_size', type=int, default=244, help='the height / width of the input image to network (basically 244, inception_v3(299) is not supported)')
-    parser.add_argument('--batch_size', type=int, default=16)
+    parser.add_argument('--batch_size', type=int, default=8)
     
     # about Training Adversarial Patch
     parser.add_argument('--max_iteration', type=int, default=1000, help="max number of iterations to find adversarial example")
-    parser.add_argument('--lr', '--learning-rate', metavar='LR', type=float, default=1., help="initial learning rate")
+    parser.add_argument('--lr', '--learning-rate', metavar='LR', type=float, default=10., help="initial learning rate")
     parser.add_argument('--lr-schedule', type=int, nargs='+', default=[2000, 3000], help="decaying learning rate at these steps.")
     parser.add_argument('--epochs', type=int, default=20, help="total epoch")
     parser.add_argument('--steps', default=40000, type=int, metavar='N', help='number of total batches to run')

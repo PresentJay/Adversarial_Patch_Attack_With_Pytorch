@@ -14,7 +14,7 @@ from utils import imgUtil
 if __name__ == '__main__':
     # load the Network Settings
     args = configs.Initialization()
-    MODELLIST = ["resnet101"]
+    MODELLIST = ["vgg19"]
     DATASET = "imagenet"
         
     # set device
@@ -47,12 +47,14 @@ if __name__ == '__main__':
         
         # test the original model_list
         # if you load Test Data, each trials returns same test data (but order is different)
-        NetClassifier.test(dataloader=DataSet.GetTestData(), original=True)
+        # NetClassifier.test(dataloader=DataSet.GetTestData(), original=True)
         
     for epoch in range(args.epochs):
         patch = patches.AdversarialPatch(dataset=DataSet, target=args.target, device=args.device, _type=args.patch_type, hideProgress=args.hideProgress, random_init=args.random_init)
         
         for model in model_list.get_models():
-            patch.train(model=model, target=args.target, dataloader=DataSet.GetTrainData(), lr=args.lr)
-    
+            patch.train(
+                model=model, target=args.target, dataloader=DataSet.GetTrainData(),
+                lr=args.lr, prob_threshold=args.probability_threshold, max_iteration=args.max_iteration)
+            patch.show()
     
