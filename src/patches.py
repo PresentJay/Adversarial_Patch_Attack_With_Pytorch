@@ -78,22 +78,37 @@ class AdversarialPatch():
             
             # add batch_size to total size
             total += batch_data.shape[0]
+
+            # except incorrect predictions and except original label is target.
+            original_predict = model.predict(batch_data)
+            cor = 0
+            for l, p in zip(batch_labels, original_predict):
+                cor += (l==p)
+                print(f'label {l} : predict {p} --> <<cor={l==p}>><<lab={l!=self.target}>><<pred={p!=self.target}>> : ({cor}/{batch_labels.shape[0]})')
+                
+            correct_candidate = (batch_labels == original_predict).type(torch.IntTensor)
+            predict_candidate = (original_predict != self.target).type(torch.IntTensor)
+            label_candidate = (batch_labels != self.target).type(torch.IntTensor)
+            candidate_index = correct_candidate + predict_candidate + label_candidate
+            candidate = batch_data[candidate_index == 3]
+            candidate_labels = batch_labels[candidate_index == 3]
             
-            # except original label is target.
-            label_candidate = batch_data[batch_labels!=self.target]
-            print(f'already label is {self.target} = {label_candidate.shape[0]}')
-                     
-            patched_image, factors = self.attach(label_candidate)
+            print(f"batch {batch_index} has {candidate.shape[0]} candidates.")
+            if self.target in batch_labels:
+                print(candidate_labels)
+                input()
+            
+            patched_image, factors = self.attach(candidate)
             predict = model.predict(patched_image)
             
             # except attacked candidate
-            patched_candidate = label_candidate[predict!=self.target]
-            print(f'patched_candidate = {patched_candidate.shape[0]}')
+            patched_candidate = candidate[predict!=self.target]
+            # print(f'patched_candidate = {patched_candidate.shape[0]}')
             
             if patched_candidate.shape[0] > 0:
                 target_tensor = torch.tensor([target]).repeat(patched_candidate.shape[0]).to(self.device)
-                print(target_tensor.shape)
                 # imgUtil.show_batch_data(patched_candidate, title="show_candidates", block=True)
+                
                 
             
             # correct = batch_labels==self.target
