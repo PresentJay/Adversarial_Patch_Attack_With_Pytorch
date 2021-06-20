@@ -51,9 +51,8 @@ if __name__ == '__main__':
         
     for epoch in range(args.epochs):
         patch = patches.AdversarialPatch(dataset=DataSet, target=args.target, device=args.device, _type=args.patch_type, hideProgress=args.hideProgress, random_init=args.random_init)
-        # patch.show()
         
         for model in model_list.get_models():
-            patch.train(model=model, target=args.target, dataloader=DataSet.GetTrainData())
+            patch.train(model=model, target=args.target, dataloader=DataSet.GetTrainData(), lr=args.lr)
     
     

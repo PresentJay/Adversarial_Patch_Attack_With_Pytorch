@@ -86,7 +86,6 @@ class Model():
                 #     print(f'{index} batch / {idx} : label {GetWORDFromLabel_ImageNet(l, imgnet)} : predicted {GetWORDFromLabel_ImageNet(p, imgnet)}  correct? <{l==p}>')
                     # imgUtil.show_tensor(images=i, title=GetWORDFromLabel_ImageNet(l, imgnet), text=GetWORDFromLabel_ImageNet(p, imgnet), block=True)  
                 
-            
                 # imgUtil.show_tensor(images=images, title='prediction', text=predicted.item(), block=True)
                 total += labels.size(0)  # concern batch_size
                 correct += (predicted == labels).sum().item()

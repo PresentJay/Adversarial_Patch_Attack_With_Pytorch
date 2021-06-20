@@ -32,7 +32,7 @@ def Initialization():
     
     # about Training Adversarial Patch
     parser.add_argument('--max_iteration', type=int, default=1000, help="max number of iterations to find adversarial example")
-    parser.add_argument('--lr', '--learning-rate', metavar='LR', type=float, default=10., help="initial learning rate")
+    parser.add_argument('--lr', '--learning-rate', metavar='LR', type=float, default=1., help="initial learning rate")
     parser.add_argument('--lr-schedule', type=int, nargs='+', default=[2000, 3000], help="decaying learning rate at these steps.")
     parser.add_argument('--epochs', type=int, default=20, help="total epoch")
     parser.add_argument('--steps', default=40000, type=int, metavar='N', help='number of total batches to run')

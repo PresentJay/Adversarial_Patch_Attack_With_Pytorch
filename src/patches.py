@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-
+from PIL import Image
 from torchvision import transforms
 from utils import imgUtil
 
@@ -38,12 +38,39 @@ class AdversarialPatch():
     
     def show(self):
         imgUtil.show_tensor(self.patch, block=True)
-    
+        
+        
+    def attach(self, data):
+        transformed_patches = []
+        transformed_masks = []
+        factors = []
+        for i in range(data.shape[0]):
+            transformed_patch, transformed_mask, factor = self.Transformation()
+            transformed_patches.append(transformed_patch)
+            transformed_masks.append(transformed_mask)
+            factors.append(factor)
+            
+        # stack을 통해 batch 단위로 patch작업!
+        transformed_patches = torch.stack(transformed_patches)
+        transformed_masks = torch.stack(transformed_masks)
+            
+        # clamp 안 하면 patch 안 붙여짐!
+        masked_image = torch.clamp(data - transformed_masks, 0, 255)
+        
+        # patch 붙임!
+        patched_image = masked_image + transformed_patches
+        
+        return patched_image, factors
     
     
     # train patch for a one epoch
-    def train(self, model, dataloader, target):
-        success = total = 0
+    def train(self, model, dataloader, target, lr):
+        success = 0
+        total = 0
+        # success = total = 0 하면 공유되나..? !TODO: 알아보기
+        
+        criterion = torch.nn.CrossEntropyLoss()
+        lr = lr
         
         for batch_index, (data, labels) in enumerate(dataloader):
             batch_data = data.to(self.device)
@@ -52,30 +79,33 @@ class AdversarialPatch():
             # add batch_size to total size
             total += batch_data.shape[0]
             
-            transformed_patch, transformed_mask, factors = self.Transformation()
-            patched_image = self.apply(transformed_patch, transformed_mask, batch_data)
+            # except original label is target.
+            label_candidate = batch_data[batch_labels!=self.target]
+            print(f'already label is {self.target} = {label_candidate.shape[0]}')
+                     
+            patched_image, factors = self.attach(label_candidate)
             predict = model.predict(patched_image)
             
-            correct = batch_labels==self.target
-            attacked = predict==self.target
-            success += (correct!=attacked).sum()
-            print(f'{batch_index} batch : attacked {attacked.sum()} / already target {correct.sum()} >> ({success}/{total})')
+            # except attacked candidate
+            patched_candidate = label_candidate[predict!=self.target]
+            print(f'patched_candidate = {patched_candidate.shape[0]}')
+            
+            if patched_candidate.shape[0] > 0:
+                target_tensor = torch.tensor([target]).repeat(patched_candidate.shape[0]).to(self.device)
+                print(target_tensor.shape)
+                # imgUtil.show_batch_data(patched_candidate, title="show_candidates", block=True)
+                
+            
+            # correct = batch_labels==self.target
+            # attacked = predict==self.target
+            # success += (correct!=attacked).sum()
+            # print(f'{batch_index} batch : attacked {attacked.sum()} / already target {correct.sum()} >> ({success}/{total})')
             
             # success += (predict == batch_labels)
             
             # if predict == self.target:
             #     success += (predict != batch_labels)
             #     print(f'{batch_index} batch : ({success}/{total})')
-        
-            
-    def apply(self, transformed_patch, transformed_mask, image):
-        masked_image = torch.clamp(image - transformed_mask,0,255)
-        # imgUtil.show_tensor(image, title="image", block=False)
-        # imgUtil.show_tensor(transformed_patch, title="patch", block=False)
-        # imgUtil.show_tensor(masked_image, title="image - mask", block=False)
-        patched_image = masked_image + transformed_patch
-        # imgUtil.show_tensor(patched_image, title="image + patch", block=True)
-        return patched_image
         
         
     def getRandomFactors(self):
@@ -104,8 +134,6 @@ class AdversarialPatch():
             "brightness" : brightness[1]
         }
         
-        # print(expectation_over_transformation_factors)
-        
         # scale
         patch = transforms.functional.affine(img=self.patch, angle=0, scale=scale, translate=[0, 0], shear=[0, 0], interpolation=INTERPOLATION)
         mask = transforms.functional.affine(img=self.mask, angle=0, scale=scale, translate=[0, 0], shear=[0, 0], interpolation=INTERPOLATION)
@@ -122,3 +150,5 @@ class AdversarialPatch():
         mask = transforms.functional.affine(img=mask, angle=0, scale=1.0, translate=location, shear=[0, 0], interpolation=INTERPOLATION)
 
         return patch, mask, expectation_over_transformation_factors
+
+

@@ -54,7 +54,7 @@ class DataSet():
                 transforms.Resize(256),
                 transforms.Resize((244, 244)),
                 transforms.ToTensor(),
-                transforms.Normalize(self.mean, self.std)
+                # transforms.Normalize(self.mean, self.std)
             ]
         )
         

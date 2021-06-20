@@ -14,35 +14,13 @@ def show_tensor(images, title="", text="", block=False):
              horizontalalignment='center',
              verticalalignment='bottom')
     plt.show(block=block)
-    
-    
-def show_numpy(images, title="", text="", block=False):
-    if len(images) == 1:
-        plt.imshow(images, interpolation="nearest")
-    else:
-        # set batch case
-        pass
-    
+
+
+def show_batch_data(images, block, normalize=False, title=""):
+    batch = utils.make_grid(images.cpu(), nrow=4, padding=20, normalize=normalize)
+    plt.imshow(batch.permute(1,2,0))
     plt.axis('off')
+    plt.title(title)
     plt.show(block=block)
 
-
-def show_batch_data(images, labels, title="", block=False):
-    batch = utils.make_grid(images, nrow=2, padding=20, normalize=True).permute(1,2,0)
-    plt.imshow(batch)
-    plt.axis('off')
-    plt.show(block=block)
-
-
-def test_random_transform():
-    image_shape = [3, 100, 100]
-    
-    image = np.zeros(image_shape)
-    show_numpy(images=image, block=True)
-    
-
-# def reducing_rectangle(image_shape, reduce_rate):
-#     image_size = (image_size**2) * reduce_rate
-#     width = height = int(image_size ** 0.5)
-#     return (3, width, height)
     
