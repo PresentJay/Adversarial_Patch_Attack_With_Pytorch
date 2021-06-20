@@ -106,10 +106,10 @@ class Model():
         image.to(self.device)
         output = self.model(image)
     
-        _, predicted = torch.max(output, 1)
+        probability, predicted = torch.max(output, 1)
         if len(predicted)==1:
-            return predicted.item()
-        return predicted
+            return probability, predicted.item()
+        return probability, predicted
         
 
 def get_model_names():

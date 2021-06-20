@@ -1,6 +1,5 @@
 import torch
-import numpy as np
-from PIL import Image
+import torch.nn.functional as F
 from torchvision import transforms
 from utils import imgUtil
 
@@ -18,6 +17,7 @@ class AdversarialPatch():
         self.val = {'min': val(0), 'max': val(1)}
         
         self.patch = self.init_patch(random_init)
+        self.patch.requires_grad = True
         self.mask = self.init_mask()
         
         
@@ -69,8 +69,8 @@ class AdversarialPatch():
         total = 0
         # success = total = 0 하면 공유되나..? !TODO: 알아보기
         
-        criterion = torch.nn.CrossEntropyLoss()
         lr = lr
+        criterion = torch.nn.CrossEntropyLoss()
         
         for batch_index, (data, labels) in enumerate(dataloader):
             batch_data = data.to(self.device)
@@ -80,12 +80,8 @@ class AdversarialPatch():
             total += batch_data.shape[0]
 
             # except incorrect predictions and except original label is target.
-            original_predict = model.predict(batch_data)
-            cor = 0
-            for l, p in zip(batch_labels, original_predict):
-                cor += (l==p)
-                print(f'label {l} : predict {p} --> <<cor={l==p}>><<lab={l!=self.target}>><<pred={p!=self.target}>> : ({cor}/{batch_labels.shape[0]})')
-                
+            _, original_predict = model.predict(batch_data)
+              
             correct_candidate = (batch_labels == original_predict).type(torch.IntTensor)
             predict_candidate = (original_predict != self.target).type(torch.IntTensor)
             label_candidate = (batch_labels != self.target).type(torch.IntTensor)
@@ -93,20 +89,27 @@ class AdversarialPatch():
             candidate = batch_data[candidate_index == 3]
             candidate_labels = batch_labels[candidate_index == 3]
             
-            print(f"batch {batch_index} has {candidate.shape[0]} candidates.")
-            if self.target in batch_labels:
-                print(candidate_labels)
-                input()
-            
             patched_image, factors = self.attach(candidate)
-            predict = model.predict(patched_image)
+            _, predict = model.predict(patched_image)
             
             # except attacked candidate
-            patched_candidate = candidate[predict!=self.target]
-            # print(f'patched_candidate = {patched_candidate.shape[0]}')
+            patched_candidate = patched_image[predict!=self.target]
             
             if patched_candidate.shape[0] > 0:
                 target_tensor = torch.tensor([target]).repeat(patched_candidate.shape[0]).to(self.device)
+                
+                self.patch.detach_()
+                self.patch.requires_grad = True
+                
+                output = model.model(patched_candidate)
+                loss = criterion(output, target_tensor)
+                loss.backward()
+                
+                self.patch.data -= lr * self.patch.grad.data
+                self.patch.data = torch.clamp(self.patch.data, 0, 255)
+                
+                self.show()
+                
                 # imgUtil.show_batch_data(patched_candidate, title="show_candidates", block=True)
                 
                 
