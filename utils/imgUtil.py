@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from torchvision import utils
+from torchvision import utils, transforms
 
 
 def show_tensor(images, title="", text="", block=False):
@@ -23,4 +23,11 @@ def show_batch_data(images, block, normalize=False, title=""):
     plt.title(title)
     plt.show(block=block)
 
-    
+
+def tensor_to_PIL(images, mean, std):
+    image = image.clone()
+    out = transforms.Functional.normalize(image, mean=[0, 0, 0], std=[1/std[0], 1/std[1], 1/std[2]])
+    out = transforms.Functional.normalize(out, mean=[-mean[0], -mean[1], -mean[2]], std=[1, 1, 1])
+    out = transforms.Functional.to_pil_image(out.detach().cpu())
+    return out
+

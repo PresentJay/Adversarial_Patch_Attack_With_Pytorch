@@ -5,11 +5,10 @@ from torchvision import transforms
 from utils import imgUtil
 
 class AdversarialPatch():
-    def __init__(self, dataset, target, device, _type, hideProgress, random_init):
+    def __init__(self, dataset, target, device, random_init):
         self.dataset = dataset
         self.device = device
         self.hideProgress = hideProgress
-        self._type = _type
         self.target = target
                 
         mean = torch.tensor(self.dataset.mean, dtype=torch.float)
@@ -85,7 +84,6 @@ class AdversarialPatch():
     def train(self, model, dataloader, target, lr, prob_threshold, max_iteration):
         success = 0
         total = 0
-        # success = total = 0 하면 공유되나..? !TODO: 알아보기
         
         criterion = torch.nn.CrossEntropyLoss()
         # optimizer = torch.optim.SGD([self.patch], lr=lr)

@@ -6,8 +6,9 @@ import os
 import numpy as np
 
 import matplotlib
+import matplotlib.pyplot as plt
 matplotlib.use('agg')
-matplotlib.pyplot.ioff()
+plt.ioff()
 
 from src.models import get_model_names
 
@@ -16,7 +17,7 @@ def Initialization():
     
     # about Environments of this experiment
     parser.add_argument('--seed', '--s', metavar='SEED', type=int, default=None)
-    parser.add_argument('--log-type', ttpe=str, default='txt', choices=['md', 'txt'])
+    parser.add_argument('--log-type', type=str, default='txt', choices=['md', 'txt'])
     parser.add_argument('--num_workers', '--jobs', '--j', metavar='JOBS', type=int, default=4,
                         help="num_workers (recommend to be half of your CPU cores)")
     parser.add_argument('--batch_size', type=int, default=20)
@@ -28,8 +29,8 @@ def Initialization():
     parser.add_argument('--torchvision', action='store_false')
     
     # about Dataset
-    parser.add_argument('train-dir', default=os.path.join('D:', 'datasets', 'imagenet', 'val'))
-    parser.add_argument('val-dir', default=os.path.join('D:', 'datasets', 'imagenet', 'train'))
+    parser.add_argument('--train-dir', default=os.path.join('D:', 'datasets', 'imagenet', 'val'))
+    parser.add_argument('--val-dir', default=os.path.join('D:', 'datasets', 'imagenet', 'train'))
     
     parser.add_argument('--image_size', type=int, default=224,
                         help='the height / width of the input image to network (basically 224, inception_v3(299) is not supported)')
@@ -56,7 +57,8 @@ def Initialization():
     
     # taking early-exceptions   
     assert not args.model.startswith('inception'), "inception series doesn't supported yet. . ."
-    assert args.iter % args.batch_size == 0, "iteration size must be divisable to batch size"
+    assert args.iter_train % args.batch_size == 0, "train iteration size must be divisable to batch size"
+    assert args.iter_val % args.batch_size == 0, "val iteration size must be divisable to batch size"
         
         
     # initiating seed for randomizing
@@ -82,12 +84,12 @@ def Initialization():
     
     # initiating directories of result
     scale_label = f"x({args.min_scale*100},{args.max_scale*100})"
-    rot_label = f"rot({args.min_angle},{args.max_angle})"
-    condition_label = f"{args.arch}_to_{args.target_class}_{args.steps*args.batch_size}iter_{scale_label}_{rot_label}"
+    rot_label = f"rot({args.min_rot},{args.max_rot})"
+    condition_label = f"{args.model}_to_{args.target_class}_{args.iter_train}iter_{scale_label}_{rot_label}"
     timed = datetime.datetime.now().strftime("%y-%m-%d--%H-%M-%S")
-    args.resultdir = os.path.join(args.output, condition_label, timed)
+    args.resultdir = os.path.join('results', condition_label, timed)
     try:
-        os.makedirs(f'results/{args.resultdir}/progress_patches', exist_ok=True)
+        os.makedirs(f'{os.path.join(args.resultdir,"progress_patches")}', exist_ok=True)
     except OSError:
         pass
     

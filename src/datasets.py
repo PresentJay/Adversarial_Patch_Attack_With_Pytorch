@@ -77,8 +77,8 @@ class DataSet():
         return self.train_loader
     
     
-    def GetTestData(self):
-        return self.test_loader
+    def GetValData(self):
+        return self.val_loader
     
     
 
