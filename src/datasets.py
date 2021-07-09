@@ -9,11 +9,9 @@ import numpy as np
 
 
 class DataSet():
-    def __init__(self, source, name, shape, trainfull, trainsize, testfull, testsize, hideProgress):
+    def __init__(self, source, name, shape):
         self.name = name
         self.shape = shape
-        self.hideProgress = hideProgress
-        
         if self.shape[1] == 224:  # when input image shape is 224x224 something
             self.mean = [0.485, 0.456, 0.406]
             self.std = [0.229, 0.224, 0.225]
@@ -24,20 +22,13 @@ class DataSet():
         # expandable area <---
         
         # ---/>
-            
-        # TODO: figure out the space to EOT variables.
-        # self.transformed = kwargs.pop('transformed')
         
         self.train_index = self.Shuffle(fullsize=trainfull, size=trainsize)
         self.test_index = self.Shuffle(fullsize=testfull, size=testsize)
             
         self.LoadByFolder(source)
         # LoadByImageNet(source)
-        
-        if not self.hideProgress:
-            print(f'dataset {self.name} is loaded from [{source}].')
-            print(f'train data size is {trainsize}, test data size is {testsize}.')
-            
+                    
     
     def Shuffle(self, fullsize, size):
         index = np.arange(fullsize)

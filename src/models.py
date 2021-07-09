@@ -28,9 +28,8 @@ class ModelContainer():
 
 # this class contains all variables about network models
 class Model():
-    def __init__(self, name, device, isTorchvision=True, hideProgress=False):
+    def __init__(self, name, device, isTorchvision=True):
         self.name = name
-        self.hideProgress = hideProgress
         self.device = device
         self.scores = []
         if isTorchvision:
