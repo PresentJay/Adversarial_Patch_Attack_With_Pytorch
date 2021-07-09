@@ -13,40 +13,7 @@ Implement Adversarial Patch (<a href="https://arxiv.org/pdf/1712.09665.pdf">Adve
 
 <br>
 
-## History
-
-- [x] ~ 2021-06-07 : constructing project structure.
-- [ ] 2021-06-07 : create patch array . . . (concerning visualization)
-
----
-
-<br>
-
-## Code Conventions
-
-> Commit Convention: `Udacity Style`  
-> https://udacity.github.io/git-styleguide/
-
-> DocString Convention: `Google Style`  
-> https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
-
-<br>
-
----
-
-<br>
-
 ## Getting Start
-
-<br>
-
-> Environments
-
-| Env        | compare | Package/Version |
-| ---------- | ------- | --------------- |
-| `Terminal` | `==`    | `Git Bash`      |
-| `Python`   | `>`     | `3.7`           |
-| `Windows`  | `>`     | `10`            |
 
 <br>
 
@@ -75,3 +42,17 @@ Implement Adversarial Patch (<a href="https://arxiv.org/pdf/1712.09665.pdf">Adve
 - PresentJay (정현재) (Jeong HyeonJae)
 
   - **Email**: [presentj94@gmail.com](mailto:presentj94@gmail.com)
+
+---
+
+<br>
+
+## Code Conventions
+
+> Commit Convention: `Udacity Style`  
+> https://udacity.github.io/git-styleguide/
+
+> DocString Convention: `Google Style`  
+> https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
+
+<br>

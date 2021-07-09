@@ -41,6 +41,19 @@ class AdversarialPatch():
         imgUtil.show_tensor(self.patch, block=True)
         
         
+    def clamp_to_valid(self):
+        with torch.no_grad():
+            ch_ranges = [
+                    [-0.485 / 0.229, (1 - 0.485) / 0.229],
+                    [-0.456 / 0.224, (1 - 0.456) / 0.224],
+                    [-0.406 / 0.225, (1 - 0.406) / 0.225],
+            ]
+
+            self.patch[0] = torch.clamp(self.patch[0], ch_ranges[0][0], ch_ranges[0][1])
+            self.patch[1] = torch.clamp(self.patch[1], ch_ranges[1][0], ch_ranges[1][1])
+            self.patch[2] = torch.clamp(self.patch[2], ch_ranges[2][0], ch_ranges[2][1])
+        
+        
     def attach(self, data):
         # transformed_patches = []
         # transformed_masks = []
@@ -73,94 +86,100 @@ class AdversarialPatch():
         success = 0
         total = 0
         # success = total = 0 하면 공유되나..? !TODO: 알아보기
-        torch.set_grad_enabled(True)
         
         criterion = torch.nn.CrossEntropyLoss()
-        optimizer = torch.optim.SGD([self.patch], lr=lr)
+        # optimizer = torch.optim.SGD([self.patch], lr=lr)
         
         for batch_index, (data, labels) in enumerate(dataloader):
             total += data.shape[0]
             batch_data = data.to(self.device)
             batch_labels = labels.to(self.device)
             
-            optimizer.zero_grad()
-            model.model.zero_grad()
+            # target_tensor = torch.tensor([target]).repeat(batch_data.shape[0]).cuda()
             
-            patched_data, factor = self.attach(batch_data)
-            output = model.model(patched_data)
-            target_probability = F.softmax(output, dim=1)[0][target].item()
-            if target_probability > prob_threshold:
+            # self.patch.detach_()
+            # self.patch.requires_grad=True
+            
+            # patched_data, factor = self.attach(batch_data)
+            # # imgUtil.show_batch_data(patched_data, block=True)
+            # output = model.model(patched_data)
+            # target_probability = F.softmax(output, dim=1)[0][target].item()
+            # if target_probability > prob_threshold:
+            #     continue
+            # loss = criterion(output, target_tensor)
+            # loss.backward()
+            
+            # self.patch.data -= lr * self.patch.grad.data
+            # self.clamp_to_valid()
+            
+            # patched_data, factor = self.attach(batch_data)
+            # new_output = model.model(patched_data)
+            # new_target_probability = F.softmax(output, dim=1)[0][target].item()
+            # print(f'batch {batch_index} : attacked prob={target_probability:.2f}% >> {new_target_probability:.2f}%')
+            
+            _, original_predict = model.predict(batch_data)
+
+            # 정확한 분류를 한 케이스 :1
+            correct_candidate = (batch_labels == original_predict) #.type(torch.IntTensor)
+            # 분류 결과가 target이 아닌 케이스 :2
+            predict_candidate = (original_predict != self.target) #.type(torch.IntTensor)
+            # 원래 레이블이 target이 아닌 케이스 :3
+            label_candidate = (batch_labels != self.target) #.type(torch.IntTensor)
+            
+            # 1, 2, 3을 모두 만족하는 경우 candidate로 설정
+            candidate_index = correct_candidate + predict_candidate + label_candidate
+            if candidate_index != 3:
                 continue
-            loss = criterion(output, torch.tensor(data.shape[0] * [target]).to(self.device))
-            
-            loss.backward()
-            optimizer.step()
-            
-            patched_data, factor = self.attach(batch_data)
-            new_output = model.model(patched_data)
-            new_target_probability = F.softmax(output, dim=1)[0][target].item()
-            print(f'batch {batch_index} : attacked prob={target_probability:.2f}% >> {new_target_probability:.2f}%')
-            
-            # _, original_predict = model.predict(batch_data)
-
-            # # 정확한 분류를 한 케이스 :1
-            # correct_candidate = (batch_labels == original_predict).type(torch.IntTensor)
-            # # 분류 결과가 target이 아닌 케이스 :2
-            # predict_candidate = (original_predict != self.target).type(torch.IntTensor)
-            # # 원래 레이블이 target이 아닌 케이스 :3
-            # label_candidate = (batch_labels != self.target).type(torch.IntTensor)
-            
-            # # 1, 2, 3을 모두 만족하는 경우 candidate로 설정
-            # candidate_index = correct_candidate + predict_candidate + label_candidate
             # candidate = batch_data[candidate_index == 3]
+            candidate = batch_data
             
-            # # add candidate to total size
-            # total += candidate.shape[0]
+            # add candidate to total size
+            total += candidate.shape[0]
             
-            # # candidate에 대해 patch attach 수행
-            # patched_candidate, factors = self.attach(candidate)
+            # candidate에 대해 patch attach 수행
+            patched_candidate, factors = self.attach(candidate)
             
             
-            # # patched_candidate가 존재하는 경우 학습 페이즈
-            # if patched_candidate.shape[0] > 0:
-            #     output = model.model(patched_candidate)
-            #     target_probability = F.softmax(output, dim=1)[0][target].item()
-            #     print(f'batch {batch_index} : start prob={target_probability:.2f}%')
+            # patched_candidate가 존재하는 경우 학습 페이즈
+            if patched_candidate.shape[0] > 0:
+                output = model.model(patched_candidate)
+                target_probability = F.softmax(output, dim=1)[0][target].item()
+                print(f'batch {batch_index} : start prob={target_probability:.2f}%')
                 
-            #     target_tensor = torch.tensor([target]).repeat(patched_candidate.shape[0]).to(self.device)
-            #     iteration = 0
+                target_tensor = torch.tensor([target]).repeat(patched_candidate.shape[0]).to(self.device)
+                iteration = 0
                 
-            #     while target_probability < prob_threshold:
+                while target_probability < prob_threshold:
                     
-            #         iteration += 1
-            #         patched_variable = Variable(patched_candidate.data, requires_grad=True)
-            #         output = model.model(patched_variable)
-            #         logit = F.log_softmax(output)
-            #         loss = -logit[0][target]
-            #         # loss = criterion(output, target_tensor)
-            #         loss.backward()
+                    iteration += 1
+                    patched_variable = Variable(patched_candidate.data, requires_grad=True)
+                    output = model.model(patched_variable)
+                    logit = F.log_softmax(output)
+                    loss = -logit[0][target]
+                    # loss = criterion(output, target_tensor)
+                    loss.backward()
                     
-            #         patched_grad = patched_variable.grad.clone()
-            #         patched_variable.grad.data.zero_()
+                    patched_grad = patched_variable.grad.clone()
+                    patched_variable.grad.data.zero_()
                     
-            #         for i in range(patched_grad.shape[0]):
-            #             # temp = self.patch
-            #             # print("loss:", patched_grad[i])
-            #             self.patch = self.patch - lr * patched_grad[i]
-            #             # print("sub:", self.patch - temp)
+                    for i in range(patched_grad.shape[0]):
+                        temp = self.patch
+                        print("loss:", patched_grad[i])
+                        self.patch = self.patch - lr * patched_grad[i]
+                        print("sub:", self.patch - temp)
                         
-            #         self.patch = torch.clamp(self.patch, min=0, max=255)
+                    self.patch = torch.clamp(self.patch, min=0, max=255)
                     
-            #         # delete GPU cache data
-            #         torch.cuda.empty_cache()
+                    # delete GPU cache data
+                    torch.cuda.empty_cache()
                     
-            #         patched_candidate, factors = self.attach(candidate)
-            #         output = model.model(patched_candidate)
-            #         target_probability = F.softmax(output, dim=1)[0][target].item()
-            #         print(f'batch {batch_index} : {iteration} attacked prob={target_probability:.2f}%')
+                    patched_candidate, factors = self.attach(candidate)
+                    output = model.model(patched_candidate)
+                    target_probability = F.softmax(output, dim=1)[0][target].item()
+                    print(f'batch {batch_index} : {iteration} attacked prob={target_probability:.2f}%')
 
-            #         if iteration==max_iteration:
-            #             break
+                    if iteration==1:
+                        break
                 
                 
             # correct = batch_labels==self.target

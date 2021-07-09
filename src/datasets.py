@@ -14,11 +14,11 @@ class DataSet():
         self.shape = shape
         self.hideProgress = hideProgress
         
-        if self.shape[1] == 244:  # when input image shape is 244x244 something
+        if self.shape[1] == 224:  # when input image shape is 224x224 something
             self.mean = [0.485, 0.456, 0.406]
             self.std = [0.229, 0.224, 0.225]
         else:
-            # TODO: concerns another model that uses not 244 size input
+            # TODO: concerns another model that uses not 224 size input
             pass
             
         # expandable area <---
@@ -52,7 +52,7 @@ class DataSet():
                 # transforms.Resize() resizes the smallest edge to the given value. Thus, if the image is not square (height != width) Resize(224) would fail to give you an image of size (224, 224).
                 
                 transforms.Resize(256),
-                transforms.Resize((244, 244)),
+                transforms.Resize((224, 224)),
                 transforms.ToTensor(),
                 # transforms.Normalize(self.mean, self.std)
             ]
@@ -112,6 +112,7 @@ def GetInfoFromLabel_ImageNet():
     with open('./data/ImageNetLabel.json') as f:
         json_obj = json.load(f)
     return json_obj
+
 
 def GetWORDFromLabel_ImageNet(Label_tensor, ImageNet):
     Label_tensor = Label_tensor.item()
