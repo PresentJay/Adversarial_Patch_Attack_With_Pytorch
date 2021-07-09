@@ -23,10 +23,10 @@ if __name__ == '__main__':
     classifier = models.Model(name=args.model, device=args.device, isTorchvision=args.torchvision)
     
     # load the dataset
-    DataSet = datasets.DataSet(source=args.data_dir, name="ImageNet", shape=args.imageshape)
+    DataSet = datasets.DataSet(train=args.train_dir, val=args.val_dir, name="ImageNet", shape=args.imageshape)
     DataSet.SetDataLoader(batch_size=args.batch_size, num_workers=args.num_workers)
     
-    patch = patches.AdversarialPatch(dataset=DataSet, target=args.target, device=args.device, hideProgress=args.hideProgress, random_init=args.random_init)     
+    patch = patches.AdversarialPatch(dataset=DataSet, target=args.target, device=args.device, random_init=args.random_init)     
     patch.train(model=args.model, dataloader=DataSet.GetTrainData(), iter=args.iter)
     patch.show()
     
