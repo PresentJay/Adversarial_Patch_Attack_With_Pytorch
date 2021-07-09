@@ -14,8 +14,6 @@ from utils import imgUtil
 if __name__ == '__main__':
     # load the Network Settings
     args = configs.Initialization()
-    MODELLIST = ["vgg19"]
-    DATASET = "imagenet"
         
     # set device
     if torch.cuda.is_available():
