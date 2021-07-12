@@ -1,8 +1,7 @@
 import torch
 import torchvision.transforms as transforms
-from torchvision.datasets import ImageFolder, ImageNet
+from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader
-from torch.utils.data.sampler import SubsetRandomSampler
 import os, json
 
 import numpy as np

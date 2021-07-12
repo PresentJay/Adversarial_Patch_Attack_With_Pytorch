@@ -1,7 +1,7 @@
 import torch
 
 from utils import imgUtil, accUtil
-from src.datasets import GetInfoFromLabel_ImageNet, GetWORDFromLabel_ImageNet
+# from src.datasets import GetInfoFromLabel_ImageNet, GetWORDFromLabel_ImageNet
 from torchvision import models as tvmodels
     
 

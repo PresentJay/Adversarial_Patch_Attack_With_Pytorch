@@ -16,11 +16,7 @@ class AdversarialPatch():
             self.patch = torch.randn(self.dataset.shape).to(self.device)
         else:
             self.patch = torch.zeros(self.dataset.shape).to(self.device)
-                
-        mean = torch.tensor(self.dataset.mean, dtype=torch.float)
-        std = torch.tensor(self.dataset.std, dtype=torch.float)
-        val = lambda x: ((x - mean) / std).to(self.device).unsqueeze(1).unsqueeze(1)
-        self.val = {'min': val(0), 'max': val(1)}
+
         self.patch.requires_grad = True
     
     
