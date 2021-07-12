@@ -36,7 +36,7 @@ if __name__ == '__main__':
         log.write(f'validate dataloader: {len(DataSet.valset)} are ready from {args.val_dir}', _print=True)
         
         # measure label-accuracy and attack_capability of classifier
-        classifier.measure_attackCapability(dataloader=DataSet.GetValData(), _iter=args.iter_val, target=args.target_class)
+        classifier.measure_attackCapability(dataloader=DataSet.GetValData(), iteration=args.iter_val, target=args.target_class)
         log.write(f'loaded model {classifier.getName()} has {classifier.getAccuracy():.2f}% of accuracy to original,', end=' ', _print=True)
         log.write(f'and {classifier.getAttackCapability():.2f}% of accuracy to target {args.target_class}', _print=True)
     except Exception as e:
@@ -47,9 +47,12 @@ if __name__ == '__main__':
         # train adversarial patch
         patch = patches.AdversarialPatch(dataset=DataSet, target=args.target_class, device=args.device, random_init=args.random_init)
         log.write(f'start train patches with {args.iter_train} data iterations of trainset', _print=True)
-        patch.train(classifier=classifier, iteration=args.iter_train, eot_dict=EOT_FACTORS, savedir=args.resultdir, log=log)
+        patch.train(classifier=classifier, iteration=args.iter_train, eot_dict=EOT_FACTORS, savedir=args.resultdir)
         
-        
+        log.write(f'start validate patches with {args.iter_val} data iterations of validation set', _print=True)
+        patch.measure_attackCapability(classifier=classifier, eot_dict=EOT_FACTORS, iteration=args.iter_val)
+        log.write(f'Randomly patched model {classifier.getName()} has {patch.attackedAccuracy:.2f}% of accuracy to original, ', end='', _print=True)
+        log.write(f'and {patch.attackCapability:.2f}% of accuracy to target {args.target_class}', _print=True)
         
         log.save()
         with open(args.resultdir + "/patch.pkl", "wb") as f:

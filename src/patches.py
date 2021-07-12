@@ -4,8 +4,7 @@ import traceback
 import numpy as np
 import torch.nn.functional as F
 from torch.autograd import Variable
-# from torchvision import transforms
-from utils import imgUtil
+from utils import imgUtil, accUtil
 
 class AdversarialPatch():
     def __init__(self, dataset, target, device, random_init):
@@ -28,7 +27,7 @@ class AdversarialPatch():
     def show(self):
         imgUtil.show_tensor(self.patch, block=True)
         
-        
+
     def clamp(self):
         with torch.no_grad():
             ch_ranges = [
@@ -43,11 +42,12 @@ class AdversarialPatch():
         
     
     # train patch for a one epoch
-    def train(self, classifier, iteration, eot_dict, savedir, log):
+    def train(self, classifier, iteration, eot_dict, savedir):
         train_size = 0
         criterion = torch.nn.CrossEntropyLoss()
         
         finish_trigger = True
+        running_state = 0
         while finish_trigger:
             for batch_index, (images, labels) in enumerate(self.dataset.GetTrainData()):
                 train_size += images.size(0)
@@ -66,10 +66,13 @@ class AdversarialPatch():
                 
                 self.patch.data = self.patch.data - self.patch.grad.data
                 self.clamp()
+                if train_size % (iteration / 100) == 0:
+                    running_state += 1
+                    print(f'a patch is trained by {train_size} iteration . . . ({running_state}%)')
                 
                 if train_size % (iteration / 5) == 0:
                     pil_image = imgUtil.tensor_to_PIL(self.patch, self.dataset.mean, self.dataset.std)
-                    print(f"patch trained {train_size} iteration . . .", end='')
+                    print(f"a patch is trained by {train_size} iteration . . .", end='')
                     try:
                         pil_image.save(f"{savedir}/patch{train_size}.png")
                         print("saved.")
@@ -87,7 +90,7 @@ class AdversarialPatch():
         patches = self.patch.repeat(images.size(0), 1, 1, 1)
         
         coefficients = self.coefficients_for_transformation(*eot_variables)
-        transform_grid = F.affine_grid(coefficients, images.size(0), align_corners=True).to(self.device)
+        transform_grid = F.affine_grid(coefficients, images.size(), align_corners=True).to(self.device)
         
         transformed_mask = F.grid_sample(masks, transform_grid, align_corners=True)
         transformed_patch = F.grid_sample(patches, transform_grid, align_corners=True)
@@ -123,3 +126,25 @@ class AdversarialPatch():
         locationY /= -scale
         
         return torch.stack((cos, -sin, locationX, sin, cos, locationY)).t().view(-1, 2, 3)
+    
+    
+    def measure_attackCapability(self, classifier, eot_dict, iteration):
+        acc = accUtil.Accuracy()
+        attack_capability = accUtil.Accuracy()
+        
+        for index, (images, labels) in enumerate(self.dataset.GetValData()):
+            images = images.to(self.device)
+            labels = labels.to(self.device)
+            
+            eot_variables = self.set_transform_variables(size=images.size(0), eot_dict=eot_dict)
+            patched_images = self.attach(images, eot_variables)
+            output = classifier.model(patched_images)
+            
+            target_vector = torch.tensor([self.target]).repeat(output.size(0)).to(self.device)
+            corrects = acc.calculate(output, labels)
+            attacked = attack_capability.calculate(output, target_vector)
+            if ((index+1) * images.size(0)) >= iteration:
+                break
+        
+        self.attackedAccuracy = acc.average()
+        self.attackCapability = attack_capability.average()

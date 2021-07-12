@@ -52,7 +52,7 @@ class Model():
         
         
 
-    def measure_attackCapability(self, dataloader, _iter, target):
+    def measure_attackCapability(self, dataloader, iteration, target):
         acc = accUtil.Accuracy()
         attack_capability = accUtil.Accuracy()
         
@@ -63,7 +63,7 @@ class Model():
             target_vector = torch.tensor([target]).repeat(outputs.size(0)).to(self.device)
             corrects = acc.calculate(outputs, labels)
             attacked = attack_capability.calculate(outputs, target_vector)
-            if ((index+1) * images.size(0)) >= _iter:
+            if ((index+1) * images.size(0)) >= iteration:
                 break
         
         self.accuracy = acc.average()
