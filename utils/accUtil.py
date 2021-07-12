@@ -6,12 +6,9 @@ class Accuracy:
         self.count = 0
     
     
-    def tic(self, val, size):
+    def tic(self, val):
         self.sum += val
-        self.count += size
-        
-    def show_status(self):
-        print(self.sum, ':', self.count)
+        self.count += 1
     
         
     def average(self):
@@ -27,6 +24,5 @@ class Accuracy:
             for n in (1, ):
                 corrects = correct[:n].view(-1).float().sum(0, keepdims=True)
                 results.append(corrects.mul_(100.0 / model_output.size(0)))
-            self.tic(results[0].item(), model_output.size(0))
-            self.show_status()
+            self.tic(results[0].item())
             return results

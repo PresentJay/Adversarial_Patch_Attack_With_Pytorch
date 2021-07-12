@@ -63,8 +63,6 @@ class Model():
             target_vector = torch.tensor([target]).repeat(outputs.size(0)).to(self.device)
             corrects = acc.calculate(outputs, labels)
             attacked = attack_capability.calculate(outputs, target_vector)
-            print((index+1)*images.size(0), 'acc', ':', corrects)
-            print((index+1)*images.size(0), 'atcp', ':', attacked)
             if ((index+1) * images.size(0)) >= _iter:
                 break
         
