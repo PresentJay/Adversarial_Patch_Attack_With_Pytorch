@@ -31,3 +31,15 @@ def tensor_to_PIL(images, mean, std):
     out = transforms.Functional.to_pil_image(out.detach().cpu())
     return out
 
+
+def to_circle(image, sharpness = 40):
+    x = np.linspace(-1, 1, image.shape[1])
+    y = np.linspace(-1, 1, image.shape[2])
+    xx, yy = np.meshgrid(x, y, sparse=True)
+    z = (xx**2 + yy**2) ** sharpness
+    
+    circle_mask = 1 - np.clip(z, -1, 1)
+    circle_mask = np.expand_dims(circle_mask, axis=0)
+    circle_mask = np.broadcast_to(circle_mask, image.shape[1:])
+
+    return circle_mask

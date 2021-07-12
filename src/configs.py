@@ -32,9 +32,6 @@ def Initialization():
     parser.add_argument('--train-dir', default=os.path.join('D:', 'datasets', 'imagenet', 'val'))
     parser.add_argument('--val-dir', default=os.path.join('D:', 'datasets', 'imagenet', 'train'))
     
-    parser.add_argument('--image_size', type=int, default=224,
-                        help='the height / width of the input image to network (basically 224, inception_v3(299) is not supported)')
-    
     # about Training Adversarial Patch
     parser.add_argument('--iter-train', type=int, default=100000,
                         help="it will served by batch size (must be divisable to batch_size)")
@@ -59,7 +56,13 @@ def Initialization():
     assert not args.model.startswith('inception'), "inception series doesn't supported yet. . ."
     assert args.iter_train % args.batch_size == 0, "train iteration size must be divisable to batch size"
     assert args.iter_val % args.batch_size == 0, "val iteration size must be divisable to batch size"
-        
+    
+    
+    if args.model.startswith('inception'):
+        args.imageshape = [3, 299, 299]
+    else:
+        args.imageshape = [3, 224, 224]
+    
         
     # initiating seed for randomizing
     random.seed(args.seed)
@@ -67,9 +70,6 @@ def Initialization():
         args.seed = random.randint(1, 10000)
     np.random.seed(args.seed)
     
-    
-    # setting image_shape
-    args.imageshape = [3, args.image_size, args.image_size]
     
     
     # setting devices
@@ -89,7 +89,7 @@ def Initialization():
     timed = datetime.datetime.now().strftime("%y-%m-%d--%H-%M-%S")
     args.resultdir = os.path.join('results', condition_label, timed)
     try:
-        os.makedirs(f'{os.path.join(args.resultdir,"progress_patches")}', exist_ok=True)
+        os.makedirs(f'{args.resultdir}', exist_ok=True)
     except OSError:
         pass
     
