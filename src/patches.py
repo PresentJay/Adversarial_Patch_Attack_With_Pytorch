@@ -1,5 +1,6 @@
 import torch
 import math
+import traceback
 import numpy as np
 import torch.nn.functional as F
 from torch.autograd import Variable
@@ -51,7 +52,7 @@ class AdversarialPatch():
             for batch_index, (images, labels) in enumerate(self.dataset.GetTrainData()):
                 train_size += images.size(0)
                 batch_images = images.to(self.device)
-                target_vector = torch.tensor([target]).repeat(batch_images.shape[0]).to(self.device)
+                target_vector = torch.tensor([self.target]).repeat(batch_images.shape[0]).to(self.device)
                                 
                 self.patch.detach_()
                 self.patch.requires_grad = True
@@ -73,45 +74,52 @@ class AdversarialPatch():
                         pil_image.save(f"{savedir}/patch{train_size}.png")
                         print("saved.")
                     except Exception as e:
-                        print(f"can't be saved => cause {e}")
+                        print(f"can't be saved => cause {traceback.format_exc()}")
                 
                 if train_size >= iteration:
                     finish_trigger = False
                     break
                 
                 
-    def attach(self, data, eot_variables):
-        circle_mask = torch.tensor(imgUtil.to_circle(), dtype=torch.float).to(self.device)
-        masks = circle_mask.repeat(data.size(0), 1, 1, 1)
-        patches = self.patch.repeat(data.size(0), 1, 1, 1)
+    def attach(self, images, eot_variables):
+        circle_mask = torch.tensor(imgUtil.to_circle(images.shape[1:]), dtype=torch.float).to(self.device)
+        masks = circle_mask.repeat(images.size(0), 1, 1, 1)
+        patches = self.patch.repeat(images.size(0), 1, 1, 1)
         
+        coefficients = self.coefficients_for_transformation(*eot_variables)
+        transform_grid = F.affine_grid(coefficients, images.size(0), align_corners=True).to(self.device)
         
-        pass
+        transformed_mask = F.grid_sample(masks, transform_grid, align_corners=True)
+        transformed_patch = F.grid_sample(patches, transform_grid, align_corners=True)
+        
+        return images * (1 - transformed_mask) + transformed_patch * transformed_mask
                 
         
     def set_transform_variables(self, size, eot_dict):
-        # [0] : scale
-        # [1] : rotation
-        # [2] : locationX
-        # [3] : locationY
-        
-        eot_variables=[]
+        assert 'scale' in eot_dict, "must contain the scale range"
+        assert 'rotation' in eot_dict, "must contain the rotation range"
         
         locationX = torch.empty(size)
         locationY = torch.empty(size)
-        if eot_dict.has_key('scale'):
-            eot_variables.append(
-                torch.empty(size).uniform_(eot_dict['scale'][0], eot_dict['scale'][1])
-            )
-        if eot_dict.has_key('rotation'):
-            eot_variables.append(
-                torch.empty(size).uniform_(eot_dict['rotation'][0], eot_dict['rotation'][1])
-            )
+        scale = torch.empty(size).uniform_(eot_dict['scale'][0], eot_dict['scale'][1])
+        rotation = torch.empty(size).uniform_(eot_dict['rotation'][0], eot_dict['rotation'][1])
         for i in range(size):
-            _scale = eot_variables[0][i]
+            _scale = scale[i]
             locationX[i] = np.random.uniform(_scale - 1, 1 - _scale)
             locationY[i] = np.random.uniform(_scale - 1, 1 - _scale)
-        eot_variables.append(locationX)
-        eot_variables.append(locationY)
                     
-        return eot_variables
+        return scale, rotation, locationX, locationY
+    
+    
+    def coefficients_for_transformation(self, scale, rotation, locationX, locationY):
+        rot = rotation / 90. * (math.pi/2)
+        
+        cos = torch.cos(-rot)
+        sin = torch.sin(-rot)
+        
+        cos /= scale
+        sin /= scale
+        locationX /= -scale
+        locationY /= -scale
+        
+        return torch.stack((cos, -sin, locationX, sin, cos, locationY)).t().view(-1, 2, 3)

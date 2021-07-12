@@ -42,8 +42,8 @@ def Initialization():
     parser.add_argument('--random-init', action='store_true')
     parser.add_argument('--target-class', '--target', '--t', metavar='T', type=int, default=859,
                         help="The target class of adversarial patch : index 859 == toaster")
-    parser.add_argument('--min-rot', type=float, default='-22.5')
-    parser.add_argument('--max-rot', type=float, default='22.5')
+    parser.add_argument('--min-rotation', type=float, default='-22.5')
+    parser.add_argument('--max-rotation', type=float, default='22.5')
     parser.add_argument('--min-scale', type=float, default='0.1')
     parser.add_argument('--max-scale', type=float, default='0.5')
  
@@ -84,7 +84,7 @@ def Initialization():
     
     # initiating directories of result
     scale_label = f"x({args.min_scale*100},{args.max_scale*100})"
-    rot_label = f"rot({args.min_rot},{args.max_rot})"
+    rot_label = f"rot({args.min_rotation},{args.max_rotation})"
     condition_label = f"{args.model}_to_{args.target_class}_{args.iter_train}iter_{scale_label}_{rot_label}"
     timed = datetime.datetime.now().strftime("%y-%m-%d--%H-%M-%S")
     args.resultdir = os.path.join('results', condition_label, timed)
