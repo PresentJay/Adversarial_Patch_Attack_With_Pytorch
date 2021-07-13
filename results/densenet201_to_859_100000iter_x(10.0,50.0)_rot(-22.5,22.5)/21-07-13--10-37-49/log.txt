@@ -1,0 +1,5 @@
+Random Seed: 1800
+rotation: -22.5-22.5 degree
+scale: 10.0%-50.0%
+train dataloader: 50000 are ready from D:datasets\imagenet\val
+validate dataloader: 1281167 are ready from D:datasets\imagenet\train

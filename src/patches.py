@@ -78,6 +78,7 @@ class AdversarialPatch():
                 if train_size >= iteration:
                     finish_trigger = False
                     break
+        torch.cuda.empty_cache()
                 
                 
     def attach(self, images, eot_variables):

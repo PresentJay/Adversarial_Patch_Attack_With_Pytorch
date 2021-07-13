@@ -18,9 +18,9 @@ def Initialization():
     # about Environments of this experiment
     parser.add_argument('--seed', '--s', metavar='SEED', type=int, default=None)
     parser.add_argument('--log-type', type=str, default='txt', choices=['md', 'txt'])
-    parser.add_argument('--num_workers', '--jobs', '--j', metavar='JOBS', type=int, default=4,
+    parser.add_argument('--num-workers', '--jobs', '--j', metavar='JOBS', type=int, default=4,
                         help="num_workers (recommend to be half of your CPU cores)")
-    parser.add_argument('--batch_size', type=int, default=20)
+    parser.add_argument('--batch-size', type=int, default=20)
     
     # TODO: if this network be implemented to another models not using imagenet, choices will be thrown out!
     # about Model

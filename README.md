@@ -37,6 +37,21 @@ Implement Adversarial Patch (<a href="https://arxiv.org/pdf/1712.09665.pdf">Adve
 
 ---
 
+<br>
+
+## TODO
+
+| order | contents                     | startdate | enddate |
+| ----- | ---------------------------- | --------- | ------- |
+| 1     | `organize results`           |           |         |
+| 2     | `add more experiment styles` |           |         |
+| 3     | `add anaconda environment`   |           |         |
+| 4     | `add usage commands`         |           |         |
+
+<br>
+
+---
+
 ## Contact
 
 - PresentJay (정현재) (Jeong HyeonJae)
