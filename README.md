@@ -41,13 +41,14 @@ Implement Adversarial Patch (<a href="https://arxiv.org/pdf/1712.09665.pdf">Adve
 
 ## TODO
 
-| order | contents                          | startdate | enddate |
-| ----- | --------------------------------- | --------- | ------- |
-| 1     | `organize results`                |           |         |
-| 2     | `add more experiment styles`      |           |         |
-| 3     | `add anaconda environment`        |           |         |
-| 4     | `add usage commands`              |           |         |
-| 5     | `modify some private data in log` |           |         |
+| order | contents                                    | startdate | enddate |
+| ----- | ------------------------------------------- | --------- | ------- |
+| 1     | `organize results`                          |           |         |
+| 2     | `add more experiment styles`                |           |         |
+| 3     | `add anaconda environment`                  |           |         |
+| 4     | `add usage commands`                        |           |         |
+| 5     | `modify some private data in log`           |           |         |
+| 6     | `add final patch and graphs to all results` |           |         |
 
 <br>
 
