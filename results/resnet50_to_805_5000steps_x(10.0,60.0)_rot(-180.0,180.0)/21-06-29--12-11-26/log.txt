@@ -1,0 +1,21 @@
+Random Seed: 6309
+data loader: 50000 are ready from D:/datasets/ImageNet\val
+train patch for 5000.
+loaded model resnet50 has 76.15% of accuracy to original, and 0.11% of accuracy to target 805
+Randomly patched model resnet50 has 24.92% of accuracy to original, and 67.29% of accuracy to target 805
+At 1.0% scaled patched image has 73.36% of accuracy to original, and 0.35% accuracy to target 805
+At 5.0% scaled patched image has 36.76% of accuracy to original, and 53.66% accuracy to target 805
+At 10.0% scaled patched image has 10.42% of accuracy to original, and 87.75% accuracy to target 805
+At 15.0% scaled patched image has 3.88% of accuracy to original, and 95.51% accuracy to target 805
+At 20.0% scaled patched image has 1.77% of accuracy to original, and 98.03% accuracy to target 805
+At 30.0% scaled patched image has 0.68% of accuracy to original, and 99.23% accuracy to target 805
+At 40.0% scaled patched image has 0.34% of accuracy to original, and 99.63% accuracy to target 805
+At -180 degrees rotated patched image has 24.61% of accuracy to original, and 67.70% accuracy to target 805
+At -90 degrees rotated patched image has 24.42% of accuracy to original, and 67.97% accuracy to target 805
+At -22.5 degrees rotated patched image has 25.28% of accuracy to original, and 66.66% accuracy to target 805
+At -10 degrees rotated patched image has 25.57% of accuracy to original, and 66.31% accuracy to target 805
+At 0 degrees rotated patched image has 25.60% of accuracy to original, and 66.19% accuracy to target 805
+At 10 degrees rotated patched image has 26.15% of accuracy to original, and 65.66% accuracy to target 805
+At 22.5 degrees rotated patched image has 25.76% of accuracy to original, and 66.06% accuracy to target 805
+At 90 degrees rotated patched image has 23.78% of accuracy to original, and 68.82% accuracy to target 805
+At 180 degrees rotated patched image has 24.53% of accuracy to original, and 67.77% accuracy to target 805
