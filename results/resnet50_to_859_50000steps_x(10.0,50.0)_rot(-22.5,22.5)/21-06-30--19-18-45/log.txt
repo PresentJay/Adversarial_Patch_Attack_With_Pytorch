@@ -1,0 +1,3 @@
+Random Seed: 4571
+data loader: 50000 are ready from D:/datasets/ImageNet\val
+train patch for 50000.

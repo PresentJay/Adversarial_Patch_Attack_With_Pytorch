@@ -1,0 +1,4 @@
+Random Seed: 2186
+data loader: 50000 are ready from D:/datasets/ImageNet\val
+train patch for 50000.
+loaded model resnet50 has 76.15% of accuracy to original, and 0.09% of accuracy to target 859
