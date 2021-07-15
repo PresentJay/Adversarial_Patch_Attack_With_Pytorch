@@ -1,9 +1,0 @@
-Random Seed: 7153
-rotation: -22.5-22.5 degree
-scale: 10.0%-50.0%
-train dataloader: 50000 are ready from D:datasets\imagenet\val
-validate dataloader: 1281167 are ready from D:datasets\imagenet\train
-loaded model resnet50 has 86.66% of accuracy to original, and 0.06% of accuracy to target 859
-start train patches with 100000 data iterations of trainset
-start validate patches with 5000 data iterations of validation set
-Randomly patched model resnet50 has 30.88% of accuracy to original, and 62.46% of accuracy to target 859
