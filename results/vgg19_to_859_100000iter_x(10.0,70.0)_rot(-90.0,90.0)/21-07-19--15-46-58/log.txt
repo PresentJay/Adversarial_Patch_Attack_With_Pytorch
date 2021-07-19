@@ -1,0 +1,9 @@
+Random Seed: 7710
+rotation: -90.0-90.0 degree
+scale: 10.0%-70.0%
+train dataloader: 50000 are ready from D:datasets\imagenet\val
+validate dataloader: 1281167 are ready from D:datasets\imagenet\train
+loaded model vgg19 has 85.22% of accuracy to original, and 0.14% of accuracy to target 859
+start train patches with 100000 data iterations of trainset
+start validate patches with 5000 data iterations of validation set
+Randomly patched model vgg19 has 17.22% of accuracy to original, and 63.20% of accuracy to target 859

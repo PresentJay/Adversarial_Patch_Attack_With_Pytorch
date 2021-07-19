@@ -1,0 +1,9 @@
+Random Seed: 9813
+rotation: -90.0-90.0 degree
+scale: 10.0%-70.0%
+train dataloader: 50000 are ready from D:datasets\imagenet\val
+validate dataloader: 1281167 are ready from D:datasets\imagenet\train
+loaded model vgg16 has 83.08% of accuracy to original, and 0.08% of accuracy to target 859
+start train patches with 100000 data iterations of trainset
+start validate patches with 5000 data iterations of validation set
+Randomly patched model vgg16 has 18.48% of accuracy to original, and 63.06% of accuracy to target 859
