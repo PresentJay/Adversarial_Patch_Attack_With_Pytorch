@@ -11,6 +11,7 @@ class AdversarialPatch():
         self.dataset = dataset
         self.device = device
         self.target = target
+        self.fullyTrained = False
                 
         if random_init:
             self.patch = torch.randn(self.dataset.shape).to(self.device)
@@ -79,6 +80,7 @@ class AdversarialPatch():
                     finish_trigger = False
                     break
         torch.cuda.empty_cache()
+        self.fullyTrained = True
                 
                 
     def attach(self, images, eot_variables):

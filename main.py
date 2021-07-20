@@ -36,13 +36,13 @@ if __name__ == '__main__':
         print(f' are ready from {args.train_dir}')
         log.write(f'validate dataloader: {len(DataSet.valset)}', end='', _print=True)
         print(f' are ready from {args.val_dir}')
-        log.write(f'batch size: {args.batch_size}')
+        log.write(f'batch size: {args.batch_size}', _print=True)
         # measure label-accuracy and attack_capability of classifier
         classifier.measure_attackCapability(dataloader=DataSet.GetValData(), iteration=args.iter_val, target=args.target_class)
         log.write(f'loaded model {classifier.getName()} has {classifier.getAccuracy():.2f}% of accuracy to original,', end=' ', _print=True)
         log.write(f'and {classifier.getAttackCapability():.2f}% of accuracy to target {args.target_class}', _print=True)
     except Exception as e:
-        log.write(f'error occured: {traceback.format_exc()}', _print=True)
+        log.write(f'error occured before create patch: {traceback.format_exc()}', _print=True)
         log.save()
         
     try:    
@@ -61,7 +61,10 @@ if __name__ == '__main__':
             pickle.dump(patch.patch.cpu(), f)
         
     except Exception as e:
-        log.write(f'error occured: {traceback.format_exc()}', _print=True)
+        log.write(f'error occured during training patch: {traceback.format_exc()}', _print=True)
+        if patch.patch.fullyTrained:
+            with open(args.resultdir + "/patch(got_errored).pkl", "wb") as f:
+                pickle.dump(patch.patch.cpu(), f)
+        else:
+            log.write(f"a patch isn't fully trained. try again later.", _print=True)
         log.save()
-        with open(args.resultdir + "/patch(got_errored).pkl", "wb") as f:
-            pickle.dump(patch.patch.cpu(), f)

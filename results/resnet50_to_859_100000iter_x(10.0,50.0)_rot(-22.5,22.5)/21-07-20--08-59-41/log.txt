@@ -1,0 +1,8 @@
+Random Seed: 2397
+rotation: -22.5-22.5 degree
+scale: 10.0%-50.0%
+train dataloader: 50000validate dataloader: 1281167batch size: 2
+loaded model resnet50 has 87.70% of accuracy to original, and 0.16% of accuracy to target 859
+start train patches with 100000 data iterations of trainset
+start validate patches with 5000 data iterations of validation set
+Randomly patched model resnet50 has 30.12% of accuracy to original, and 63.78% of accuracy to target 859
