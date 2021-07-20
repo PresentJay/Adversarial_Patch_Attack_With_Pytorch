@@ -11,6 +11,7 @@ class AdversarialPatch():
         self.dataset = dataset
         self.device = device
         self.target = target
+        self.fullyTrained = False
                 
         if random_init:
             self.patch = torch.randn(self.dataset.shape).to(self.device)
@@ -63,8 +64,8 @@ class AdversarialPatch():
                 self.patch.data = self.patch.data - self.patch.grad.data
                 self.clamp()
                 if train_size % (iteration / 100) == 0:
-                    running_state += 1
-                    print(f'a patch is trained by {train_size} iteration . . . ({running_state}%)')
+                    running_state = (train_size / iteration) * 100
+                    print(f'a patch is trained by {train_size} iteration . . . ({running_state:.2f}%)')
                 
                 if train_size % (iteration / 5) == 0:
                     pil_image = imgUtil.tensor_to_PIL(self.patch, self.dataset.mean, self.dataset.std)
@@ -79,6 +80,7 @@ class AdversarialPatch():
                     finish_trigger = False
                     break
         torch.cuda.empty_cache()
+        self.fullyTrained = True
                 
                 
     def attach(self, images, eot_variables):
