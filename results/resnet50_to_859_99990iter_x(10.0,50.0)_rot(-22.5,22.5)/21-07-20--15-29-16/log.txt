@@ -1,0 +1,37 @@
+Random Seed: 892
+rotation: -22.5-22.5 degree
+scale: 10.0%-50.0%
+train dataloader: 50000validate dataloader: 1281167batch size: 30
+loaded model resnet50 has 86.95% of accuracy to original, and 0.10% of accuracy to target 859
+start train patches with 99990 data iterations of trainset
+start validate patches with 4980 data iterations of validation set
+error occured during training patch: Traceback (most recent call last):
+  File "main.py", line 55, in <module>
+    if patch.fullyTrained:
+  File "C:\Users\PresentJay\Desktop\Projects\Adversarial_Patch_Attack_With_Pytorch\src\patches.py", line 140, in measure_attackCapability
+  File "C:\Users\PresentJay\.conda\envs\posepatch\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "C:\Users\PresentJay\.conda\envs\posepatch\lib\site-packages\torch\nn\parallel\data_parallel.py", line 165, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "C:\Users\PresentJay\.conda\envs\posepatch\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "C:\Users\PresentJay\.conda\envs\posepatch\lib\site-packages\torchvision\models\resnet.py", line 249, in forward
+    return self._forward_impl(x)
+  File "C:\Users\PresentJay\.conda\envs\posepatch\lib\site-packages\torchvision\models\resnet.py", line 239, in _forward_impl
+    x = self.layer3(x)
+  File "C:\Users\PresentJay\.conda\envs\posepatch\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "C:\Users\PresentJay\.conda\envs\posepatch\lib\site-packages\torch\nn\modules\container.py", line 119, in forward
+    input = module(input)
+  File "C:\Users\PresentJay\.conda\envs\posepatch\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "C:\Users\PresentJay\.conda\envs\posepatch\lib\site-packages\torchvision\models\resnet.py", line 132, in forward
+    out = self.conv3(out)
+  File "C:\Users\PresentJay\.conda\envs\posepatch\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "C:\Users\PresentJay\.conda\envs\posepatch\lib\site-packages\torch\nn\modules\conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "C:\Users\PresentJay\.conda\envs\posepatch\lib\site-packages\torch\nn\modules\conv.py", line 396, in _conv_forward
+    self.padding, self.dilation, self.groups)
+RuntimeError: CUDA out of memory. Tried to allocate 24.00 MiB (GPU 0; 8.00 GiB total capacity; 4.72 GiB already allocated; 18.38 MiB free; 4.77 GiB reserved in total by PyTorch)
+

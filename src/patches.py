@@ -3,7 +3,6 @@ import math
 import traceback
 import numpy as np
 import torch.nn.functional as F
-from torch.autograd import Variable
 from utils import imgUtil, accUtil
 
 class AdversarialPatch():
@@ -63,11 +62,11 @@ class AdversarialPatch():
                 
                 self.patch.data = self.patch.data - self.patch.grad.data
                 self.clamp()
-                if train_size % (iteration / 100) == 0:
+                if train_size % (iteration // 100) == 0:
                     running_state = (train_size / iteration) * 100
                     print(f'a patch is trained by {train_size} iteration . . . ({running_state:.2f}%)')
                 
-                if train_size % (iteration / 5) == 0:
+                if train_size % (iteration // 5) == 0:
                     pil_image = imgUtil.tensor_to_PIL(self.patch, self.dataset.mean, self.dataset.std)
                     print(f"a patch is trained by {train_size} iteration . . .", end='')
                     try:
