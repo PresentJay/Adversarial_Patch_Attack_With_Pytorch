@@ -1,8 +1,9 @@
 import os
 
 class log:
-    def __init__(self, savedir, ext, mode='w'):
-        self.file = open(os.path.join(savedir, 'log.' + ext), mode)
+    def __init__(self, savedir, ext, mode='w', name='log'):
+        self.path = os.path.join(savedir,  name + '.' + ext)
+        self.file = open(self.path, mode)
     
     def write(self, msg, end='\n', _print=False):
         self.file.write(msg + end)
