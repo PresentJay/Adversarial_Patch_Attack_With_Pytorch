@@ -33,10 +33,10 @@ if __name__ == '__main__':
         DataSet = datasets.DataSet(train=args.train_dir, val=args.val_dir, name="ImageNet", shape=args.imageshape)
         DataSet.SetDataLoader(batch_size=args.batch_size, num_workers=args.num_workers)
         log.write(f'train dataloader: {len(DataSet.trainset)}', end='', _print=True)
-        print(f' are ready from {args.train_dir}')
-        log.write(f'validate dataloader: {len(DataSet.valset)}', end='', _print=True)
-        print(f' are ready from {args.val_dir}')
-        log.write(f'batch size: {args.batch_size}', _print=True)
+        print(f' are ready from {args.train_dir}', end='')
+        log.write(f'\nvalidate dataloader: {len(DataSet.valset)}', end='', _print=True)
+        print(f' are ready from {args.val_dir}', end='')
+        log.write(f'\nbatch size: {args.batch_size}', _print=True)
         # measure label-accuracy and attack_capability of classifier
         classifier.measure_attackCapability(dataloader=DataSet.GetValData(), iteration=args.iter_val, target=args.target_class)
         log.write(f'loaded model {classifier.getName()} has {classifier.getAccuracy():.2f}% of accuracy to original,', end=' ', _print=True)
@@ -50,7 +50,16 @@ if __name__ == '__main__':
         patch = patches.AdversarialPatch(dataset=DataSet, target=args.target_class, device=args.device, random_init=args.random_init)
         log.write(f'start train patches with {args.iter_train} data iterations of trainset', _print=True)
         patch.train(classifier=classifier, iteration=args.iter_train, eot_dict=EOT_FACTORS, savedir=args.resultdir)
-        
+    except Exception as e:
+        log.write(f'error occured during training patch: {traceback.format_exc()}', _print=True)
+        if patch.fullyTrained:
+            with open(args.resultdir + "/patch(got_errored).pkl", "wb") as f:
+                pickle.dump(patch.patch.cpu(), f)
+        else:
+            log.write(f"a patch isn't fully trained. try again later.", _print=True)
+        log.save()
+    
+    try:
         log.write(f'start validate patches with {args.iter_val} data iterations of validation set', _print=True)
         patch.measure_attackCapability(classifier=classifier, eot_dict=EOT_FACTORS, iteration=args.iter_val)
         log.write(f'Randomly patched model {classifier.getName()} has {patch.attackedAccuracy:.2f}% of accuracy to original, ', end='', _print=True)
@@ -59,12 +68,7 @@ if __name__ == '__main__':
         log.save()
         with open(args.resultdir + "/patch.pkl", "wb") as f:
             pickle.dump(patch.patch.cpu(), f)
-        
     except Exception as e:
-        log.write(f'error occured during training patch: {traceback.format_exc()}', _print=True)
-        if patch.patch.fullyTrained:
-            with open(args.resultdir + "/patch(got_errored).pkl", "wb") as f:
-                pickle.dump(patch.patch.cpu(), f)
-        else:
-            log.write(f"a patch isn't fully trained. try again later.", _print=True)
+        log.write(f'error occured during validating')
         log.save()
+        

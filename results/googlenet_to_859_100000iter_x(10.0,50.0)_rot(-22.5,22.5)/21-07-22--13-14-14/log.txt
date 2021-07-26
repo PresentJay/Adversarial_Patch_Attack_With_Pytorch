@@ -1,0 +1,8 @@
+Random Seed: 6988
+rotation: -22.5-22.5 degree
+scale: 10.0%-50.0%
+train dataloader: 50000validate dataloader: 1281167batch size: 16
+loaded model googlenet has 77.42% of accuracy to original, and 0.02% of accuracy to target 859
+start train patches with 100000 data iterations of trainset
+start validate patches with 4992 data iterations of validation set
+Randomly patched model googlenet has 33.21% of accuracy to original, and 49.66% of accuracy to target 859
