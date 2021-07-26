@@ -1,47 +1,60 @@
-from tensorflow.keras.applications.resnet50 import ResNet50
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
+from torchvision import models
+from torchvision import datasets, transforms
+import torch
 import numpy as np
 import cv2
 
-def image_test(model, img_path):
-	img = image.load_img(img_path, target_size=(224, 224))
-	x = image.img_to_array(img)
-	x = np.expand_dims(x, axis=0)
-	x = preprocess_input(x)
+def creatmodel(model_name):
+	if model_name == "resnet50":
+		model = models.resnet50(pretrained=True)
+	elif model_name == "vgg16":
+		model = models.vgg16(pretrained=True) 
+	elif model_name == "alexnet":
+		model = models.alexnet(pretrained=True)
+	elif model_name == "densenet121":
+		model = models.densenet121(pretrained=True)
+	elif model_name == "mobilenet_v2":
+		model = models.mobilenet_v2(pretrained=True)
+	elif model_name == "inception_v3":
+		model = models.inception_v3(pretrained=True)
+	elif model_name == "googlenet":
+		model = models.googlenet(pretrained=True)
+	else:
+		print("The model name was entered incorrectly.")
 
-	preds = model.predict(x)
-	# decode the results into a list of tuples (class, description, probability)
-	# (one such list for each sample in the batch)
-	print('Predicted:', decode_predictions(preds, top=3)[0])
+def image_test(model, img_path):
+	transform = transforms.Compose([transforms.Resize(224)])
+	img = datasets.ImageFolder(img_path, transform=transform)
+
+	output = model(transform(img))
+	_, pred = torch.topk(output, 3, dim=1, largest=True, sorted=True)
+	print('Predicted:', pred)
 
 def video_test(model):
 
 	cap = cv2.VideoCapture(0)
 
 	print('width :%d, height : %d' % (cap.get(3), cap.get(4)))
+	transform = transforms.Compose([transforms.Resize(224)])
 
 	while(True):
 		ret, frame = cap.read()    # Read 결과와 frame
 
 		if(ret) :
-			img = image.smart_resize(frame, (224,224), interpolation='bilinear')
-			x = image.img_to_array(img)
-			x = np.expand_dims(x, axis=0)
-			x = preprocess_input(x)
+			output = model(transform(frame))
+			_, pred = torch.topk(output, 3, dim=1, largest=True, sorted=True)
 
-			preds = model.predict(x)
-			print('Predicted:', decode_predictions(preds, top=3)[0])
+			print('Predicted:', pred)
 			
 			# display output
-			cv2.imshow("Real-time object detection", frame)
+			cv2.imshow("Real-time classification", frame)
 			if cv2.waitKey(1) == ord('q'):
 				break
 	cap.release()
 	cv2.destroyAllWindows()
 
 if __name__ == '__main__':
-	model = ResNet50(weights='imagenet')
+	model = creatmodel("resnet50")
 
 	#image_test(model, '1981_859_adversarial.png')
 	video_test(model)
