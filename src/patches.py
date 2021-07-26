@@ -9,15 +9,16 @@ VERSION = 1.0
 
 class AdversarialPatch():
     def __init__(self, dataset, target, device, random_init):
-        self.dataset = dataset
+        self.mean = dataset.mean
+        self.std = dataset.std
         self.device = device
         self.target = target
         self.fullyTrained = False
                 
         if random_init:
-            self.data = torch.randn(self.dataset.shape).to(self.device)
+            self.data = torch.randn(dataset.shape).to(self.device)
         else:
-            self.data = torch.zeros(self.dataset.shape).to(self.device)
+            self.data = torch.zeros(dataset.shape).to(self.device)
 
         self.data.requires_grad = True
     
@@ -29,9 +30,9 @@ class AdversarialPatch():
     def clamp(self):
         with torch.no_grad():
             ch_ranges = [
-                    [-self.dataset.mean[0] / self.dataset.std[0], (1 - self.dataset.mean[0]) / self.dataset.std[0]],
-                    [-self.dataset.mean[1] / self.dataset.std[1], (1 - self.dataset.mean[1]) / self.dataset.std[1]],
-                    [-self.dataset.mean[2] / self.dataset.std[2], (1 - self.dataset.mean[2]) / self.dataset.std[2]],
+                    [-self.mean[0] / self.std[0], (1 - self.mean[0]) / self.std[0]],
+                    [-self.mean[1] / self.std[1], (1 - self.mean[1]) / self.std[1]],
+                    [-self.mean[2] / self.std[2], (1 - self.mean[2]) / self.std[2]],
             ]
 
             self.data[0] = torch.clamp(self.data[0], ch_ranges[0][0], ch_ranges[0][1])
@@ -40,14 +41,14 @@ class AdversarialPatch():
         
     
     # train patch for a one epoch
-    def train(self, classifier, iteration, eot_dict, savedir):
+    def train(self, classifier, train_loader, iteration, eot_dict, savedir):
         train_size = 0
         criterion = torch.nn.CrossEntropyLoss()
         
         finish_trigger = True
         running_state = 0
         while finish_trigger:
-            for batch_index, (images, labels) in enumerate(self.dataset.GetTrainData()):
+            for batch_index, (images, labels) in enumerate(train_loader):
                 train_size += images.size(0)
                 batch_images = images.to(self.device)
                 target_vector = torch.tensor([self.target]).repeat(batch_images.shape[0]).to(self.device)
@@ -69,7 +70,7 @@ class AdversarialPatch():
                     print(f'a patch is trained by {train_size} iteration . . . ({running_state:.2f}%)')
                 
                 if train_size % (iteration // 5) == 0:
-                    pil_image = imgUtil.tensor_to_PIL(self.data, self.dataset.mean, self.dataset.std)
+                    pil_image = imgUtil.tensor_to_PIL(self.data, self.mean, self.std)
                     print(f"a patch is trained by {train_size} iteration . . .", end='')
                     try:
                         pil_image.save(f"{savedir}/patch{train_size}.png")
@@ -96,7 +97,29 @@ class AdversarialPatch():
         transformed_patch = F.grid_sample(patches, transform_grid, align_corners=True)
         
         return images * (1 - transformed_mask) + transformed_patch * transformed_mask
+    
                 
+    def measure_attackCapability(self, val_loader, classifier, eot_dict, iteration):
+        acc = accUtil.Accuracy()
+        attack_capability = accUtil.Accuracy()
+        
+        for index, (images, labels) in enumerate(val_loader):
+            images = images.to(self.device)
+            labels = labels.to(self.device)
+            
+            eot_variables = self.set_transform_variables(size=images.size(0), eot_dict=eot_dict)
+            patched_images = self.attach(images, eot_variables)
+            output = classifier.model(patched_images)
+            
+            target_vector = torch.tensor([self.target]).repeat(output.size(0)).to(self.device)
+            corrects = acc.calculate(output, labels)
+            attacked = attack_capability.calculate(output, target_vector)
+            if ((index+1) * images.size(0)) >= iteration:
+                break
+        
+        self.attackedAccuracy = acc.average()
+        self.attackCapability = attack_capability.average()
+    
         
     def set_transform_variables(self, size, eot_dict):
         assert 'scale' in eot_dict, "must contain the scale range"
@@ -128,23 +151,3 @@ class AdversarialPatch():
         return torch.stack((cos, -sin, locationX, sin, cos, locationY)).t().view(-1, 2, 3)
     
     
-    def measure_attackCapability(self, classifier, eot_dict, iteration):
-        acc = accUtil.Accuracy()
-        attack_capability = accUtil.Accuracy()
-        
-        for index, (images, labels) in enumerate(self.dataset.GetValData()):
-            images = images.to(self.device)
-            labels = labels.to(self.device)
-            
-            eot_variables = self.set_transform_variables(size=images.size(0), eot_dict=eot_dict)
-            patched_images = self.attach(images, eot_variables)
-            output = classifier.model(patched_images)
-            
-            target_vector = torch.tensor([self.target]).repeat(output.size(0)).to(self.device)
-            corrects = acc.calculate(output, labels)
-            attacked = attack_capability.calculate(output, target_vector)
-            if ((index+1) * images.size(0)) >= iteration:
-                break
-        
-        self.attackedAccuracy = acc.average()
-        self.attackCapability = attack_capability.average()

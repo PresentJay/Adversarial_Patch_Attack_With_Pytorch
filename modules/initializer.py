@@ -6,7 +6,7 @@ import traceback
 from src import configs, datasets, models, patches
 from utils import imgUtil, logUtil
 
-def patch_genetator():
+def initializer():
     # load the Network Settings
     args = configs.Initialization()
     
@@ -37,28 +37,4 @@ def patch_genetator():
         log.write(f'and {classifier.getAttackCapability():.2f}% of accuracy to target {args.target_class}', _print=True)
     except Exception as e:
         log.write(f'error occured before create patch: {traceback.format_exc()}', _print=True)
-        log.save()
-        
-    try:    
-        # train adversarial patch
-        patch = patches.AdversarialPatch(dataset=DataSet, target=args.target_class, device=args.device, random_init=args.random_init)
-        log.write(f'start train patches with {args.iter_train} data iterations of trainset', _print=True)
-        patch.train(classifier=classifier, iteration=args.iter_train, eot_dict=EOT_FACTORS, savedir=args.resultdir)
-    except Exception as e:
-        log.write(f'error occured during training patch: {traceback.format_exc()}', _print=True)
-        if not patch.fullyTrained:
-            log.write(f"a patch isn't fully trained. try again later.", _print=True)
-        log.save()
-    finally:
-        with open(args.resultdir + "/patch.pkl", "wb") as f:
-            pickle.dump(patch.cpu(), f)
-    
-    try:
-        log.write(f'start validate patches with {args.iter_val} data iterations of validation set', _print=True)
-        patch.measure_attackCapability(classifier=classifier, eot_dict=EOT_FACTORS, iteration=args.iter_val)
-        log.write(f'Randomly patched model {classifier.getName()} has {patch.attackedAccuracy:.2f}% of accuracy to original, ', end='', _print=True)
-        log.write(f'and {patch.attackCapability:.2f}% of accuracy to target {args.target_class}', _print=True)
-        log.save()
-    except Exception as e:
-        log.write(f'error occured during validating')
         log.save()
