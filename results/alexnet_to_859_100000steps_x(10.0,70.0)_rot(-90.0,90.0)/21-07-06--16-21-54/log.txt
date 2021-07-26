@@ -1,0 +1,5 @@
+Random Seed: 359
+data loader: 50000 are ready from /home/jubin/Desktop/ILSVRC2012_img_val/val
+train patch for 100000.
+loaded model alexnet has 0.09% of accuracy to original, and 0.09% of accuracy to target 859
+Randomly patched model alexnet has 0.03% of accuracy to original, and 53.24% of accuracy to target 859
