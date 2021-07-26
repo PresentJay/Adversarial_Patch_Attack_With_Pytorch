@@ -1,5 +1,6 @@
-from os import listdir, path
 import pickle
+import shutil
+from os import listdir, path
 
 def get_obj_dirs():
     current_dir = path.abspath(path.curdir)
@@ -14,20 +15,26 @@ def get_obj_dirs():
                     if filedir.split('.')[1] == 'pkl':
                         dirs.append(valid_dir)
                         break
-    return dirs
+    return dirs          
 
     
 def update_from_log():
     pass
 
 
-def get_errored_objs():
+def get_errored_objs(delete = True):
     errored_list = []
     targets = get_obj_dirs()
     for target in targets:
         for file in listdir(target):
             if file == "patch(got_errored).pkl":
                 errored_list.append(path.join(target, file))
+                if delete:
+                    shutil.rmtree(target)
+                    print(f"delete occur in {target}")
+    if delete:
+        return []
     return errored_list
+
 
 print(get_errored_objs())

@@ -5,6 +5,8 @@ import numpy as np
 import torch.nn.functional as F
 from utils import imgUtil, accUtil
 
+VERSION = 1.0
+
 class AdversarialPatch():
     def __init__(self, dataset, target, device, random_init):
         self.dataset = dataset
