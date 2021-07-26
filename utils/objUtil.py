@@ -20,9 +20,14 @@ def get_obj_dirs(detail=False, filter = 'pkl'):
                             objs.append(path.join(valid_dir, filedir))
                         break
     if detail:
-        return objs
+        return objs, dirs
     return dirs
 
+
+def show_ordered_list(list):
+    for index, item in enumerate(list):
+        print(f'{index} : {item}')
+        
 
 def get_object(dir):
     with open(dir, 'rb') as f:
