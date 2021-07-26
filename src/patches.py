@@ -5,6 +5,8 @@ import numpy as np
 import torch.nn.functional as F
 from utils import imgUtil, accUtil
 
+VERSION = 1.0
+
 class AdversarialPatch():
     def __init__(self, dataset, target, device, random_init):
         self.dataset = dataset
@@ -13,15 +15,15 @@ class AdversarialPatch():
         self.fullyTrained = False
                 
         if random_init:
-            self.patch = torch.randn(self.dataset.shape).to(self.device)
+            self.data = torch.randn(self.dataset.shape).to(self.device)
         else:
-            self.patch = torch.zeros(self.dataset.shape).to(self.device)
+            self.data = torch.zeros(self.dataset.shape).to(self.device)
 
-        self.patch.requires_grad = True
+        self.data.requires_grad = True
     
     
     def show(self):
-        imgUtil.show_tensor(self.patch, block=True)
+        imgUtil.show_tensor(self.data, block=True)
         
 
     def clamp(self):
@@ -32,9 +34,9 @@ class AdversarialPatch():
                     [-self.dataset.mean[2] / self.dataset.std[2], (1 - self.dataset.mean[2]) / self.dataset.std[2]],
             ]
 
-            self.patch[0] = torch.clamp(self.patch[0], ch_ranges[0][0], ch_ranges[0][1])
-            self.patch[1] = torch.clamp(self.patch[1], ch_ranges[1][0], ch_ranges[1][1])
-            self.patch[2] = torch.clamp(self.patch[2], ch_ranges[2][0], ch_ranges[2][1])
+            self.data[0] = torch.clamp(self.data[0], ch_ranges[0][0], ch_ranges[0][1])
+            self.data[1] = torch.clamp(self.data[1], ch_ranges[1][0], ch_ranges[1][1])
+            self.data[2] = torch.clamp(self.data[2], ch_ranges[2][0], ch_ranges[2][1])
         
     
     # train patch for a one epoch
@@ -50,8 +52,8 @@ class AdversarialPatch():
                 batch_images = images.to(self.device)
                 target_vector = torch.tensor([self.target]).repeat(batch_images.shape[0]).to(self.device)
                                 
-                self.patch.detach_()
-                self.patch.requires_grad = True
+                self.data.detach_()
+                self.data.requires_grad = True
                 
                 eot_variables = self.set_transform_variables(size=images.size(0), eot_dict=eot_dict)
                 patched_images = self.attach(batch_images, eot_variables)
@@ -60,14 +62,14 @@ class AdversarialPatch():
                 loss = criterion(output, target_vector)
                 loss.backward()
                 
-                self.patch.data = self.patch.data - self.patch.grad.data
+                self.data.data = self.data.data - self.data.grad.data
                 self.clamp()
                 if train_size % (iteration // 100) == 0:
                     running_state = (train_size / iteration) * 100
                     print(f'a patch is trained by {train_size} iteration . . . ({running_state:.2f}%)')
                 
                 if train_size % (iteration // 5) == 0:
-                    pil_image = imgUtil.tensor_to_PIL(self.patch, self.dataset.mean, self.dataset.std)
+                    pil_image = imgUtil.tensor_to_PIL(self.data, self.dataset.mean, self.dataset.std)
                     print(f"a patch is trained by {train_size} iteration . . .", end='')
                     try:
                         pil_image.save(f"{savedir}/patch{train_size}.png")
@@ -85,7 +87,7 @@ class AdversarialPatch():
     def attach(self, images, eot_variables):
         circle_mask = torch.tensor(imgUtil.to_circle(images.shape[1:]), dtype=torch.float).to(self.device)
         masks = circle_mask.repeat(images.size(0), 1, 1, 1)
-        patches = self.patch.repeat(images.size(0), 1, 1, 1)
+        patches = self.data.repeat(images.size(0), 1, 1, 1)
         
         coefficients = self.coefficients_for_transformation(*eot_variables)
         transform_grid = F.affine_grid(coefficients, images.size(), align_corners=True).to(self.device)

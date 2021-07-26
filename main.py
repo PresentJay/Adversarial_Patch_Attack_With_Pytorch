@@ -53,8 +53,8 @@ if __name__ == '__main__':
     except Exception as e:
         log.write(f'error occured during training patch: {traceback.format_exc()}', _print=True)
         if patch.fullyTrained:
-            with open(args.resultdir + "/patch(got_errored).pkl", "wb") as f:
-                pickle.dump(patch.patch.cpu(), f)
+            with open(args.resultdir + "/patch.pkl", "wb") as f:
+                pickle.dump(patch.data.cpu(), f)
         else:
             log.write(f"a patch isn't fully trained. try again later.", _print=True)
         log.save()
@@ -67,8 +67,10 @@ if __name__ == '__main__':
         
         log.save()
         with open(args.resultdir + "/patch.pkl", "wb") as f:
-            pickle.dump(patch.patch.cpu(), f)
+            pickle.dump(patch.data.cpu(), f)
     except Exception as e:
         log.write(f'error occured during validating')
+        with open(args.resultdir + "/patch.pkl", "wb") as f:
+            pickle.dump(patch.data.cpu(), f)
         log.save()
         
