@@ -15,5 +15,5 @@ from modules.patch_validator import patch_validator
 
 if __name__ == '__main__':
     classifier, dataset, args, log = initializer()
-    patch = patch_genetator(classifier, dataset, args, log)
-    patch_validator(patch, classifier, dataset, args, log)
+    patch = patch_genetator(classifier, dataset.GetTrainData(), args, log)
+    patch_validator(patch, classifier, dataset.GetValData(), args, log)
