@@ -4,7 +4,7 @@ import pickle
 import traceback
 
 
-def patch_validator(patch, classifier, dataloader, args, log, keep_log=False):
+def basic_validator(patch, classifier, dataloader, args, log, keep_log=False):
     EOT_FACTORS = {
         "scale" : (args.min_scale, args.max_scale),
         "rotation": (args.min_rotation, args.max_rotation)
@@ -19,11 +19,11 @@ def patch_validator(patch, classifier, dataloader, args, log, keep_log=False):
         log.write(f'error occured during validating: {traceback.format_exc()}', _print=True)
         log.save()
     finally:
-        if keep_log:
+        if not keep_log:
             log.save()
         
 
-def per_scale_validator(patch, classifier, dataloader, args, log, interval, keep_log=False):
+def fixed_scale_validator(patch, classifier, dataloader, args, log, interval, keep_log=False):
     try:
         aac_list = []
         ac_list = []
@@ -41,12 +41,12 @@ def per_scale_validator(patch, classifier, dataloader, args, log, interval, keep
         log.write(f'error occured during validating: {traceback.format_exc()}', _print=True)
         log.save()
     finally:
-        if keep_log:
+        if not keep_log:
             log.save()
         return aac_list, ac_list
 
 
-def per_rot_validator(patch, classifier, dataloader, args, log, interval, keep_log=False):
+def fixed_rot_validator(patch, classifier, dataloader, args, log, interval, keep_log=False):
     try:
         aac_list = []
         ac_list = []
@@ -64,6 +64,6 @@ def per_rot_validator(patch, classifier, dataloader, args, log, interval, keep_l
         log.write(f'error occured during validating: {traceback.format_exc()}', _print=True)
         log.save()
     finally:
-        if keep_log:
+        if not keep_log:
             log.save()
         return aac_list, ac_list

@@ -6,7 +6,7 @@ import traceback
 from src import patches
 from utils import objUtil
 
-def patch_genetator(classifier, dataset, args, log):
+def patch_genetator(classifier, dataset, args, log, keep_log=True):
     EOT_FACTORS = {
         "scale" : (args.min_scale, args.max_scale),
         "rotation": (args.min_rotation, args.max_rotation)
@@ -24,5 +24,6 @@ def patch_genetator(classifier, dataset, args, log):
         log.save()
     finally:
         objUtil.save_obj(obj=patch, save_dir=args.resultdir, name="patch")
-    
+        if not keep_log:
+            log.save()    
     return patch
