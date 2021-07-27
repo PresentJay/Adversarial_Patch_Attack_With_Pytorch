@@ -4,6 +4,7 @@ sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 import pickle
 import traceback
 from src import patches
+from utils import objUtil
 
 def patch_genetator(classifier, dataset, args, log):
     EOT_FACTORS = {
@@ -22,7 +23,6 @@ def patch_genetator(classifier, dataset, args, log):
             log.write(f"a patch isn't fully trained. try again later.", _print=True)
         log.save()
     finally:
-        with open(os.path.join(args.resultdir,"patch.pkl"), "wb") as f:
-            pickle.dump(patch, f)
+        objUtil.save_obj(obj=patch, save_dir=args.resultdir, name="patch")
     
     return patch

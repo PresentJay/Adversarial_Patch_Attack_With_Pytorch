@@ -2,7 +2,7 @@ import pickle
 import shutil
 from os import listdir, path
 
-def get_obj_dirs(detail=False, filter = 'pkl'):
+def get_obj_dirs(detail=False, filter='pkl'):
     current_dir = path.abspath(path.curdir)
     obj_dir=path.join(current_dir,"results")
     dirs = []
@@ -24,13 +24,19 @@ def get_obj_dirs(detail=False, filter = 'pkl'):
     return dirs
 
 
+def save_obj(obj, savedir, name, ext='pkl'):
+    savedir = path.join(savedir, name)
+    with open(savedir + '.' + ext, "wb") as f:
+        pickle.dump(obj, f)
+
+
 def show_ordered_list(list):
     for index, item in enumerate(list):
         print(f'{index} : {item}')
         
 
-def get_object(dir):
-    with open(dir, 'rb') as f:
+def load_obj(savedir):
+    with open(savedir, 'rb') as f:
         data = pickle.load(f)
         return data
 
