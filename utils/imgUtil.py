@@ -43,3 +43,7 @@ def to_circle(shape, sharpness = 40):
     circle_mask = np.broadcast_to(circle_mask, shape)
 
     return circle_mask
+
+
+def graphfig_from_lists():
+    pass
